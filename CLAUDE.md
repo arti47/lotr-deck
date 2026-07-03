@@ -100,6 +100,11 @@ just by reading code.
 
 ## Design Gaps (decided direction: warn, don't block)
 
+> The 50-card, uniqueness, and off-sphere items below were **resolved in Phase C**
+> (branch `claude/codebase-review-pqugc6`). Kept as the rationale record; see the
+> Roadmap → Phase C section for the resolution notes. Side-quest copy rules remain
+> intentionally unmodeled (standard rules allow up to 3, so no warning was added).
+
 - **The 50-card rule is inverted**: the real game requires *minimum* 50 with no
   max; the app enforces a hard max of 50. Decision: treat <50 as incomplete
   (warning), allow >50 with a note about consistency — never hard-block.
@@ -215,11 +220,26 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
 and scrape `QUEST_TAG_TO_CARD_TAGS` out of `app.js`). `overlay.json` is the
 committed curation backup — the thing a stat re-sync must never clobber.
 
-### Phase C — Rules & fellowship warnings (warn, don't block)
-- [ ] Minimum-50 semantics: <50 = "incomplete", >50 allowed with consistency note.
-- [ ] Uniqueness warnings within a deck's context and **across fellowship
-      decks** (uses `is_unique`).
-- [ ] "Remove off-sphere cards" affordance when a hero is removed.
+### Phase C — Rules & fellowship warnings (warn, don't block) ✅ DONE
+All three items implemented and verified (Node logic harness + Playwright browser
+smoke test) in the `claude/codebase-review-pqugc6` branch.
+- [x] Minimum-50 semantics: removed the hard 50-card cap in `addCardToDeck` (only
+      the 3-copy limit is a real rule now). Deck health treats exactly 50 as
+      "Complete (50)" (green), >50 as "+N over — trim for consistency" (yellow),
+      <50 as "Incomplete — N to reach 50" (red under 45). Counter label reads
+      "/ 50 min". Import already reported >50 as a warning, so it's consistent.
+- [x] Uniqueness warnings (by *name* — uniqueness is by title, so hero and ally
+      printings of one character collide; tracked by name, not `ringsdb_code`).
+      `uniquenessWithinPlayer()` flags the same unique name from two different
+      cards in one pool (e.g. hero Gandalf + Gandalf ally) → shown as a
+      "Uniqueness" section in Deck Health. `uniquenessAcrossFellowship()` flags a
+      unique name fielded by 2+ players → shown in the Fellowship Summary card.
+      Both are warnings, never blocks.
+- [x] "Remove off-sphere cards" affordance: `getOffSphereCards()` finds deck
+      cards whose sphere no hero provides (Neutral/blank always allowed); a
+      dismissible banner in the Phase 2 side column names the orphan spheres and
+      offers a one-click `removeOffSphereCards()` (with confirm). Rendered by
+      `renderOffSphereBanner()` on `initPhase2` and every `refreshDeckUI`.
 
 ### Phase D — Features (priority order)
 1. **Collection tracking**: mark owned expansions; filter card pool and

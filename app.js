@@ -434,6 +434,50 @@ function renderCardImage(card) {
   return `<img src="${card.imagesrc}" alt="${card.name}" class="card-img" onerror="this.style.display='none'">`;
 }
 
+// --- Uniqueness (warn, don't block) ---
+// The game allows only one copy of a given unique *name* in play at once, across
+// the whole fellowship. Uniqueness is by title, so it's tracked by name (not by
+// ringsdb_code) — a hero and an ally of the same character collide.
+//
+// Returns Map<uniqueName, Set<cardKey>>: the distinct unique printings of each
+// name among a player's heroes + deck.
+function uniqueNamesForPlayer(p) {
+  const m = new Map();
+  const add = card => {
+    if (!card || !card.is_unique) return;
+    if (!m.has(card.name)) m.set(card.name, new Set());
+    m.get(card.name).add(cardKey(card));
+  };
+  p.heroes.forEach(add);
+  p.deck.forEach(item => add(item.card));
+  return m;
+}
+
+// Same unique name from two different cards in one player's pool (e.g. hero
+// Gandalf + Gandalf ally) — they can never both be in play.
+function uniquenessWithinPlayer(p) {
+  const out = [];
+  uniqueNamesForPlayer(p).forEach((keys, name) => { if (keys.size > 1) out.push(name); });
+  return out;
+}
+
+// Same unique name fielded by two or more players — only one can be in play.
+function uniquenessAcrossFellowship() {
+  if (players.length < 2) return [];
+  const nameToPlayers = new Map(); // uniqueName -> Set(player index)
+  players.forEach((p, i) => {
+    uniqueNamesForPlayer(p).forEach((_keys, name) => {
+      if (!nameToPlayers.has(name)) nameToPlayers.set(name, new Set());
+      nameToPlayers.get(name).add(i);
+    });
+  });
+  const out = [];
+  nameToPlayers.forEach((idxSet, name) => {
+    if (idxSet.size > 1) out.push({ name, players: [...idxSet].map(i => players[i].name) });
+  });
+  return out;
+}
+
 
 // ==========================================
 // PHASE 1: HEROES
@@ -579,6 +623,7 @@ function initPhase2() {
   applyPhase2Filters();
   updatePhase2Dashboard();
   renderPhase2QuestPanel();
+  renderOffSphereBanner();
 }
 
 function populatePhase2Dropdowns() {
@@ -692,13 +737,15 @@ function refreshDeckUI() {
   updatePhase2Dashboard();
   applyPhase2Filters();
   renderPhase2QuestPanel();
+  renderOffSphereBanner();
   if (document.getElementById('phase3').classList.contains('active')) { initPhase3(); renderQuestMatchup(); }
   autoSave();
 }
 
 function addCardToDeck(card) {
-  const total = deckTotal(deckMap);
-  if (total >= 50) return alert('Your deck is full! (50 cards maximum).');
+  // No hard cap: the real rule is a *minimum* of 50 with no maximum. Deck health
+  // flags <50 as incomplete and >50 as a consistency note; only the 3-copy limit
+  // is a real deckbuilding rule, so it stays enforced.
   const key = cardKey(card);
   const cur = deckMap.has(key) ? deckMap.get(key).qty : 0;
   if (cur >= 3) return alert('You can only have up to 3 copies of a card.');
@@ -720,6 +767,43 @@ function removeCardFromDeck(card) {
   if (cur > 1) deckMap.set(key, { card, qty: cur - 1 });
   else deckMap.delete(key);
   refreshDeckUI();
+}
+
+// Deck cards whose sphere no longer matches any selected hero — stranded when a
+// hero is removed. Neutral/blank spheres are always allowed. The Phase 2 grid
+// filters these out, so they're otherwise awkward to remove.
+function getOffSphereCards() {
+  const allowed = selectedHeroes.map(h => h.sphere);
+  const out = [];
+  deckMap.forEach(item => {
+    const sp = item.card.sphere;
+    if (sp && sp !== 'Neutral' && !allowed.includes(sp)) out.push(item);
+  });
+  return out;
+}
+
+function removeOffSphereCards() {
+  const offSphere = getOffSphereCards();
+  if (!offSphere.length) return;
+  const n = offSphere.reduce((s, i) => s + i.qty, 0);
+  if (!confirm(`Remove ${n} off-sphere card${n !== 1 ? 's' : ''} from your deck?`)) return;
+  offSphere.forEach(item => deckMap.delete(cardKey(item.card)));
+  refreshDeckUI();
+}
+
+function renderOffSphereBanner() {
+  const el = document.getElementById('off-sphere-banner');
+  if (!el) return;
+  const off = getOffSphereCards();
+  if (!off.length) { el.style.display = 'none'; el.innerHTML = ''; return; }
+  const n       = off.reduce((s, i) => s + i.qty, 0);
+  const spheres = [...new Set(off.map(i => i.card.sphere))].sort().map(escapeHtml).join(', ');
+  el.style.display = 'block';
+  el.innerHTML = `<div style="padding:10px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;font-size:0.85em;">
+    <strong style="color:#856404;">⚠ ${n} off-sphere card${n !== 1 ? 's' : ''}</strong>
+    <div style="color:#856404;margin:4px 0 8px;">No selected hero provides: ${spheres}. These are hidden from the card grid.</div>
+    <button onclick="removeOffSphereCards()" style="padding:4px 12px;font-size:0.85em;background:#dc3545;color:#fff;border:none;border-radius:4px;cursor:pointer;">Remove off-sphere cards</button>
+  </div>`;
 }
 
 function renderDeckStatsBar() {
@@ -897,6 +981,7 @@ function renderDeckHealth() {
 
   const deckItems = Array.from(deckMap.values());
   const deckSize  = deckItems.reduce((s, i) => s + i.qty, 0);
+  const uniqConflicts = uniquenessWithinPlayer(players[activePlayer]);
 
   // Hero stats
   const startingThreat = selectedHeroes.reduce((s, h) => s + parseInt(h.cost_threat || 0), 0);
@@ -970,9 +1055,12 @@ function renderDeckHealth() {
   const hpColor = maxHeroHP >= 5 ? G : R;
   const hpNote  = maxHeroHP >= 5 ? 'Tank hero present' : 'No hero with 5+ HP';
 
-  // Deck composition
-  const sizeColor = deckSize >= 50 ? G : deckSize >= 45 ? Y : R;
-  const sizeNote  = deckSize >= 50 ? 'Complete' : `Need ${50 - deckSize} more`;
+  // Deck composition. 50 is a minimum, not a maximum: exactly 50 is ideal,
+  // over 50 is legal but dilutes consistency, under 50 is an incomplete deck.
+  const sizeColor = deckSize === 50 ? G : deckSize > 50 || deckSize >= 45 ? Y : R;
+  const sizeNote  = deckSize === 50 ? 'Complete (50)'
+    : deckSize > 50 ? `+${deckSize - 50} over — trim for consistency`
+    : `Incomplete — ${50 - deckSize} to reach 50`;
 
   const allyColor = allyCount >= 20 ? G : allyCount >= 12 ? Y : R;
   const attColor  = attachmentCount >= 10 && attachmentCount <= 16 ? G : attachmentCount >= 7 ? Y : R;
@@ -1009,7 +1097,7 @@ function renderDeckHealth() {
     metricRow(atkColor,    'Opening Attack',      openingATK     || '—', atkNote) +
     metricRow(hpColor,     'HP Buffer',           maxHeroHP ? `${maxHeroHP} HP` : '—', hpNote) +
 
-    sectionHdr(`Deck Composition — ${deckSize} / 50`) +
+    sectionHdr(`Deck Composition — ${deckSize} / 50 min`) +
     metricRow(sizeColor,  'Total Cards',   `${deckSize}`,       sizeNote) +
     metricRow(allyColor,  'Allies',         allyCount,           'target ~25') +
     metricRow(attColor,   'Attachments',    attachmentCount,     'target 12–13') +
@@ -1020,7 +1108,13 @@ function renderDeckHealth() {
     metricRow(drawColor,   'Card Draw',      `${cardDrawCount}`,  drawNote) +
     metricRow(costColor,   'Cards Cost 3+',  `${highCostPct}%`,   costNote) +
     metricRow(sphereColor, 'Sphere Ratio',   '',                  sphereNote) +
-    (sphereBreakdown ? `<div style="font-size:0.78em;color:#888;padding:3px 0 5px 17px;">${sphereBreakdown}</div>` : '');
+    (sphereBreakdown ? `<div style="font-size:0.78em;color:#888;padding:3px 0 5px 17px;">${sphereBreakdown}</div>` : '') +
+
+    (uniqConflicts.length
+      ? sectionHdr('Uniqueness') +
+        uniqConflicts.map(name =>
+          metricRow(R, escapeHtml(name), '⚠', 'Two unique versions — only one plays')).join('')
+      : '');
 }
 
 function renderFellowshipStats() {
@@ -1051,6 +1145,16 @@ function renderFellowshipStats() {
   const pill = (label, val, bg, col) =>
     `<div style="background:${bg};border-radius:4px;padding:5px 14px;"><span style="color:#666;font-size:0.8em;">${label}: </span><strong style="color:${col};">${val}</strong></div>`;
 
+  const crossUnique = uniquenessAcrossFellowship();
+  const uniqHtml = crossUnique.length
+    ? `<div style="margin-top:12px;padding:8px 12px;background:#fdecea;border:1px solid #f5c6cb;border-radius:4px;font-size:0.85em;">
+        <strong style="color:#8B0000;">⚠ Uniqueness conflicts across the fellowship</strong>
+        <ul style="margin:5px 0 0;padding-left:18px;line-height:1.6;">
+          ${crossUnique.map(c => `<li><strong>${escapeHtml(c.name)}</strong> — used by ${escapeHtml(c.players.join(', '))} (only one can be in play at a time)</li>`).join('')}
+        </ul>
+      </div>`
+    : '';
+
   content.innerHTML = `
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">${rows.join('')}</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1059,6 +1163,7 @@ function renderFellowshipStats() {
       ${pill('Total DEF', totDEF, '#f0fff4', '#1a7a3c')}
       ${pill('Total HP',  totHP,  '#fff8e8', '#a06000')}
     </div>
+    ${uniqHtml}
   `;
 }
 
