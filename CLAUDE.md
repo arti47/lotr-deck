@@ -223,6 +223,7 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
 | `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors (incl. missing/duplicate `quest_id`). **Run after any data edit.** |
 | `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
 | `node scripts/add-quest-ids.js [--apply]` | Stamp permanent `quest_id` slugs onto quests missing one. Idempotent; dry-run by default. |
+| `node scripts/build-quest-overlay-js.js` | Regenerate the browser global `quest-overlay.js` from `quest-overlay.json` (D1 verdicts read it). Run after editing the JSON. |
 | `node scripts/sync-ringsdb.js [--apply] [--file dump.json]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Uses ringsdb.com, or a saved dump via `--file`. |
 
 `scripts/lib.js` holds the shared loaders (they `vm`-eval the browser data files
@@ -303,16 +304,32 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
         `escape-from-dol-guldur`, `the-hills-of-emyn-muil`,
         `a-journey-to-rhosgobel`), chosen to span combat / restriction / pure-
         questing / fragile-objective quests. Validator guards keys (must be real
-        quest_ids), enum values, and reports coverage. **Awaiting sign-off on the
-        field set before curating the remaining 114** (`confidence: ai_draft`
-        until human-verified).
+        quest_ids), enum values, and reports coverage. **Field set signed off
+        (2026-07-03)** — the 9-field schema is approved; the remaining 114 quests
+        can now be curated (still `confidence: ai_draft` until human-verified).
+        Add fields only when a D1 verdict rule needs one.
   - [x] Migrated `serializeState()` to persist `activeQuestId`; load resolves by
         `quest_id` first, falling back to `activeQuestName` for old saves (same
         pattern as the v1→v2 card-code migration). A stale saved name no longer
         wins over the id. Verified with a 7-case Node harness.
-- **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
-  attributes; Phase 3 UI. Highest-leverage first step; answers the
-  "flag problematic cards" goal with **no** external data. *(depends on D0)*
+- **D1 Per-card verdicts** ✅ DONE — client-side verdict engine flags every hero
+  and deck card **Key / Fine / Weak / Dead** with a plain reason, against the
+  active quest's `quest-overlay.json` attributes. Zero external data.
+  - `verdicts.js` — self-contained engine (`CardVerdicts.verdictFor`) + Phase 3
+    renderer. Each rule maps to one overlay field (threat_pressure→Threat
+    Reduction Key, combat_required:false→attack-only Weak/Dead, ally_limit→allies
+    Weak, direct_damage→low-HP allies Weak & Healing Key, etc.). Reuses the app's
+    `QUEST_TAG_TO_CARD_TAGS` so tag matching stays consistent.
+  - `quest-overlay.js` — browser global generated from `quest-overlay.json` by
+    `scripts/build-quest-overlay-js.js` (the JSON can't be `fetch()`ed on
+    `file://`). Regenerate after editing the JSON. JSON stays the validated
+    source of truth.
+  - Phase 3 shows a "Card Verdicts" card (problems first: Dead/Weak, then Key,
+    Fine collapsed) with a `confidence` badge; uncurated quests get an honest
+    "no structured data yet" note. App wiring is two additive lines in
+    `initPhase3` + the quest-change handler.
+  - Verified: 13-case Node engine harness + Playwright panel smoke. Only the 4
+    curated quests produce verdicts until the other 114 are curated.
 - **D2 Archetype mining** — `sync-ringsdb-decks.js` → `archetypes.json` +
   coverage report. Expect sparse quest coverage; fallback chain mined →
   hand-authored → inferred, labeled by `confidence`. *(RingsDB, build-time)*

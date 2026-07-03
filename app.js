@@ -147,7 +147,10 @@ function initQuestDropdown() {
     }
     updatePhase1Dashboard();
     renderPhase2QuestPanel();
-    if (document.getElementById('phase3').classList.contains('active')) renderQuestMatchup();
+    if (document.getElementById('phase3').classList.contains('active')) {
+      renderQuestMatchup();
+      if (typeof renderCardVerdicts === 'function') renderCardVerdicts(); // Phase D1
+    }
     autoSave();
   });
 }
@@ -986,6 +989,7 @@ function initPhase3() {
   renderCostCurve();
   renderSynergies();
   renderQuestMatchup();
+  if (typeof renderCardVerdicts === 'function') renderCardVerdicts(); // Phase D1
   generateExport();
 }
 
