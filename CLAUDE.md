@@ -350,14 +350,14 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
   162, Rohan 121, Dwarf 117, Dúnedain 103, Silvan 68, Istari 43, Dale 40,
   Beorning, Ent, Harad, Creature, Woodman, Corsair, Isengard, Esgaroth, Bree),
   all `confidence: mined` with sensible cores (Silvan = Galadhrim Minstrel,
-  Silvan Tracker, Naith Guide, Orophin…). **Quest coverage 36/118** — the
-  quest parser now matches curated nicknames/abbreviations (JDA, EfDG, Carrock,
+  Silvan Tracker, Naith Guide, Orophin…). **Quest coverage 90/118** — the quest
+  parser matches curated nicknames/abbreviations (JDA, EfDG, Carrock,
   Barrow-downs…) and article-stripped names, whole-word, longest-match-wins,
-  keyed by `quest_id` (36 even on this **descriptionless** dump; the current
-  dump's `keep()` stripped `description_md`). The real lever is re-scraping
-  *with* descriptions (a patched `import_ringsdb.py` restores it, capped at
-  1500 chars) — that's where authors actually name the quest. The D3 fallback
-  chain (mined → hand-authored → inferred) covers whatever stays unlinked.
+  keyed by `quest_id`. The jump from 36→90 came from re-scraping **with
+  descriptions** (a patched `import_ringsdb.py` restores `description_md`, capped
+  at 1500 chars — 1098/1116 decks now carry one); the description is where
+  authors actually name the quest. The D3 fallback chain (mined → hand-authored
+  → inferred) covers whatever stays unlinked.
   Three fixes the bigger dump forced (all in `sync-ringsdb-decks.js`):
   (a) cluster key is now accent-normalized, so the `Dunedain`/`Dúnedain`
   RingsDB quirk no longer splits one faction into two clusters colliding on a
@@ -373,7 +373,7 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
   to Analysis where the D1 panel teaches every card.
   - `generate-quest-decks.js` bakes **one deck per quest (118/118)** into
     `quest-decks.json`: best-fit archetype (mined-for-this-quest → best
-    good_at/punished fit → inferred; 36 mined, 82 inferred), a **legal
+    good_at/punished fit → inferred; 90 mined, 28 inferred), a **legal
     exactly-50-card** deck (archetype heroes + core/flex, sphere-gated, topped up
     with pool cards for the quest's recommended tags), cards the **D1 engine
     rates Dead** cut (reusing `verdicts.js` in a vm — no copy), plus per-card
