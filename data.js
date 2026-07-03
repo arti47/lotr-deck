@@ -24228,8 +24228,11 @@ const cardData = [
     "cost_threat": "5",
     "traits": [],
     "text": "Action: Ready all character cards in play.",
-    "summary": "",
-    "tags": [],
+    "summary": "Readies every character in play at once — a Leadership burst that doubles up questing or combat and scales hugely in multiplayer.",
+    "tags": [
+      "Action Advantage (Readying)",
+      "Multiplayer"
+    ],
     "willpower": null,
     "attack": null,
     "defense": null,
@@ -24248,8 +24251,13 @@ const cardData = [
       "Noble"
     ],
     "text": "Galadriel cannot quest, attack, or defend. Allies you control do not exhaust to commit to the quest during the round they enter play.\nAction: Exhaust Galadriel to choose a player. That player reduces his threat by 1 and draws 1 card. (Limit once per round.)",
-    "summary": "",
-    "tags": [],
+    "summary": "Each round draws a card and lowers a player's threat by 1, and lets newly-played allies quest without exhausting — a cornerstone Spirit value engine despite having no combat or quest stats.",
+    "tags": [
+      "Threat Reduction",
+      "Card Draw (Active)",
+      "Action Advantage (Non-Exhausting)",
+      "Multiplayer"
+    ],
     "willpower": 4,
     "attack": 0,
     "defense": 0,
@@ -24269,8 +24277,12 @@ const cardData = [
       "Warrior"
     ],
     "text": "Response: After Thorin Stonehelm is declared as an attacker, discard the top card of your deck to deal 1 damage to an enemy engaged with you.",
-    "summary": "",
-    "tags": [],
+    "summary": "Deals 1 damage to an engaged enemy whenever he attacks by discarding the top of your deck — repeatable ping damage that also feeds discard-recursion synergies.",
+    "tags": [
+      "Response Trigger",
+      "Direct Damage",
+      "Player Deck Manipulation"
+    ],
     "willpower": 1,
     "attack": 3,
     "defense": 1,
@@ -24289,8 +24301,11 @@ const cardData = [
       "Noble"
     ],
     "text": "Action: Pay 1 resource from Gildor Inglorion's resource pool to choose a player to draw 1 card (Limit once per round.)",
-    "summary": "",
-    "tags": [],
+    "summary": "Converts a resource into a card for any player once per round — steady Leadership card draw that scales in multiplayer.",
+    "tags": [
+      "Card Draw (Active)",
+      "Multiplayer"
+    ],
     "willpower": 3,
     "attack": 2,
     "defense": 1,
@@ -24309,8 +24324,13 @@ const cardData = [
       "Ranger"
     ],
     "text": "Aragorn gains a resource icon matching each Title attachment attached to him.\nSetup: Search your collection for a Title attachment with a printed cost of 1 and attach it to Aragorn.\nAction: Ready a Title attachment with a printed cost of 1 attached to Aragorn. (Limit once per round.)",
-    "summary": "",
-    "tags": [],
+    "summary": "Gains a resource icon of any sphere for each Title attached and readies a cost-1 Title each round — a build-around Neutral hero enabling multi-sphere Title decks.",
+    "tags": [
+      "Attachment Synergy",
+      "Sphere Synergy",
+      "Action Advantage (Readying)",
+      "Resource Generation"
+    ],
     "willpower": 2,
     "attack": 3,
     "defense": 2,
@@ -24329,8 +24349,13 @@ const cardData = [
       "Scout"
     ],
     "text": "Planning Action: Search the top 10 cards of the encounter deck for a location, reveal it, and shuffle the encounter deck. Then, search the top 10 cards of your deck for a [lore] attachment, play it for no cost, and shuffle your deck. (Limit once per round.)",
-    "summary": "",
-    "tags": [],
+    "summary": "Each planning phase pulls a location from the encounter deck and a free [lore] attachment from your own — the tutoring engine at the heart of the Wose attachment archetype.",
+    "tags": [
+      "Encounter Deck Manipulation",
+      "Player Deck Manipulation",
+      "Attachment Synergy",
+      "Scrying"
+    ],
     "willpower": 3,
     "attack": 2,
     "defense": 1,
@@ -24349,8 +24374,13 @@ const cardData = [
       "Ranger"
     ],
     "text": "Response: After you play a [lore] attachment, if it is not attached to a character, your threat is considered to be 20 until the end of the round.",
-    "summary": "",
-    "tags": [],
+    "summary": "Playing an unattached [lore] attachment drops your effective threat to 20 for the round, switching on Secrecy and the deck's low-threat bonuses.",
+    "tags": [
+      "Response Trigger",
+      "Threat Reduction",
+      "Attachment Synergy",
+      "Secrecy"
+    ],
     "willpower": 2,
     "attack": 2,
     "defense": 1,
@@ -24369,8 +24399,12 @@ const cardData = [
       "Scout"
     ],
     "text": "Sharp-eyed Drû gets +1 [defense] while your threat is 20 or less, and +1 [defense] while the active location has at least 4 [threat]. If both are true, Sharp-eyed Drû also gains sentinel.",
-    "summary": "",
-    "tags": [],
+    "summary": "Scales to 4 defense with sentinel when your threat is low and the active location is threatening — the defensive anchor of the low-threat Wose board.",
+    "tags": [
+      "Defense Boost",
+      "Sentinel",
+      "Secrecy"
+    ],
     "willpower": 1,
     "attack": 0,
     "defense": 2,
@@ -24389,8 +24423,12 @@ const cardData = [
       "Healer"
     ],
     "text": "Secrecy 1.\nRefresh Action: Exhaust Mushroom Gatherer to either deal 1 damage to any 1 enemy in play, or heal 1 damage from any 1 character in play.",
-    "summary": "",
-    "tags": [],
+    "summary": "A cheap Secrecy body that flexibly heals 1 or pings 1 damage every refresh phase — repeatable reach and sustain for Wose decks.",
+    "tags": [
+      "Secrecy",
+      "Healing",
+      "Direct Damage"
+    ],
     "willpower": 1,
     "attack": 1,
     "defense": 0,
@@ -24409,8 +24447,13 @@ const cardData = [
       "Warrior"
     ],
     "text": "Response: At the end of any phase, exhaust Drû-buri-Drû to move a [lore] card attached to an encounter card to another eligible encounter card.",
-    "summary": "",
-    "tags": [],
+    "summary": "Relocates [lore] traps between encounter cards to re-trigger and re-aim them — the flexible payoff that stretches the Wose trap package across the board.",
+    "tags": [
+      "Response Trigger",
+      "Attachment Synergy",
+      "Traps",
+      "Staging Area Control"
+    ],
     "willpower": 1,
     "attack": 2,
     "defense": 0,
@@ -24429,8 +24472,13 @@ const cardData = [
       "Scout"
     ],
     "text": "Secrecy 1.\nResponse: After Drúedain Seer commits to the quest, place 1 [threat] token on any 1 location in the staging area to ready any 1 Wose or Scout character.",
-    "summary": "",
-    "tags": [],
+    "summary": "Readies a Wose or Scout after questing by loading threat onto a staging location — action advantage that deliberately arms the deck's location-threat triggers.",
+    "tags": [
+      "Secrecy",
+      "Response Trigger",
+      "Action Advantage (Readying)",
+      "Staging Area Control"
+    ],
     "willpower": 2,
     "attack": 1,
     "defense": 0,
@@ -24449,8 +24497,12 @@ const cardData = [
       "Ranger"
     ],
     "text": "Gorgûn-hunter gets +1 [attack] while your threat is 20 or less, and +1 [attack] while the active location has at least 4 [threat]. If both are true, Gorgûn-hunter also gains ranged.",
-    "summary": "",
-    "tags": [],
+    "summary": "The offensive mirror of Sharp-eyed Drû — reaches 4 attack with ranged when your threat is low and the active location is threatening.",
+    "tags": [
+      "Attack Boost",
+      "Ranged",
+      "Secrecy"
+    ],
     "willpower": 1,
     "attack": 2,
     "defense": 0,
@@ -24469,8 +24521,13 @@ const cardData = [
       "Wose"
     ],
     "text": "Play Poisoned Darts into the staging area unattached.\nIf unattached, attach Poisoned Darts to the next eligible enemy that enters the staging area.\nResponse: When the attached enemy would take any amount of damage, increase that amount by 1.",
-    "summary": "",
-    "tags": [],
+    "summary": "A free trap that makes an enemy suffer +1 from every source of damage — cheap combat amplification and a trigger for the Wose trap synergies.",
+    "tags": [
+      "Traps",
+      "Direct Damage",
+      "Enemy Control",
+      "Attachment Synergy"
+    ],
     "willpower": null,
     "attack": null,
     "defense": null,
@@ -24489,8 +24546,13 @@ const cardData = [
       "Wose"
     ],
     "text": "Attach to a location or enemy. Attached card gets +1 [threat].\nResponse: At the end of the round, place 1 progress on attached location or deal 1 damage to attached enemy.",
-    "summary": "",
-    "tags": [],
+    "summary": "A trap that chips a progress token onto a location or a damage onto an enemy every round — slow attrition that clears the staging area on the Woses' terms.",
+    "tags": [
+      "Traps",
+      "Location Control (Progress)",
+      "Direct Damage",
+      "Attachment Synergy"
+    ],
     "willpower": null,
     "attack": null,
     "defense": null,
@@ -24508,8 +24570,13 @@ const cardData = [
       "Item"
     ],
     "text": "Attach to a Wose hero.\nWhile the active location has at least 4 [threat], Wose characters you control get +1 [willpower].\nPlanning Action: Exhaust Chieftain’s Staff and place 1 [threat] token on any 1 location in the staging area to reduce the cost of the next [lore] card you play this phase by 1.",
-    "summary": "",
-    "tags": [],
+    "summary": "Buffs Wose willpower when locations threaten and discounts your next [lore] card each planning phase — the signature engine attachment for a Wose hero.",
+    "tags": [
+      "Willpower Boost",
+      "Resource Discount",
+      "Attachment Synergy",
+      "Staging Area Control"
+    ],
     "willpower": null,
     "attack": null,
     "defense": null,
@@ -24528,8 +24595,13 @@ const cardData = [
       "Warrior"
     ],
     "text": "Response: At the end of any phase, exhaust Drû-buri-Drû to move a [lore] card attached to an encounter card to another eligible encounter card.",
-    "summary": "",
-    "tags": [],
+    "summary": "Messenger-of-the-King Drû-buri-Drû anchors a solo Wose trap deck from the hero slot, relocating [lore] traps between encounter cards to keep them triggering.",
+    "tags": [
+      "Response Trigger",
+      "Attachment Synergy",
+      "Traps",
+      "Staging Area Control"
+    ],
     "willpower": 1,
     "attack": 2,
     "defense": 0,

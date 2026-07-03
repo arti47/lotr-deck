@@ -2253,6 +2253,14 @@
     ],
     "summary": "Sméagol triggers a powerful bonus off a common game event, rewarding tight sequencing with consistent value each round."
   },
+  "22001": {
+    "tags": [
+      "Response Trigger",
+      "Direct Damage",
+      "Player Deck Manipulation"
+    ],
+    "summary": "Deals 1 damage to an engaged enemy whenever he attacks by discarding the top of your deck — repeatable ping damage that also feeds discard-recursion synergies."
+  },
   "22002": {
     "tags": [
       "Player Deck Manipulation",
@@ -2474,6 +2482,13 @@
       "Restricted"
     ],
     "summary": "Saruman's Staff enables searching or tutoring from your deck, dramatically improving consistency in combo or synergy-dependent builds."
+  },
+  "22081": {
+    "tags": [
+      "Card Draw (Active)",
+      "Multiplayer"
+    ],
+    "summary": "Converts a resource into a card for any player once per round — steady Leadership card draw that scales in multiplayer."
   },
   "22082": {
     "tags": [
@@ -4174,6 +4189,15 @@
     ],
     "summary": "Gilraen exhausts to draw 1 card for any player, providing the most reliable on-demand card draw in Spirit."
   },
+  "306183": {
+    "tags": [
+      "Attachment Synergy",
+      "Sphere Synergy",
+      "Action Advantage (Readying)",
+      "Resource Generation"
+    ],
+    "summary": "Gains a resource icon of any sphere for each Title attached and readies a cost-1 Title each round — a build-around Neutral hero enabling multi-sphere Title decks."
+  },
   "306184": {
     "tags": [
       "Player Deck Manipulation",
@@ -4549,6 +4573,93 @@
       "Multiplayer"
     ],
     "summary": "Fulfil Your Oath provides player side quest-level support with context-specific effects relevant to its scenario or campaign."
+  },
+  "310074": {
+    "tags": [
+      "Encounter Deck Manipulation",
+      "Player Deck Manipulation",
+      "Attachment Synergy",
+      "Scrying"
+    ],
+    "summary": "Each planning phase pulls a location from the encounter deck and a free [lore] attachment from your own — the tutoring engine at the heart of the Wose attachment archetype."
+  },
+  "310075": {
+    "tags": [
+      "Response Trigger",
+      "Threat Reduction",
+      "Attachment Synergy",
+      "Secrecy"
+    ],
+    "summary": "Playing an unattached [lore] attachment drops your effective threat to 20 for the round, switching on Secrecy and the deck's low-threat bonuses."
+  },
+  "310076": {
+    "tags": [
+      "Defense Boost",
+      "Sentinel",
+      "Secrecy"
+    ],
+    "summary": "Scales to 4 defense with sentinel when your threat is low and the active location is threatening — the defensive anchor of the low-threat Wose board."
+  },
+  "310077": {
+    "tags": [
+      "Secrecy",
+      "Healing",
+      "Direct Damage"
+    ],
+    "summary": "A cheap Secrecy body that flexibly heals 1 or pings 1 damage every refresh phase — repeatable reach and sustain for Wose decks."
+  },
+  "310078": {
+    "tags": [
+      "Response Trigger",
+      "Attachment Synergy",
+      "Traps",
+      "Staging Area Control"
+    ],
+    "summary": "Relocates [lore] traps between encounter cards to re-trigger and re-aim them — the flexible payoff that stretches the Wose trap package across the board."
+  },
+  "310079": {
+    "tags": [
+      "Secrecy",
+      "Response Trigger",
+      "Action Advantage (Readying)",
+      "Staging Area Control"
+    ],
+    "summary": "Readies a Wose or Scout after questing by loading threat onto a staging location — action advantage that deliberately arms the deck's location-threat triggers."
+  },
+  "310080": {
+    "tags": [
+      "Attack Boost",
+      "Ranged",
+      "Secrecy"
+    ],
+    "summary": "The offensive mirror of Sharp-eyed Drû — reaches 4 attack with ranged when your threat is low and the active location is threatening."
+  },
+  "310081": {
+    "tags": [
+      "Traps",
+      "Direct Damage",
+      "Enemy Control",
+      "Attachment Synergy"
+    ],
+    "summary": "A free trap that makes an enemy suffer +1 from every source of damage — cheap combat amplification and a trigger for the Wose trap synergies."
+  },
+  "310082": {
+    "tags": [
+      "Traps",
+      "Location Control (Progress)",
+      "Direct Damage",
+      "Attachment Synergy"
+    ],
+    "summary": "A trap that chips a progress token onto a location or a damage onto an enemy every round — slow attrition that clears the staging area on the Woses' terms."
+  },
+  "310083": {
+    "tags": [
+      "Willpower Boost",
+      "Resource Discount",
+      "Attachment Synergy",
+      "Staging Area Control"
+    ],
+    "summary": "Buffs Wose willpower when locations threaten and discounts your next [lore] card each planning phase — the signature engine attachment for a Wose hero."
   },
   "500006": {
     "tags": [
@@ -5341,6 +5452,15 @@
       "Doomed"
     ],
     "summary": "(MotK) Edrik Ravenhelm can gain +1 attack under the right conditions, enabling them to crack high-defense enemies single-handedly."
+  },
+  "99310078": {
+    "tags": [
+      "Response Trigger",
+      "Attachment Synergy",
+      "Traps",
+      "Staging Area Control"
+    ],
+    "summary": "Messenger-of-the-King Drû-buri-Drû anchors a solo Wose trap deck from the hero slot, relocating [lore] traps between encounter cards to keep them triggering."
   },
   "01001": {
     "tags": [
@@ -7946,5 +8066,21 @@
       "Willpower Boost"
     ],
     "summary": "Astonishing Speed gives +2 willpower to characters during questing, providing a burst push through a tough quest stage or threat-spike scenario."
+  },
+  "01025": {
+    "tags": [
+      "Action Advantage (Readying)",
+      "Multiplayer"
+    ],
+    "summary": "Readies every character in play at once — a Leadership burst that doubles up questing or combat and scales hugely in multiplayer."
+  },
+  "08112": {
+    "tags": [
+      "Threat Reduction",
+      "Card Draw (Active)",
+      "Action Advantage (Non-Exhausting)",
+      "Multiplayer"
+    ],
+    "summary": "Each round draws a card and lowers a player's threat by 1, and lets newly-played allies quest without exhausting — a cornerstone Spirit value engine despite having no combat or quest stats."
   }
 }
