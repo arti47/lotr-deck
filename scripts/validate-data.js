@@ -8,7 +8,9 @@
 // drift, unmeasurable quest tags) report but don't fail — they're advisory,
 // and the app already degrades gracefully on them.
 
-const { loadCards, loadQuests, loadTagMapping, cardKey } = require('./lib');
+const fs = require('fs');
+const path = require('path');
+const { ROOT, loadCards, loadQuests, loadTagMapping, cardKey } = require('./lib');
 
 const REQUIRED_FIELDS = ['name', 'sphere', 'type', 'cost_threat', 'ringsdb_code'];
 const KNOWN_TYPES = ['Hero', 'Ally', 'Attachment', 'Event', 'Player Side Quest'];
@@ -86,11 +88,44 @@ if (unmeasurable.size) {
   warn(`quest tags with no measurable card data (shown as "not scored" in-app): ${[...unmeasurable].sort().join(', ')}`);
 }
 
+// --- quest-overlay.json (Phase D structured quest attributes; in progress) ---
+// Optional file. Guard every entry: key must be a real quest_id (staleness
+// guard), enum fields must use allowed values, confidence must be valid.
+let overlayCoverage = null;
+const overlayPath = path.join(ROOT, 'quest-overlay.json');
+if (fs.existsSync(overlayPath)) {
+  const PRESSURE = ['low', 'medium', 'high'];
+  const ENUMS = {
+    'questing_pressure': PRESSURE, 'threat_pressure': PRESSURE, 'location_pressure': PRESSURE,
+    'time_pressure': ['fast', 'medium', 'slow'],
+    'confidence': ['curated', 'ai_draft', 'inferred'],
+  };
+  const DENSITY = ['none', 'low', 'medium', 'high'];
+  let qo;
+  try { qo = JSON.parse(fs.readFileSync(overlayPath, 'utf8')); }
+  catch (e) { err(`quest-overlay.json is not valid JSON: ${e.message}`); qo = {}; }
+  const ids = Object.keys(qo);
+  overlayCoverage = `${ids.length} / ${quests.length}`;
+  ids.forEach(id => {
+    if (!questById.has(id)) err(`quest-overlay.json key "${id}" is not a known quest_id`);
+    const o = qo[id];
+    for (const [field, allowed] of Object.entries(ENUMS)) {
+      if (o[field] !== undefined && !allowed.includes(o[field])) {
+        err(`quest-overlay "${id}".${field} = "${o[field]}" (allowed: ${allowed.join('/')})`);
+      }
+    }
+    if (o.enemy_profile && o.enemy_profile.density !== undefined && !DENSITY.includes(o.enemy_profile.density)) {
+      err(`quest-overlay "${id}".enemy_profile.density = "${o.enemy_profile.density}" (allowed: ${DENSITY.join('/')})`);
+    }
+  });
+}
+
 // --- Report ---
 const line = '─'.repeat(60);
 console.log(line);
 console.log(`Cards: ${cards.length}  ·  unique codes: ${byCode.size}  ·  duplicates: ${dupCount}`);
 console.log(`Quests: ${quests.length}  ·  unique quest_ids: ${questById.size}  ·  distinct card tags: ${cardTags.size}  ·  mapped tags: ${mappedTags.size}`);
+if (overlayCoverage) console.log(`quest-overlay.json: ${overlayCoverage} quests curated`);
 console.log(line);
 
 if (warnings.length) {

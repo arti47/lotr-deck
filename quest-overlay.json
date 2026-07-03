@@ -1,0 +1,50 @@
+{
+  "journey-along-the-anduin": {
+    "combat_required": true,
+    "enemy_profile": { "density": "high", "big_enemies": true, "archery": true, "needs_sentinel": true },
+    "questing_pressure": "high",
+    "threat_pressure": "medium",
+    "location_pressure": "high",
+    "direct_damage_from_encounter": true,
+    "time_pressure": "fast",
+    "restrictions": [],
+    "notes": "Early Hill Troll (6/9, excess damage raises threat) demands defense or burst attack; high enemy density + Goblin Sniper archery; forced encounter reveals threaten location lock.",
+    "confidence": "ai_draft"
+  },
+  "escape-from-dol-guldur": {
+    "combat_required": true,
+    "enemy_profile": { "density": "medium", "big_enemies": true, "archery": false, "needs_sentinel": true },
+    "questing_pressure": "high",
+    "threat_pressure": "high",
+    "location_pressure": "medium",
+    "direct_damage_from_encounter": false,
+    "time_pressure": "fast",
+    "restrictions": ["captured_hero", "ally_limit"],
+    "notes": "One hero starts captured and out of play; the objective caps allies, so Ally Mustering is both recommended (bodies) and punished (cap) in the data. Shadow effects discard attachments/characters. Nazgul is a large threat.",
+    "confidence": "ai_draft"
+  },
+  "the-hills-of-emyn-muil": {
+    "combat_required": false,
+    "enemy_profile": { "density": "low", "big_enemies": false, "archery": false, "needs_sentinel": false },
+    "questing_pressure": "high",
+    "threat_pressure": "low",
+    "location_pressure": "high",
+    "direct_damage_from_encounter": true,
+    "time_pressure": "slow",
+    "restrictions": [],
+    "notes": "Almost no enemies — pure attack cards are Weak/Dead here. Deck is mostly locations + treacheries that direct-damage questing characters, so willpower + location control + a little healing carry it.",
+    "confidence": "ai_draft"
+  },
+  "a-journey-to-rhosgobel": {
+    "combat_required": true,
+    "enemy_profile": { "density": "medium", "big_enemies": false, "archery": false, "needs_sentinel": false },
+    "questing_pressure": "medium",
+    "threat_pressure": "low",
+    "location_pressure": "medium",
+    "direct_damage_from_encounter": true,
+    "time_pressure": "medium",
+    "restrictions": [],
+    "notes": "Win condition hinges on keeping the objective ally Wilyador alive, so Healing and Damage Prevention are near-mandatory (Key); enemies have defend restrictions. Direct-damage treacheries threaten low-HP allies.",
+    "confidence": "ai_draft"
+  }
+}

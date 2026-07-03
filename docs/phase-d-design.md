@@ -65,31 +65,42 @@ Related migration: `serializeState()` currently stores `activeQuestName`;
 move to `quest_id` with a name fallback for old saves, the same pattern as the
 v1→v2 card-code migration.
 
-Proposed schema (keyed by `quest_id`, merged into `questData` at dev time,
-mirroring the card overlay so a quest re-sync never clobbers curation):
+Schema (keyed by `quest_id`, merged into `questData` at dev time, mirroring the
+card overlay so a quest re-sync never clobbers curation). **4 exemplars are
+curated in `quest-overlay.json`** and validator-guarded; this is the field set
+they proved, pending sign-off before scaling to all 118 quests:
 
 ```jsonc
 {
-  "core2-escape-from-dol-guldur": {
+  "escape-from-dol-guldur": {         // real quest_id (see add-quest-ids.js)
     "combat_required": true,          // false ⇒ pure attack cards are Weak/Dead
     "enemy_profile": {
-      "density": "high",              // none | low | medium | high
+      "density": "medium",            // none | low | medium | high
       "big_enemies": true,            // high-HP/attack enemies present
-      "archery": false,
+      "archery": false,               // enemies deal ranged/archery damage
       "needs_sentinel": true          // multiplayer defense signal
     },
-    "questing_pressure": "high",      // willpower demand
-    "threat_pressure": "high",        // ⇒ threat reduction is Key; high-threat heroes flagged
-    "location_pressure": "medium",
-    "time_pressure": "fast",          // derived from existing `pacing`, kept explicit
-    "restrictions": ["captured_hero", "ally_limit"], // hard rules that make cards Dead
-    "confidence": "curated"           // curated | ai_draft | inferred — drives honesty badges
+    "questing_pressure": "high",      // low | medium | high — willpower demand
+    "threat_pressure": "high",        // low | medium | high ⇒ threat reduction Key; high-threat heroes flagged
+    "location_pressure": "medium",    // low | medium | high ⇒ location control Key
+    "direct_damage_from_encounter": false, // treacheries direct-damage characters ⇒ healing/prevention Key, low-HP allies Weak
+    "time_pressure": "fast",          // fast | medium | slow — derived from `pacing`, kept explicit
+    "restrictions": ["captured_hero", "ally_limit"], // free-vocab hard rules that make cards Dead/Weak
+    "notes": "…",                     // free text for anything the fields don't capture (human-facing)
+    "confidence": "ai_draft"          // curated | ai_draft | inferred — drives honesty badges
   }
 }
 ```
 
-The exact field set is an **open question (§7)** — start minimal, add fields only
-when a verdict rule actually needs one.
+Each field feeds a D1 verdict rule (that's the inclusion test — no field without
+a rule). Allowed values are enforced by `validate-data.js`, which also errors if
+a key is not a real `quest_id` (staleness guard) and reports curation coverage
+(N / 118). `restrictions` stays free-vocabulary for now; the known values in use
+are `captured_hero` and `ally_limit`.
+
+Still an **open question (§7)**: whether the four exemplars' field set survives
+contact with the harder quests (e.g. multi-stage saga scenarios, doomed/secrecy
+scenarios) — add fields only when a verdict rule needs one.
 
 ### 3.2 Card roles
 
@@ -98,9 +109,8 @@ Verdicts reason over what a card *does*. Most of this is derivable from existing
 etc.), so prefer a **derivation function** over new hand data. Add a `roles`
 field to `overlay.json` only for cards the derivation gets wrong.
 
-Prerequisite: **finish tag curation.** 16 recently-synced cards have empty
-`tags` and are invisible to every tag-based rule. This is Phase D0 and blocks
-everything downstream.
+Prerequisite: **finish tag curation.** ✅ Done in D0 — the 10 remaining empty-tag
+cards were curated, so every card now participates in tag-based rules.
 
 ### 3.3 Archetype corpus — `archetypes.json`
 

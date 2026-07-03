@@ -30,8 +30,9 @@ The UI is a three-phase wizard, plus a fellowship (multiplayer) layer:
    recommended heroes. Starting threat is summed with color warnings (33+ / 35+).
 2. **Phase 2 — Card Pool**: card pool is gated to the selected heroes' spheres +
    Neutral. Filters: type, sphere, tag, name, card text, min-stat, sort.
-   Left-click adds a copy, right-click removes; 3-copy limit and 50-card limit
-   enforced. Decklist import (pasted text), named save slots + autosave
+   Left-click adds a copy, right-click removes; 3-copy limit enforced (the
+   50-card rule is a *minimum*, surfaced as a deck-health warning, not a hard
+   cap — Phase C). Decklist import (pasted text), named save slots + autosave
    (localStorage), quest-readiness side panel.
 3. **Phase 3 — Analysis & Export**: deck health heuristics (threat, opening
    WP/ATK, composition ratios, card-draw coverage, cost curve, sphere ratio),
@@ -46,14 +47,16 @@ or the alias breaks.
 
 ### Key Data Structures
 
-- `deckMap: Map<cardName, { card, qty }>` — per player. **Currently keyed by card
-  name, which is a known bug** (see below): 58 names have multiple versions.
+- `deckMap: Map<cardKey, { card, qty }>` — per player. Keyed by `cardKey(card)`
+  (`ringsdb_code`, name fallback) since Phase A; 58 names have multiple versions,
+  which the old name key silently collided.
 - `QUEST_TAG_TO_CARD_TAGS` in `app.js` — maps quest-level tag vocabulary to
   card-level tag vocabulary. The two vocabularies are maintained by hand and
-  can drift; drift = silent scoring bugs.
-- Persistence: `localStorage` keys `lotr_autosave` (state v1) and
-  `lotr_saved_decks` (named slots). Serialization is currently by card/hero
-  **name** (same identity bug).
+  can drift; drift = silent scoring bugs (now caught by `validate-data.js`).
+- Persistence: `localStorage` keys `lotr_autosave` (state **v2**) and
+  `lotr_saved_decks` (named slots). Serialization is by `ringsdb_code` since
+  Phase A (v1 name-based saves migrated on load). Note: `activeQuestName` is
+  still name-based — the D0 migration to `quest_id` is pending.
 
 ## Known Bugs (verified 2026-07-03 code review)
 
@@ -295,9 +298,14 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
         `add-quest-ids.js` (idempotent, so ids never move on rename). Validator
         now errors on a missing or duplicate `quest_id`. All baked Phase D files
         key on `quest_id`, never `quest_name`.
-  - [ ] Define & curate `quest-overlay.json` (structured quest attributes). The
-        largest, most subjective piece — schema is drafted in the design doc;
-        needs a sign-off on the field set before mass-curating 118 quests.
+  - [~] `quest-overlay.json` (structured quest attributes) — schema proven with
+        **4 curated exemplars** (`journey-along-the-anduin`,
+        `escape-from-dol-guldur`, `the-hills-of-emyn-muil`,
+        `a-journey-to-rhosgobel`), chosen to span combat / restriction / pure-
+        questing / fragile-objective quests. Validator guards keys (must be real
+        quest_ids), enum values, and reports coverage. **Awaiting sign-off on the
+        field set before curating the remaining 114** (`confidence: ai_draft`
+        until human-verified).
   - [ ] Migrate `serializeState()`'s `activeQuestName` → `quest_id` (name
         fallback for old saves), same pattern as the v1→v2 card-code migration.
 - **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
