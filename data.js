@@ -291,7 +291,9 @@ const cardData = [
     ],
     "text": "",
     "summary": "Guard of the Citadel is a stat-line ally with no special text, valued purely for its printed numbers.",
-    "tags": [],
+    "tags": [
+      "Attack Boost"
+    ],
     "willpower": 1,
     "attack": 1,
     "defense": 0,
@@ -595,7 +597,9 @@ const cardData = [
     ],
     "text": "",
     "summary": "Veteran Axehand is a stat-line ally with no special text, valued purely for its printed numbers.",
-    "tags": [],
+    "tags": [
+      "Attack Boost"
+    ],
     "willpower": 0,
     "attack": 2,
     "defense": 1,
@@ -2856,7 +2860,9 @@ const cardData = [
     ],
     "text": "Veteran of Nanduhirion enters play with 1 damage on it.",
     "summary": "Veteran of Nanduhirion provides niche utility to Tactics decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Attack Boost"
+    ],
     "willpower": 0,
     "attack": 3,
     "defense": 2,
@@ -5170,7 +5176,9 @@ const cardData = [
     ],
     "text": "Denethor gets -1 [willpower] for each damaged hero you control.\nDiscard Denethor if his [willpower] is 0 or less.",
     "summary": "Denethor provides niche utility to Leadership decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Willpower Boost"
+    ],
     "willpower": 3,
     "attack": 1,
     "defense": 2,
@@ -7331,7 +7339,9 @@ const cardData = [
     ],
     "text": "Cannot have restricted attachments.\nEnters play exhausted.",
     "summary": "Wandering Ent provides niche utility to Lore decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Defense Boost"
+    ],
     "willpower": 2,
     "attack": 2,
     "defense": 2,
@@ -9799,7 +9809,9 @@ const cardData = [
     ],
     "text": "As an additional cost to play Guardian of Rivendell from your hand, you must discard 2 cards from your hand.",
     "summary": "Guardian of Rivendell provides niche utility to Neutral decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Defense Boost"
+    ],
     "willpower": 1,
     "attack": 2,
     "defense": 3,
@@ -10772,7 +10784,9 @@ const cardData = [
     ],
     "text": "Knight of the White Tower's resource cost must be paid from a single hero’s resource pool.",
     "summary": "Knight of the White Tower provides niche utility to Leadership decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Defense Boost"
+    ],
     "willpower": 2,
     "attack": 2,
     "defense": 3,
@@ -11441,7 +11455,9 @@ const cardData = [
     ],
     "text": "When counting the number of Dwarf characters you control, Bombur counts as two.",
     "summary": "Bombur offers niche situational power tied to specific conditions, best in a deck built to trigger those conditions reliably.",
-    "tags": [],
+    "tags": [
+      "Defense Boost"
+    ],
     "willpower": 0,
     "attack": 1,
     "defense": 2,
@@ -21072,7 +21088,10 @@ const cardData = [
     ],
     "text": "Chariot Racer cannot have more than 2 of the same attribute token.\nAction: Exhaust Chariot Racer to place 1 attribute token on it ([willpower], [attack], or [defense]).",
     "summary": "Chariot Racer provides niche utility to Spirit decks, best in builds that can trigger its specific condition reliably each round.",
-    "tags": [],
+    "tags": [
+      "Willpower Boost",
+      "Attack Boost"
+    ],
     "willpower": 2,
     "attack": 2,
     "defense": 2,
@@ -22315,7 +22334,9 @@ const cardData = [
     ],
     "text": "Denethor gets -1 [willpower] for each damaged hero you control.\nDiscard Denethor if his [willpower] is 0 or less.",
     "summary": "(MotK) Denethor offers niche situational power tied to specific conditions, best in a deck built to trigger those conditions reliably.",
-    "tags": [],
+    "tags": [
+      "Willpower Boost"
+    ],
     "willpower": 3,
     "attack": 1,
     "defense": 2,

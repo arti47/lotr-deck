@@ -610,6 +610,9 @@
     "summary": "Heed the Dream searches or tutors from your deck, finding a specific card you need for the current board state."
   },
   "12010": {
+    "tags": [
+      "Defense Boost"
+    ],
     "summary": "Guardian of Rivendell provides niche utility to Neutral decks, best in builds that can trigger its specific condition reliably each round."
   },
   "12011": {
@@ -939,6 +942,9 @@
     "summary": "Prince Imrahil searches or manipulates your deck, providing card consistency and setting up key combo pieces on demand."
   },
   "12139": {
+    "tags": [
+      "Defense Boost"
+    ],
     "summary": "Knight of the White Tower provides niche utility to Leadership decks, best in builds that can trigger its specific condition reliably each round."
   },
   "12140": {
@@ -2868,6 +2874,9 @@
     "summary": "Óin can gain +1 attack under the right conditions, enabling them to crack high-defense enemies single-handedly."
   },
   "132005": {
+    "tags": [
+      "Defense Boost"
+    ],
     "summary": "Bombur offers niche situational power tied to specific conditions, best in a deck built to trigger those conditions reliably."
   },
   "132006": {
@@ -4437,6 +4446,10 @@
     "summary": "Variag Recluse provides niche utility to Spirit decks, best in builds that can trigger its specific condition reliably each round."
   },
   "308005": {
+    "tags": [
+      "Willpower Boost",
+      "Attack Boost"
+    ],
     "summary": "Chariot Racer provides niche utility to Spirit decks, best in builds that can trigger its specific condition reliably each round."
   },
   "308006": {
@@ -4834,6 +4847,9 @@
     "summary": "(MotK) Forlong readies after a triggered condition, effectively acting twice per round without needing Unexpected Courage."
   },
   "9906057": {
+    "tags": [
+      "Willpower Boost"
+    ],
     "summary": "(MotK) Denethor offers niche situational power tied to specific conditions, best in a deck built to trigger those conditions reliably."
   },
   "9906110": {
@@ -5546,6 +5562,9 @@
     "summary": "Beravor exhausts to draw 2 cards for any player, providing the most reliable on-demand card draw in Lore."
   },
   "01013": {
+    "tags": [
+      "Attack Boost"
+    ],
     "summary": "Guard of the Citadel is a stat-line ally with no special text, valued purely for its printed numbers."
   },
   "01014": {
@@ -5640,6 +5659,9 @@
     "summary": "Celebrían's Stone grants an off-sphere resource icon, enabling cross-sphere decks to meet resource-match requirements without dedicated sphere heroes."
   },
   "01028": {
+    "tags": [
+      "Attack Boost"
+    ],
     "summary": "Veteran Axehand is a stat-line ally with no special text, valued purely for its printed numbers."
   },
   "01029": {
@@ -6359,6 +6381,9 @@
     "summary": "Ever Onward provides situational support, best deployed at a specific moment in the quest to maximize its impact."
   },
   "03006": {
+    "tags": [
+      "Attack Boost"
+    ],
     "summary": "Veteran of Nanduhirion provides niche utility to Tactics decks, best in builds that can trigger its specific condition reliably each round."
   },
   "03007": {
@@ -7114,6 +7139,9 @@
     "summary": "Pippin triggers a powerful bonus off a common game event, rewarding tight sequencing with consistent value each round."
   },
   "06057": {
+    "tags": [
+      "Willpower Boost"
+    ],
     "summary": "Denethor provides niche utility to Leadership decks, best in builds that can trigger its specific condition reliably each round."
   },
   "06058": {
@@ -7817,6 +7845,9 @@
     "summary": "Mirror of Galadriel enables searching or tutoring from your deck, dramatically improving consistency in combo or synergy-dependent builds."
   },
   "08119": {
+    "tags": [
+      "Defense Boost"
+    ],
     "summary": "Wandering Ent provides niche utility to Lore decks, best in builds that can trigger its specific condition reliably each round."
   },
   "08120": {

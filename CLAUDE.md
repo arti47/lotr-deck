@@ -207,17 +207,19 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
       24 card texts refreshed to official wording; 0 cost/stat/tag/summary
       changes (curation fully preserved via overlay). 5 local-only codes
       (starter-pack `20xxx` + one custom) kept. Validator passes clean.
-      Caveat: the 16 new cards have **empty `tags`** until curated by hand, so
-      they don't yet participate in synergy/quest-matchup scoring. One upstream
-      RingsDB quirk rides along — Andrath Guardsman's trait is `Dunedain`
+      Caveat (now resolved): the new cards shipped with **empty `tags`**. 6 were
+      curated in `df9b8ba`; the last **10** were finished in Phase D0, so every
+      card now participates in synergy/quest-matchup scoring. One upstream
+      RingsDB quirk still rides along — Andrath Guardsman's trait is `Dunedain`
       (missing accent) in RingsDB's own data.
 
 ### Dev scripts (zero runtime deps — Node stdlib only)
 
 | Command | What it does |
 |---|---|
-| `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors. **Run after any data edit.** |
+| `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors (incl. missing/duplicate `quest_id`). **Run after any data edit.** |
 | `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
+| `node scripts/add-quest-ids.js [--apply]` | Stamp permanent `quest_id` slugs onto quests missing one. Idempotent; dry-run by default. |
 | `node scripts/sync-ringsdb.js [--apply] [--file dump.json]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Uses ringsdb.com, or a saved dump via `--file`. |
 
 `scripts/lib.js` holds the shared loaders (they `vm`-eval the browser data files
@@ -279,10 +281,25 @@ a **staleness guard** (fail when baked artifacts reference codes/quests no longe
 in the data).
 
 Sub-phases (see the design doc for deliverables, dependencies, open questions):
-- **D0 Foundations** — finish the 16 empty-tag cards + audit tag vocabulary;
-  add permanent `quest_id` slugs to `quests.js` (all baked files key on them,
-  never on `quest_name`); define & curate `quest-overlay.json`; extend
-  validator coverage. *(no RingsDB)*
+- **D0 Foundations** *(in progress; no RingsDB)*:
+  - [x] Empty-tag cards curated. Audit found **10** still empty (not 16 — the
+        Phase B sync's "16 new" already had 6 curated in commit `df9b8ba`).
+        Tagged by a documented rule: ability from text, else the dominant stat
+        as a capability (mirrors the data's own `Defender of Rammas` =
+        `Defense Boost` convention). Stat-role drafts, human-verifiable;
+        `overlay.json` regenerated so the curation is backed up.
+  - [x] Tag vocabulary audit: **clean** — 52 distinct tags, no near-duplicate
+        drift; the only singletons (`Master`, `Weather`, `Objective
+        Interaction`) are legitimate.
+  - [x] Permanent `quest_id` slugs stamped on all 118 quests via
+        `add-quest-ids.js` (idempotent, so ids never move on rename). Validator
+        now errors on a missing or duplicate `quest_id`. All baked Phase D files
+        key on `quest_id`, never `quest_name`.
+  - [ ] Define & curate `quest-overlay.json` (structured quest attributes). The
+        largest, most subjective piece — schema is drafted in the design doc;
+        needs a sign-off on the field set before mass-curating 118 quests.
+  - [ ] Migrate `serializeState()`'s `activeQuestName` → `quest_id` (name
+        fallback for old saves), same pattern as the v1→v2 card-code migration.
 - **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
   attributes; Phase 3 UI. Highest-leverage first step; answers the
   "flag problematic cards" goal with **no** external data. *(depends on D0)*

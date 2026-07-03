@@ -1,5 +1,6 @@
 const questData = [
   {
+    "quest_id": "journey-along-the-anduin",
     "quest_name": "Journey along the Anduin",
     "expansion": "Core Set",
     "community_difficulty": 5.3,
@@ -35,6 +36,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "escape-from-dol-guldur",
     "quest_name": "Escape from Dol Guldur",
     "expansion": "Core Set",
     "community_difficulty": 7.7,
@@ -75,6 +77,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-hunt-for-gollum",
     "quest_name": "The Hunt for Gollum",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 4.1,
@@ -110,6 +113,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "conflict-at-the-carrock",
     "quest_name": "Conflict at the Carrock",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 6.3,
@@ -190,6 +194,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-hills-of-emyn-muil",
     "quest_name": "The Hills of Emyn Muil",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 2.7,
@@ -235,6 +240,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "a-journey-to-rhosgobel",
     "quest_name": "A Journey to Rhosgobel",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 6.1,
@@ -291,6 +297,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-dead-marshes",
     "quest_name": "The Dead Marshes",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 3.8,
@@ -324,6 +331,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "return-to-mirkwood",
     "quest_name": "Return to Mirkwood",
     "expansion": "Shadows of Mirkwood",
     "community_difficulty": 7,
@@ -360,6 +368,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "into-the-pit",
     "quest_name": "Into the Pit",
     "expansion": "Khazad-dûm",
     "community_difficulty": 4.8,
@@ -416,6 +425,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-seventh-level",
     "quest_name": "The Seventh Level",
     "expansion": "Khazad-dûm",
     "community_difficulty": 4.2,
@@ -472,6 +482,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "flight-from-moria",
     "quest_name": "Flight from Moria",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 8,
@@ -535,6 +546,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-redhorn-gate",
     "quest_name": "The Redhorn Gate",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 5.5,
@@ -581,6 +593,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "road-to-rivendell",
     "quest_name": "Road to Rivendell",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 5.3,
@@ -639,6 +652,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-long-dark",
     "quest_name": "The Long Dark",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 3.7,
@@ -685,6 +699,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-watcher-in-the-water",
     "quest_name": "The Watcher in the Water",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 6.3,
@@ -747,6 +762,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "foundations-of-stone",
     "quest_name": "Foundations of Stone",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 6,
@@ -789,6 +805,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "shadow-and-flame",
     "quest_name": "Shadow and Flame",
     "expansion": "The Dwarrowdelf",
     "community_difficulty": 7.9,
@@ -863,6 +880,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "peril-in-pelargir",
     "quest_name": "Peril in Pelargir",
     "expansion": "Against the Shadow",
     "community_difficulty": 6.8,
@@ -909,6 +927,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "into-ithilien",
     "quest_name": "Into Ithilien",
     "expansion": "Against the Shadow",
     "community_difficulty": 7.7,
@@ -987,6 +1006,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-siege-of-cair-andros",
     "quest_name": "The Siege of Cair Andros",
     "expansion": "Against the Shadow",
     "community_difficulty": 8.2,
@@ -1046,6 +1066,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "we-must-away-ere-break-of-day",
     "quest_name": "We Must Away, Ere Break of Day",
     "expansion": "The Hobbit",
     "community_difficulty": 0,
@@ -1096,6 +1117,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-stewards-fear",
     "quest_name": "The Steward’s Fear",
     "expansion": "Against the Shadow",
     "community_difficulty": 6.3,
@@ -1154,6 +1176,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "encounter-at-amon-din",
     "quest_name": "Encounter at Amon Dîn",
     "expansion": "Against the Shadow",
     "community_difficulty": 2.9,
@@ -1218,6 +1241,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "assault-on-osgiliath",
     "quest_name": "Assault on Osgiliath",
     "expansion": "Against the Shadow",
     "community_difficulty": 5.1,
@@ -1282,6 +1306,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-druadan-forest",
     "quest_name": "The Drúadan Forest",
     "expansion": "Against the Shadow",
     "community_difficulty": 5.7,
@@ -1360,6 +1385,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-fords-of-isen",
     "quest_name": "The Fords of Isen",
     "expansion": "The Voice of Isengard",
     "community_difficulty": 5.8,
@@ -1417,6 +1443,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-blood-of-gondor",
     "quest_name": "The Blood of Gondor",
     "expansion": "Against the Shadow",
     "community_difficulty": 5.7,
@@ -1484,6 +1511,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "to-catch-an-orc",
     "quest_name": "To Catch an Orc",
     "expansion": "The Voice of Isengard",
     "community_difficulty": 7,
@@ -1549,6 +1577,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "a-shadow-of-the-past",
     "quest_name": "A Shadow of the Past",
     "expansion": "The Lord of the Rings Saga: The Black Riders",
     "community_difficulty": 6.3,
@@ -1659,6 +1688,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "a-knife-in-the-dark",
     "quest_name": "A Knife in the Dark",
     "expansion": "The Lord of the Rings Saga: The Black Riders",
     "community_difficulty": 6.7,
@@ -1749,6 +1779,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "trouble-in-tharbad",
     "quest_name": "Trouble in Tharbad",
     "expansion": "The Ring-maker",
     "community_difficulty": 4,
@@ -1813,6 +1844,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "into-fangorn",
     "quest_name": "Into Fangorn",
     "expansion": "The Voice of Isengard",
     "community_difficulty": 4.3,
@@ -1875,6 +1907,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "flight-to-the-ford",
     "quest_name": "Flight to the Ford",
     "expansion": "The Lord of the Rings Saga: The Black Riders",
     "community_difficulty": 6.3,
@@ -1960,6 +1993,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-ring-goes-south",
     "quest_name": "The Ring Goes South",
     "expansion": "The Lord of the Rings Saga: The Road Darkens",
     "community_difficulty": 6,
@@ -2057,6 +2091,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "celebrimbors-secret",
     "quest_name": "Celebrimbor’s Secret",
     "expansion": "The Ring-maker",
     "community_difficulty": 5.6,
@@ -2115,6 +2150,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-dunland-trap",
     "quest_name": "The Dunland Trap",
     "expansion": "The Ring-maker",
     "community_difficulty": 7.5,
@@ -2169,6 +2205,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "race-across-harad",
     "quest_name": "Race Across Harad",
     "expansion": "The Haradrim",
     "community_difficulty": 6.6,
@@ -2205,6 +2242,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "journey-in-the-dark",
     "quest_name": "Journey in the Dark",
     "expansion": "The Lord of the Rings Saga: The Road Darkens",
     "community_difficulty": 7.9,
@@ -2310,6 +2348,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-antlered-crown",
     "quest_name": "The Antlered Crown",
     "expansion": "The Ring-maker",
     "community_difficulty": 7,
@@ -2366,6 +2405,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-three-trials",
     "quest_name": "The Three Trials",
     "expansion": "The Ring-maker",
     "community_difficulty": 7.2,
@@ -2428,6 +2468,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-nin-in-eilph",
     "quest_name": "The Nîn-in-Eilph",
     "expansion": "The Ring-maker",
     "community_difficulty": 6.8,
@@ -2508,6 +2549,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "intruders-in-chetwood",
     "quest_name": "Intruders in Chetwood",
     "expansion": "The Lost Realm",
     "community_difficulty": 5.7,
@@ -2570,6 +2612,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "breaking-of-the-fellowship",
     "quest_name": "Breaking of the Fellowship",
     "expansion": "The Lord of the Rings Saga: The Road Darkens",
     "community_difficulty": 7,
@@ -2662,6 +2705,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-weather-hills",
     "quest_name": "The Weather Hills",
     "expansion": "The Lost Realm",
     "community_difficulty": 6.4,
@@ -2714,6 +2758,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "deadmens-dike",
     "quest_name": "Deadmen’s Dike",
     "expansion": "The Lost Realm",
     "community_difficulty": 7.6,
@@ -2776,6 +2821,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-wastes-of-eriador",
     "quest_name": "The Wastes of Eriador",
     "expansion": "Angmar Awakened",
     "community_difficulty": 7.2,
@@ -2804,6 +2850,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "across-the-ettenmoors",
     "quest_name": "Across the Ettenmoors",
     "expansion": "Angmar Awakened",
     "community_difficulty": 4.3,
@@ -2852,6 +2899,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-dread-realm",
     "quest_name": "The Dread Realm",
     "expansion": "Angmar Awakened",
     "community_difficulty": 8.2,
@@ -2915,6 +2963,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-treachery-of-rhudaur",
     "quest_name": "The Treachery of Rhudaur",
     "expansion": "Angmar Awakened",
     "community_difficulty": 6,
@@ -2977,6 +3026,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "over-the-misty-mountains-grim",
     "quest_name": "Over the Misty Mountains Grim",
     "expansion": "The Hobbit",
     "community_difficulty": 5.3,
@@ -3036,6 +3086,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-oath",
     "quest_name": "The Oath",
     "expansion": "Starter Set",
     "community_difficulty": 0,
@@ -3068,6 +3119,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "escape-from-mount-gram",
     "quest_name": "Escape from Mount Gram",
     "expansion": "Angmar Awakened",
     "community_difficulty": 3.6,
@@ -3119,6 +3171,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "voyage-across-belegaer",
     "quest_name": "Voyage Across Belegaer",
     "expansion": "The Grey Havens",
     "community_difficulty": 4.8,
@@ -3173,6 +3226,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-battle-of-carn-dum",
     "quest_name": "The Battle of Carn Dûm",
     "expansion": "Angmar Awakened",
     "community_difficulty": 9.7,
@@ -3228,6 +3282,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-fate-of-numenor",
     "quest_name": "The Fate of Númenor",
     "expansion": "The Grey Havens",
     "community_difficulty": 4.2,
@@ -3282,6 +3337,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-old-forest",
     "quest_name": "The Old Forest",
     "expansion": "Print on Demand",
     "community_difficulty": 6,
@@ -3435,6 +3491,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "fog-on-the-barrow-downs",
     "quest_name": "Fog on the Barrow Downs",
     "expansion": "Print on Demand",
     "community_difficulty": 7.8,
@@ -3496,6 +3553,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "helms-deep",
     "quest_name": "Helm’s Deep",
     "expansion": "The Treason of Saruman Saga Expansion",
     "community_difficulty": 8.2,
@@ -3607,6 +3665,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-drowned-ruins",
     "quest_name": "The Drowned Ruins",
     "expansion": "Dream-chaser",
     "community_difficulty": 5.1,
@@ -3642,6 +3701,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-caves-of-nibin-dum",
     "quest_name": "The Caves of Nibin-Dûm",
     "expansion": "Print on Demand",
     "community_difficulty": 4.5,
@@ -3686,6 +3746,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-temple-of-the-deceived",
     "quest_name": "The Temple of the Deceived",
     "expansion": "Dream-chaser",
     "community_difficulty": 4,
@@ -3734,6 +3795,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "flight-of-the-stormcaller",
     "quest_name": "Flight of the Stormcaller",
     "expansion": "Dream-chaser",
     "community_difficulty": 6.1,
@@ -3784,6 +3846,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "a-storm-on-cobas-haven",
     "quest_name": "A Storm on Cobas Haven",
     "expansion": "Dream-chaser",
     "community_difficulty": 7.8,
@@ -3848,6 +3911,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-city-of-the-corsairs",
     "quest_name": "The City of the Corsairs",
     "expansion": "Dream-chaser",
     "community_difficulty": 7.3,
@@ -3876,6 +3940,7 @@ const questData = [
     "tech_cards_mentioned": []
   },
   {
+    "quest_id": "the-thing-in-the-depths",
     "quest_name": "The Thing in the Depths",
     "expansion": "Dream-chaser",
     "community_difficulty": 5.4,
@@ -3931,6 +3996,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-long-arm-of-mordor",
     "quest_name": "The Long Arm of Mordor",
     "expansion": "The Haradrim",
     "community_difficulty": 6.5,
@@ -4096,6 +4162,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "desert-crossing",
     "quest_name": "Desert Crossing",
     "expansion": "The Haradrim",
     "community_difficulty": 5.8,
@@ -4153,6 +4220,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "dungeons-deep-and-caverns-dim",
     "quest_name": "Dungeons Deep and Caverns Dim",
     "expansion": "The Hobbit",
     "community_difficulty": 6.4,
@@ -4214,6 +4282,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "escape-from-umbar",
     "quest_name": "Escape from Umbar",
     "expansion": "The Haradrim",
     "community_difficulty": 5.5,
@@ -4262,6 +4331,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "raid-on-the-grey-havens",
     "quest_name": "Raid on the Grey Havens",
     "expansion": "The Grey Havens",
     "community_difficulty": 7.7,
@@ -4305,6 +4375,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-dungeons-of-cirith-gurat",
     "quest_name": "The Dungeons of Cirith Gurat",
     "expansion": "The Haradrim",
     "community_difficulty": 6.8,
@@ -4371,6 +4442,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-crossings-of-poros",
     "quest_name": "The Crossings of Poros",
     "expansion": "The Haradrim",
     "community_difficulty": 8.1,
@@ -4423,6 +4495,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-black-serpent",
     "quest_name": "The Black Serpent",
     "expansion": "Haradrim Cycle",
     "community_difficulty": 7.3,
@@ -4479,6 +4552,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "journey-up-the-anduin",
     "quest_name": "Journey Up the Anduin",
     "expansion": "Ered Mithrin",
     "community_difficulty": 6.3,
@@ -4569,6 +4643,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "lost-in-mirkwood",
     "quest_name": "Lost in Mirkwood",
     "expansion": "Ered Mithrin",
     "community_difficulty": 5.6,
@@ -4615,6 +4690,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-kings-quest",
     "quest_name": "The King’s Quest",
     "expansion": "Ered Mithrin",
     "community_difficulty": 7,
@@ -4691,6 +4767,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-mumakil",
     "quest_name": "The Mumakil",
     "expansion": "The Haradrim",
     "community_difficulty": 4.8,
@@ -4881,6 +4958,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-withered-heath",
     "quest_name": "The Withered Heath",
     "expansion": "Ered Mithrin",
     "community_difficulty": 6.6,
@@ -4923,6 +5001,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "flies-and-spiders",
     "quest_name": "Flies and Spiders",
     "expansion": "The Hobbit",
     "community_difficulty": 6.1,
@@ -4979,6 +5058,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "roam-across-rhovanion",
     "quest_name": "Roam Across Rhovanion",
     "expansion": "Ered Mithrin",
     "community_difficulty": 6,
@@ -5053,6 +5133,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "fire-in-the-night",
     "quest_name": "Fire in the Night",
     "expansion": "Ered Mithrin",
     "community_difficulty": 8.1,
@@ -5116,6 +5197,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "murder-at-the-prancing-pony",
     "quest_name": "Murder at the Prancing Pony",
     "expansion": "Print on Demand",
     "community_difficulty": 7.7,
@@ -5181,6 +5263,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "mount-gundabad",
     "quest_name": "Mount Gundabad",
     "expansion": "Ered Mithrin",
     "community_difficulty": 7.9,
@@ -5208,6 +5291,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-ghost-of-framsburg",
     "quest_name": "The Ghost of Framsburg",
     "expansion": "Ered Mithrin",
     "community_difficulty": 5.1,
@@ -5246,6 +5330,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-stone-of-erech",
     "quest_name": "The Stone of Erech",
     "expansion": "Print on Demand",
     "community_difficulty": 6.5,
@@ -5308,6 +5393,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "beneath-the-sands",
     "quest_name": "Beneath the Sands",
     "expansion": "The Haradrim",
     "community_difficulty": 6.1,
@@ -5412,6 +5498,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-river-running",
     "quest_name": "The River Running",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 7.1,
@@ -5468,6 +5555,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-fate-of-wilderland",
     "quest_name": "The Fate of Wilderland",
     "expansion": "Ered Mithrin",
     "community_difficulty": 5.9,
@@ -5499,6 +5587,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "passage-through-mirkwood",
     "quest_name": "Passage through Mirkwood",
     "expansion": "Core Set",
     "community_difficulty": 2.3,
@@ -5575,6 +5664,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "danger-in-dorwinion",
     "quest_name": "Danger in Dorwinion",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 5.1,
@@ -5602,6 +5692,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-temple-of-doom",
     "quest_name": "The Temple of Doom",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 8.4,
@@ -5666,6 +5757,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-ruins-of-belegost",
     "quest_name": "The Ruins of Belegost",
     "expansion": "Print on Demand",
     "community_difficulty": 8.3,
@@ -5737,6 +5829,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "under-the-ash-mountains",
     "quest_name": "Under the Ash Mountains",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 9,
@@ -5813,6 +5906,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "wrath-and-ruin",
     "quest_name": "Wrath and Ruin",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 6.9,
@@ -5870,6 +5964,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "challenge-of-the-wainriders",
     "quest_name": "Challenge of the Wainriders",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 6.9,
@@ -5921,6 +6016,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-battle-of-lake-town",
     "quest_name": "The Battle of Lake-town",
     "expansion": "The Hobbit",
     "community_difficulty": 8.9,
@@ -5968,6 +6064,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-city-of-ulfast",
     "quest_name": "The City of Ulfast",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 7.1,
@@ -6019,6 +6116,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-massing-at-osgiliath",
     "quest_name": "The Massing at Osgiliath",
     "expansion": "Core Set",
     "community_difficulty": 7.5,
@@ -6088,6 +6186,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-road-to-isengard",
     "quest_name": "The Road to Isengard",
     "expansion": "The Lord of the Rings Saga: The Treason of Saruman",
     "community_difficulty": 6.8,
@@ -6136,6 +6235,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-land-of-sorrow",
     "quest_name": "The Land of Sorrow",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 7.6,
@@ -6197,6 +6297,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-hunt-for-the-dreadnaught",
     "quest_name": "The Hunt for the Dreadnaught",
     "expansion": "The Hunt for the Dreadnaught Scenario Pack",
     "community_difficulty": 5.5,
@@ -6299,6 +6400,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-fortress-of-nurn",
     "quest_name": "The Fortress of Nurn",
     "expansion": "Vengeance of Mordor",
     "community_difficulty": 8.6,
@@ -6353,6 +6455,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-passage-of-the-marshes",
     "quest_name": "The Passage of the Marshes",
     "expansion": "The Lord of the Rings Saga: The Land of Shadow",
     "community_difficulty": 6.2,
@@ -6397,6 +6500,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-siege-of-annuminas",
     "quest_name": "The Siege of Annúminas",
     "expansion": "Print on Demand",
     "community_difficulty": 8.2,
@@ -6433,6 +6537,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "journey-to-the-cross-roads",
     "quest_name": "Journey to the Cross-roads",
     "expansion": "The Lord of the Rings Saga: The Land of Shadow",
     "community_difficulty": 8.3,
@@ -6480,6 +6585,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-woodland-realm",
     "quest_name": "The Woodland Realm",
     "expansion": "Print on Demand",
     "community_difficulty": 0,
@@ -6513,6 +6619,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-wizards-quest",
     "quest_name": "The Wizard’s Quest",
     "expansion": "Print on Demand",
     "community_difficulty": 0,
@@ -6562,6 +6669,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "shelobs-lair",
     "quest_name": "Shelob’s Lair",
     "expansion": "The Lord of the Rings Saga: The Land of Shadow",
     "community_difficulty": 7.6,
@@ -6602,6 +6710,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-mines-of-moria",
     "quest_name": "The Mines of Moria",
     "expansion": "Print on Demand",
     "community_difficulty": 0,
@@ -6639,6 +6748,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "escape-from-khazad-dum",
     "quest_name": "Escape from Khazad-Dum",
     "expansion": "Print on Demand",
     "community_difficulty": 0,
@@ -6701,6 +6811,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-passing-of-the-grey-company",
     "quest_name": "The Passing of the Grey Company",
     "expansion": "The Lord of the Rings Saga: The Flame of the West",
     "community_difficulty": 6.5,
@@ -6750,6 +6861,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-siege-of-gondor",
     "quest_name": "The Siege of Gondor",
     "expansion": "The Lord of the Rings Saga: The Flame of the West",
     "community_difficulty": 6.6,
@@ -6801,6 +6913,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-battle-of-the-pelennor-fields",
     "quest_name": "The Battle of the Pelennor Fields",
     "expansion": "The Lord of the Rings Saga: The Flame of the West",
     "community_difficulty": 8,
@@ -6854,6 +6967,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-tower-of-cirith-ungol",
     "quest_name": "The Tower of Cirith Ungol",
     "expansion": "The Lord of the Rings Saga: The Mountain of Fire",
     "community_difficulty": 7.3,
@@ -6900,6 +7014,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-black-gate-opens",
     "quest_name": "The Black Gate Opens",
     "expansion": "The Lord of the Rings Saga: The Mountain of Fire",
     "community_difficulty": 9.1,
@@ -6938,6 +7053,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "mount-doom",
     "quest_name": "Mount Doom",
     "expansion": "The Lord of the Rings Saga: The Mountain of Fire",
     "community_difficulty": 9.2,
@@ -6972,6 +7088,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-morgul-vale",
     "quest_name": "The Morgul Vale",
     "expansion": "Against the Shadow",
     "community_difficulty": 8,
@@ -7023,6 +7140,7 @@ const questData = [
     ]
   },
   {
+    "quest_id": "the-uruk-hai",
     "quest_name": "The Uruk-Hai",
     "expansion": "The Lord of the Rings Saga: The Treason of Saruman",
     "community_difficulty": 6,

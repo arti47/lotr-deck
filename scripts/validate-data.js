@@ -64,12 +64,24 @@ const resolveCardTags = tag => MAP[tag] || [tag];
 const isMeasurable = tag => resolveCardTags(tag).some(t => cardTags.has(t));
 
 const unmeasurable = new Set();
+const questById = new Map();
 quests.forEach(q => {
   [...(q.recommended_tags || []), ...(q.punished_tags || [])].forEach(tag => {
     if (!isMeasurable(tag)) unmeasurable.add(tag);
   });
   if (!q.quest_name) err(`quest missing quest_name (expansion: ${q.expansion || '??'})`);
+  // quest_id is the stable key all Phase D baked files reference. Enforce it is
+  // present and unique so those files can rely on it (the identity discipline
+  // that data.js already gets from ringsdb_code).
+  if (!q.quest_id) {
+    err(`quest "${q.quest_name || '??'}" missing quest_id (run: node scripts/add-quest-ids.js --apply)`);
+  } else {
+    questById.set(q.quest_id, (questById.get(q.quest_id) || []).concat([q.quest_name]));
+  }
 });
+for (const [id, names] of questById) {
+  if (names.length > 1) err(`duplicate quest_id ${id}: ${names.join(' | ')}`);
+}
 if (unmeasurable.size) {
   warn(`quest tags with no measurable card data (shown as "not scored" in-app): ${[...unmeasurable].sort().join(', ')}`);
 }
@@ -78,7 +90,7 @@ if (unmeasurable.size) {
 const line = '─'.repeat(60);
 console.log(line);
 console.log(`Cards: ${cards.length}  ·  unique codes: ${byCode.size}  ·  duplicates: ${dupCount}`);
-console.log(`Quests: ${quests.length}  ·  distinct card tags: ${cardTags.size}  ·  mapped tags: ${mappedTags.size}`);
+console.log(`Quests: ${quests.length}  ·  unique quest_ids: ${questById.size}  ·  distinct card tags: ${cardTags.size}  ·  mapped tags: ${mappedTags.size}`);
 console.log(line);
 
 if (warnings.length) {
