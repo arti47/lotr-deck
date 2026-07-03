@@ -17,8 +17,8 @@ from plain `<script>` tags.
 | File | Role |
 |---|---|
 | `index.html` | Single page: all markup + CSS for the three-phase UI |
-| `app.js` | All application logic (~1,700 lines) |
-| `data.js` | Card database: `const cardData = [...]` (~1,086 cards: Hero, Ally, Attachment, Event, Player Side Quest) |
+| `app.js` | All application logic (~1,950 lines) |
+| `data.js` | Card database: `const cardData = [...]` (~1,100 cards: Hero, Ally, Attachment, Event, Player Side Quest) |
 | `quests.js` | Quest database: `const questData = [...]` (~118 quests with difficulty, focus, pacing, recommended/punished tags, tech cards) |
 
 ### Core Functionality
@@ -100,10 +100,11 @@ just by reading code.
 
 ## Design Gaps (decided direction: warn, don't block)
 
-> The 50-card, uniqueness, and off-sphere items below were **resolved in Phase C**
-> (branch `claude/codebase-review-pqugc6`). Kept as the rationale record; see the
-> Roadmap → Phase C section for the resolution notes. Side-quest copy rules remain
-> intentionally unmodeled (standard rules allow up to 3, so no warning was added).
+> All four items below are now **resolved** (Phase C + the 2026-07-03 roadmap
+> audit, branch `claude/codebase-review-pqugc6`). Kept as the rationale record;
+> see the Roadmap → Phase C section for the resolution notes. The side-quest rule
+> (limit 1 copy each — this line was right, the Phase A note was wrong) is now a
+> deck-health warning.
 
 - **The 50-card rule is inverted**: the real game requires *minimum* 50 with no
   max; the app enforces a hard max of 50. Decision: treat <50 as incomplete
@@ -168,8 +169,11 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
       `Cost Reduction`, `Solo Play`) are listed as "Not scored (no card data)"
       instead of a false 🔴. Self-correcting if the data changes.
 - [x] Player Side Quest support: type-filter option, stats bar, deck-health
-      composition row, export section. (No copy restriction added — standard
-      rules allow up to 3, so the earlier "1-copy warning" idea was dropped.)
+      composition row, export section. (The note that originally stood here —
+      "standard rules allow up to 3 side quests" — was **wrong**: the Rules
+      Reference limits a deck to 1 copy of each player side quest by title.
+      Caught in the 2026-07-03 roadmap audit; a deck-health warning now flags
+      2+ copies. Warn, don't block, as usual.)
 - [x] Fix `removePlayer()` active-index shift; autosave in `switchPlayer()`.
 - [x] Fix cost-curve hover (build DOM nodes, no `innerHTML +=`).
 - [x] Import fixes: preserve `(MotK)` (match full line before stripping),
@@ -241,6 +245,16 @@ smoke test) in the `claude/codebase-review-pqugc6` branch.
       offers a one-click `removeOffSphereCards()` (with confirm). Rendered by
       `renderOffSphereBanner()` on `initPhase2` and every `refreshDeckUI`.
 
+**Addendum (2026-07-03 roadmap audit)** — two gaps found and fixed:
+- [x] MotK uniqueness blind spot: the 100 `(MotK) X` hero entries are the same
+      character as their base card, but exact-name comparison never collided
+      them. `uniqueTitle()` strips the `(MotK)` marker before comparing, so
+      `(MotK) Erestor` + Erestor ally now flags. Display names unchanged.
+- [x] Side-quest copy limit: the Rules Reference allows only **1 copy of each
+      player side quest by title** (the Phase A note claiming 3 was wrong).
+      Deck health now shows a red "Side Quest Limit" row per offender at 2+
+      copies. Warning only — never blocks.
+
 ### Phase D — Tiered teaching deck advisor (major evolution)
 
 > **Full design: [`docs/phase-d-design.md`](docs/phase-d-design.md).** Direction
@@ -266,7 +280,9 @@ in the data).
 
 Sub-phases (see the design doc for deliverables, dependencies, open questions):
 - **D0 Foundations** — finish the 16 empty-tag cards + audit tag vocabulary;
-  define & curate `quest-overlay.json`; extend validator coverage. *(no RingsDB)*
+  add permanent `quest_id` slugs to `quests.js` (all baked files key on them,
+  never on `quest_name`); define & curate `quest-overlay.json`; extend
+  validator coverage. *(no RingsDB)*
 - **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
   attributes; Phase 3 UI. Highest-leverage first step; answers the
   "flag problematic cards" goal with **no** external data. *(depends on D0)*
@@ -289,9 +305,21 @@ from the entire pool), playtest tools (draw-probability/mulligan — overlaps th
 (RingsDB-compatible export, shareable URL).
 
 ### Phase E — Structural (opportunistic, zero-build)
-- [ ] Split `app.js` into native ES modules (`state.js`, `persistence.js`,
-      `phase1.js`, `phase2.js`, `phase3.js`, `tooltips.js`) via
-      `<script type="module">`.
+
+> Rewritten after the 2026-07-03 roadmap audit. The original plan ("split into
+> native ES modules") had two errors: **(a)** browsers refuse to load
+> `<script type="module">` over `file://` (CORS/opaque-origin rules), which
+> would break the core "open index.html and it works" promise; **(b)** the
+> split would silently break `scripts/lib.js`, which regex-scrapes
+> `QUEST_TAG_TO_CARD_TAGS` out of `app.js` for the validator.
+
+- [ ] Split `app.js` into several **classic** `<script>` files sharing globals
+      (`state.js`, `persistence.js`, `phase1.js`, `phase2.js`, `phase3.js`,
+      `tooltips.js`) — the same pattern `quests.js`/`data.js`/`app.js` already
+      use. **No ES modules** (see above). Load order matters; document it in
+      index.html. When the tag mapping moves, update `loadTagMapping()` in
+      `scripts/lib.js` to point at its new file (it throws loudly if it can't
+      find the mapping, so the validator will catch a miss).
 - [ ] Unify the three tooltip systems into one.
 - [ ] Node-based unit tests for pure logic (`node --test`, no dependencies).
 

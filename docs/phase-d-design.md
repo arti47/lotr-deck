@@ -54,12 +54,23 @@ entry referencing a `ringsdb_code` no longer in the pool).
 
 Today a quest carries prose `hazards_description` + hand-maintained
 `recommended_tags`/`punished_tags`. Per-card verdicts need *machine-readable*
-attributes. Proposed schema (keyed by `quest_name`, merged into `questData` at
-dev time, mirroring the card overlay so a quest re-sync never clobbers curation):
+attributes.
+
+**Quest identity (audit decision):** quests get a permanent `quest_id` slug
+(e.g. `core-escape-from-dol-guldur`), added to `quests.js` by a dev script and
+enforced unique by the validator. All new baked files key on `quest_id`, never
+`quest_name` — keying by name is exactly the identity bug Phase A fixed for
+cards (names are unique today, but a rename would silently orphan baked data).
+Related migration: `serializeState()` currently stores `activeQuestName`;
+move to `quest_id` with a name fallback for old saves, the same pattern as the
+v1→v2 card-code migration.
+
+Proposed schema (keyed by `quest_id`, merged into `questData` at dev time,
+mirroring the card overlay so a quest re-sync never clobbers curation):
 
 ```jsonc
 {
-  "Escape from Dol Guldur": {
+  "core2-escape-from-dol-guldur": {
     "combat_required": true,          // false ⇒ pure attack cards are Weak/Dead
     "enemy_profile": {
       "density": "high",              // none | low | medium | high
@@ -124,7 +135,7 @@ rationale, so the app ships a ready answer with zero client-side generation cost
 
 ```jsonc
 {
-  "Escape from Dol Guldur": {
+  "core2-escape-from-dol-guldur": {   // keyed by quest_id (§3.1)
     "archetype": "spirit-questing",
     "heroes": ["...codes..."],
     "cards": [["01049", 3], ["...", 2]],
@@ -132,11 +143,19 @@ rationale, so the app ships a ready answer with zero client-side generation cost
       "why_heroes": "…",
       "per_card": { "01049": { "verdict": "Key", "reason": "…" } }
     },
+    "products_needed": ["Core Set", "The Dead Marshes", "…"],
     "confidence": "inferred",         // propagated from archetype + quest attrs
     "coverage_note": "No proven RingsDB deck for this quest; built heuristically."
   }
 }
 ```
+
+**Products needed (audit decision):** generation draws from the entire pool, so
+a beginner's one-click deck will reference products they don't own. Rather than
+constraining generation or baking Core-only variants, each baked deck carries
+`products_needed`, derived at generation time from `ringsdb_code` pack prefixes
+via a small static prefix→product-name table. Beginner mode displays it
+prominently next to the deck.
 
 ### 3.5 Glossary — `glossary.json`
 
@@ -162,15 +181,40 @@ environment's egress policy, re-runnable, validated after).
    cards, meet consistency + survivability targets), emit `quest-decks.json` with
    per-card rationale.
 4. **Extend `extract-overlay.js`** to also capture any `roles` curation.
-5. **Extend `validate-data.js`**: schema-check the new files; report coverage
-   (quests missing attributes / a generated deck; cards missing tags/roles); fail
-   on baked references to codes absent from `data.js` (the staleness guard).
+5. **`add-quest-ids.js`** (D0) — one-time script that derives a permanent
+   `quest_id` slug per quest into `quests.js`; idempotent (never regenerates an
+   existing id, so renames can't move data).
+6. **Extend `validate-data.js`**: schema-check the new files; enforce
+   `quest_id` presence + uniqueness; report coverage (quests missing
+   attributes / a generated deck; cards missing tags/roles); fail on baked
+   references to card codes or quest_ids absent from the data (the staleness
+   guard); fail on generated decks violating the hard legality constraints
+   above.
 
 Scoring model (deterministic, tunable weights in one place):
 `quest_fit` (recommended-tag coverage, punished-tag avoidance, restriction
 compliance) + `consistency` (curve, card draw, economy, sphere balance) +
 `survivability` (threat headroom, defense/healing vs `threat_pressure`). Weights
 live in a single constants block so they're auditable and adjustable.
+
+**Hard legality constraints (audit addition — these are filters, not weights;
+a generated deck violating any of them is a generator bug):**
+
+1. Minimum 50 cards (no maximum, but the generator targets exactly 50 for
+   consistency).
+2. Max 3 copies of any card by title.
+3. Max **1 copy of each player side quest** by title (Rules Reference — the
+   app's deck health warns on this since the Phase C addendum).
+4. 1–3 heroes with distinct unique titles (via `uniqueTitle()`, which strips
+   the `(MotK)` marker).
+5. Every card's sphere must be provided by a chosen hero, or be Neutral.
+6. **No `(MotK)` heroes**: they require the Messenger of the King contract,
+   and contracts don't exist in the card pool at all (verified — no `Contract`
+   type in `data.js`). Until contracts are modeled, MotK entries are hero-pool
+   display options only, never generator picks.
+7. Avoid duplicate unique titles between chosen heroes and deck cards (legal to
+   *build*, but a generated "recommended" deck shouldn't ship a known
+   uniqueness warning).
 
 ## 5. App layer (thin presentation over static data)
 
@@ -184,9 +228,14 @@ live in a single constants block so they're auditable and adjustable.
 - **"Explain why" annotations** everywhere: pull from baked rationale +
   templated reasons.
 - **One-click "Build & Teach"**: load the `quest-decks.json` entry for the
-  chosen quest, populate the deck, and walk through hero/card reasons and how to
-  pilot it.
+  chosen quest, populate the deck, walk through hero/card reasons and how to
+  pilot it — and show the `products_needed` list up front so a newcomer knows
+  what the deck assumes they own.
 - **Glossary tooltips** + **how-to-play primer** (static content, modal/page).
+  Injection-ordering rule: card/quest text is `escapeHtml()`-ed first, then the
+  linkifier wraps matched glossary terms in trusted markup it generates itself.
+  Never linkify before escaping — that reintroduces the markup-injection bug
+  (Known Bugs #10) through the back door.
 - **Honesty surface**: every generated deck / verdict shows a confidence badge
   (`curated` / `mined` / `inferred`) and, where relevant, a coverage note.
   "Optimal" is never asserted without playtest evidence — the app claims
@@ -196,7 +245,7 @@ live in a single constants block so they're auditable and adjustable.
 
 | Phase | Deliverable | Depends on | RingsDB? |
 |---|---|---|---|
-| **D0 Foundations** | Finish 16 card-tag gaps + audit vocabulary; define & curate `quest-overlay.json`; extend validator coverage | — | no |
+| **D0 Foundations** | Finish 16 card-tag gaps + audit vocabulary; add `quest_id` slugs (`add-quest-ids.js`); define & curate `quest-overlay.json`; extend validator coverage | — | no |
 | **D1 Per-card verdicts** | Client-side verdict engine + reasons; Phase 3 UI | D0 | no |
 | **D2 Archetype mining** | `sync-ringsdb-decks.js` → `archetypes.json` + coverage report | — | yes |
 | **D3 Deck generation** | `generate-quest-decks.js` → `quest-decks.json`; app loads + live critique on edit | D0, D2 | build-time only |

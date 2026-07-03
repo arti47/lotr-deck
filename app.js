@@ -439,14 +439,22 @@ function renderCardImage(card) {
 // the whole fellowship. Uniqueness is by title, so it's tracked by name (not by
 // ringsdb_code) — a hero and an ally of the same character collide.
 //
-// Returns Map<uniqueName, Set<cardKey>>: the distinct unique printings of each
-// name among a player's heroes + deck.
+// The 100 "(MotK) X" hero entries are the same character as their base card
+// (Messenger of the King turns an ally into a hero), so the marker is stripped
+// before comparing — "(MotK) Erestor" and the Erestor ally must collide.
+function uniqueTitle(card) {
+  return card.name.replace(/^\(MotK\)\s*/, '').replace(/\s*\(MotK\)$/, '');
+}
+
+// Returns Map<uniqueTitle, Set<cardKey>>: the distinct unique printings of each
+// title among a player's heroes + deck.
 function uniqueNamesForPlayer(p) {
   const m = new Map();
   const add = card => {
     if (!card || !card.is_unique) return;
-    if (!m.has(card.name)) m.set(card.name, new Set());
-    m.get(card.name).add(cardKey(card));
+    const title = uniqueTitle(card);
+    if (!m.has(title)) m.set(title, new Set());
+    m.get(title).add(cardKey(card));
   };
   p.heroes.forEach(add);
   p.deck.forEach(item => add(item.card));
@@ -982,6 +990,9 @@ function renderDeckHealth() {
   const deckItems = Array.from(deckMap.values());
   const deckSize  = deckItems.reduce((s, i) => s + i.qty, 0);
   const uniqConflicts = uniquenessWithinPlayer(players[activePlayer]);
+  // Rules Reference: a deck may include max 1 copy of each player side quest,
+  // by title (unlike the normal 3-copy limit). Warn, don't block.
+  const sideQuestOver = deckItems.filter(i => i.card.type === 'Player Side Quest' && i.qty > 1);
 
   // Hero stats
   const startingThreat = selectedHeroes.reduce((s, h) => s + parseInt(h.cost_threat || 0), 0);
@@ -1114,6 +1125,12 @@ function renderDeckHealth() {
       ? sectionHdr('Uniqueness') +
         uniqConflicts.map(name =>
           metricRow(R, escapeHtml(name), '⚠', 'Two unique versions — only one plays')).join('')
+      : '') +
+
+    (sideQuestOver.length
+      ? sectionHdr('Side Quest Limit') +
+        sideQuestOver.map(i =>
+          metricRow(R, escapeHtml(i.card.name), `${i.qty}×`, 'Rules allow only 1 copy per side quest')).join('')
       : '');
 }
 
