@@ -32,6 +32,8 @@ const MIN_VOTES = parseInt(val('--min-votes', '1')) || 0; // popularity quality 
 const MIN_DECKS = parseInt(val('--min-decks', '3')) || 3; // min decks to call something an archetype
 const CORE_FRAC = 0.5;   // in ≥ half the cluster's decks ⇒ core
 const FLEX_FRAC = 0.25;  // in ≥ a quarter (but < core) ⇒ flex
+const MIN_CORE = 6;      // guarantee a usable core even for big diverse clusters
+const MAX_CORE = 15;     // cap so a tight cluster's core stays legible
 
 const cards = loadCards();
 const byCode = new Map(cards.map(c => [c.ringsdb_code, c]));
@@ -107,7 +109,7 @@ function main() {
   // trait — the archetype identity in this game (Dwarves, Noldor, Hobbits…) —
   // rather than the exact sphere-set, which fragments variants of one archetype.
   // Spheres are accumulated as descriptive info (the union across the cluster).
-  const clusters = new Map(); // trait -> { trait, spheres:Set, decks:[…] }
+  const clusters = new Map(); // norm(trait) -> { spheres:Set, decks:[…], traitCounts:{} }
   let considered = 0, skippedVotes = 0, skippedTiny = 0;
   decks.forEach(deck => {
     const votes = deck.nb_votes ?? deck.votes ?? 0;
@@ -116,8 +118,14 @@ function main() {
     if (!split.heroCodes.length) { skippedTiny++; return; }
     considered++;
     const trait = dominantTrait(split.heroCodes) || dominantTrait(Object.keys(split.cardCounts)) || 'Generic';
-    if (!clusters.has(trait)) clusters.set(trait, { trait, spheres: new Set(), decks: [] });
-    const cl = clusters.get(trait);
+    // Key on the accent-normalized trait so RingsDB spelling quirks (e.g.
+    // "Dunedain" vs "Dúnedain" — the Andrath Guardsman quirk) don't split one
+    // faction into two clusters that then collide on a duplicate slug id. The
+    // display name is the most common raw spelling seen (keeps the accent).
+    const key = norm(trait);
+    if (!clusters.has(key)) clusters.set(key, { spheres: new Set(), decks: [], traitCounts: {} });
+    const cl = clusters.get(key);
+    cl.traitCounts[trait] = (cl.traitCounts[trait] || 0) + 1;
     split.heroCodes.forEach(c => { const s = byCode.get(c).sphere; if (s) cl.spheres.add(s); });
     cl.decks.push({ deck, split, quest: parseQuest(deck), votes });
   });
@@ -125,12 +133,22 @@ function main() {
   const archetypes = [];
   for (const [key, cl] of clusters) {
     if (cl.decks.length < MIN_DECKS) continue;
+    // Canonical display trait = the most common raw spelling in the cluster.
+    cl.trait = Object.entries(cl.traitCounts).sort((a, b) => b[1] - a[1])[0][0];
     const n = cl.decks.length;
     const freq = {};
     cl.decks.forEach(({ split }) => Object.keys(split.cardCounts).forEach(code => freq[code] = (freq[code] || 0) + 1));
     const rank = Object.entries(freq).sort((a, b) => b[1] - a[1]);
-    const core = rank.filter(([, c]) => c / n >= CORE_FRAC).map(([code]) => code);
-    const flex = rank.filter(([, c]) => c / n >= FLEX_FRAC && c / n < CORE_FRAC).map(([code]) => code);
+    // core = cards in ≥ CORE_FRAC of decks. Big, diverse clusters (e.g. 160+
+    // Hobbit decks spanning several sub-archetypes) may have nothing that
+    // common, leaving an archetype with no usable core for D3. Fall back to the
+    // most common staples down to the flex floor so every archetype gets a core.
+    let core = rank.filter(([, c]) => c / n >= CORE_FRAC).map(([code]) => code);
+    if (core.length < MIN_CORE)
+      core = rank.filter(([, c]) => c / n >= FLEX_FRAC).slice(0, MIN_CORE).map(([code]) => code);
+    core = core.slice(0, MAX_CORE);
+    const coreSet = new Set(core);
+    const flex = rank.filter(([code, c]) => c / n >= FLEX_FRAC && !coreSet.has(code)).map(([code]) => code);
 
     // good_at / weak_at over the quest-tag vocabulary, from core card tags.
     const capCount = {};

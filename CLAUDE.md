@@ -343,14 +343,22 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
   gained the **staleness guard** (core/flex codes exist in `data.js`, source
   quests are real `quest_ids`, ids unique, confidence enum-checked). Verified
   with an 11-case Node harness on synthetic decklists.
-- [x] **First real mine** from a 30-deck "top decks" RingsDB dump →
-  **`archetypes.json`: 6 archetypes** (Noldor 8 decks, Hobbit 5, Dwarf 4,
-  Gondor 4, Rohan 3, Dúnedain 3), each with a sensible core (Dwarf = Erebor
-  Hammersmith, Miner of the Iron Hills, King Under the Mountain, Longbeards…).
-  **Quest coverage is sparse (8/118)** — expected from parsing quests out of
-  free text on a small top-decks sample; the D3 fallback chain (mined →
-  hand-authored → inferred) covers the rest. Re-run with a bigger/decks-per-
-  archetype dump to enrich. *(RingsDB, build-time)*
+- [x] **Enriched mine** from a **1,116-deck** "top decks" RingsDB dump →
+  **`archetypes.json`: 18 archetypes** (Noldor 209 decks, Gondor 171, Hobbit
+  162, Rohan 121, Dwarf 117, Dúnedain 103, Silvan 68, Istari 43, Dale 40,
+  Beorning, Ent, Harad, Creature, Woodman, Corsair, Isengard, Esgaroth, Bree),
+  all `confidence: mined` with sensible cores (Silvan = Galadhrim Minstrel,
+  Silvan Tracker, Naith Guide, Orophin…). **Quest coverage 29/118** (up from 8)
+  — still limited by parsing quests out of free-text descriptions; the D3
+  fallback chain (mined → hand-authored → inferred) covers the rest.
+  Two fixes the bigger dump forced (both in `sync-ringsdb-decks.js`):
+  (a) cluster key is now accent-normalized, so the `Dunedain`/`Dúnedain`
+  RingsDB quirk no longer splits one faction into two clusters colliding on a
+  duplicate slug id (display name keeps the accent, canonical = most common
+  spelling); (b) a `MIN_CORE` (6) / `MAX_CORE` (15) band so big diverse
+  clusters (Hobbit 162, Gondor 171) that have no card in ≥50% of decks still
+  get a usable core from their top staples down to the flex floor, instead of
+  an empty `core`. *(RingsDB, build-time)*
 - **D3 Deck generation** — `generate-quest-decks.js` → baked `quest-decks.json`;
   app loads + re-critiques live on edit. *(depends on D0, D2)*
 - **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"

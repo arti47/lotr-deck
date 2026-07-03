@@ -16,71 +16,45 @@
     },
     "core": [
       "01050",
-      "01026",
-      "04107",
+      "04059",
       "10145",
       "01057",
-      "01073",
-      "04083",
-      "04059",
+      "04107",
       "04108"
     ],
     "flex": [
-      "11015",
       "12006",
-      "01045",
-      "02079",
-      "04058",
-      "06010",
-      "01049",
-      "10033",
-      "12008",
-      "12009",
-      "17006",
-      "131014",
-      "01014",
-      "01031",
-      "01046",
-      "02100",
-      "04106",
-      "04134",
-      "04137",
-      "08146",
-      "01048",
-      "04110",
-      "06005",
-      "01060",
-      "06006",
-      "06008",
-      "08064",
-      "04031"
+      "01026",
+      "04083",
+      "01073",
+      "01049"
     ],
     "good_at": [
+      "Card Draw",
       "Action Advantage",
       "Readying",
-      "Card Draw",
-      "Threat Reduction"
+      "Treachery Cancellation"
     ],
     "weak_at": [
+      "Healing",
       "Location Control",
-      "Attack Boost",
-      "Enemy Control"
+      "Attack Boost"
     ],
     "sources": [
       {
         "url": "https://ringsdb.com/decklist/view/8682",
         "rating": 1035,
-        "quest": "the-battle-of-the-pelennor-fields"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/42",
         "rating": 574,
-        "quest": "conflict-at-the-carrock"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/6936",
         "rating": 262,
-        "quest": "journey-along-the-anduin"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/1251",
@@ -90,11 +64,16 @@
       {
         "url": "https://ringsdb.com/decklist/view/12958",
         "rating": 250,
-        "quest": "mount-gundabad"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/2705",
         "rating": 219,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12498",
+        "rating": 209,
         "quest": null
       },
       {
@@ -103,9 +82,1911 @@
         "quest": null
       },
       {
-        "url": "https://ringsdb.com/decklist/view/12498",
-        "rating": 209,
+        "url": "https://ringsdb.com/decklist/view/818",
+        "rating": 168,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/645",
+        "rating": 162,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36198",
+        "rating": 159,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2452",
+        "rating": 150,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14905",
+        "rating": 145,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1708",
+        "rating": 135,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31755",
+        "rating": 133,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/965",
+        "rating": 125,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15784",
+        "rating": 106,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11804",
+        "rating": 106,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1026",
+        "rating": 102,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1333",
+        "rating": 94,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/41298",
+        "rating": 91,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29843",
+        "rating": 89,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45965",
+        "rating": 88,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7806",
+        "rating": 84,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20968",
+        "rating": 80,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29487",
+        "rating": 77,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16470",
+        "rating": 74,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8681",
+        "rating": 70,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9578",
+        "rating": 70,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6675",
+        "rating": 69,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12337",
+        "rating": 66,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6478",
+        "rating": 65,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14510",
+        "rating": 64,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37916",
+        "rating": 63,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19150",
+        "rating": 63,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15768",
+        "rating": 60,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15839",
+        "rating": 60,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5966",
+        "rating": 58,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31851",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8051",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4655",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4098",
+        "rating": 56,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1324",
+        "rating": 55,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/475",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16283",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10927",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33006",
+        "rating": 52,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2270",
+        "rating": 51,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28072",
+        "rating": 51,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6032",
+        "rating": 51,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9984",
+        "rating": 49,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1202",
+        "rating": 48,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11758",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6195",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16824",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/60267",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/438",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/137",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39183",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39776",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10119",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12166",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1203",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14205",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17121",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4880",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1709",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8460",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/415",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9088",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1071",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43885",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8625",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2785",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9867",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32545",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5870",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12148",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10311",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13881",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11311",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4455",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10785",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26924",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9350",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10213",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35258",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7903",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12676",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12952",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20781",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/803",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1515",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10223",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6824",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8351",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45937",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7980",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31314",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7430",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21077",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5378",
+        "rating": 25,
+        "quest": "voyage-across-belegaer"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20957",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2884",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17705",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18525",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11094",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12749",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16040",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1141",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3268",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2569",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15321",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11565",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12423",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2829",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12542",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29290",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2136",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7924",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37885",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2194",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7370",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2280",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6122",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/44806",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/49490",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14173",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20369",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3089",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18675",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4229",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7808",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37451",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43973",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5284",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35526",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/481",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17110",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34384",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1464",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5425",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6794",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13573",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/220",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10504",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11614",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31464",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47850",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9144",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29407",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34674",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11260",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6107",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/23425",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/163",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/673",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16120",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2767",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7757",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10015",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7753",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18079",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8262",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39549",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3980",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/65",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9558",
+        "rating": 17,
+        "quest": "mount-doom"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18863",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38488",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1499",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/41232",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15092",
+        "rating": 17,
+        "quest": "mount-doom"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2791",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5073",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17330",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25522",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28690",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47937",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16339",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4286",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5272",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7754",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18019",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8242",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2502",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8455",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7901",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12290",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/63232",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4432",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7266",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/859",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/124",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5741",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4284",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7723",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5561",
+        "rating": 15,
+        "quest": "the-fate-of-numenor"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11868",
+        "rating": 15,
         "quest": "journey-to-the-cross-roads"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11246",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14836",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17273",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2126",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4075",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/27161",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1357",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9325",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "gondor",
+    "name": "Gondor",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Gondor"
+      ]
+    },
+    "core": [
+      "01026",
+      "01073",
+      "05018",
+      "04083",
+      "01023",
+      "01034"
+    ],
+    "flex": [
+      "04108",
+      "06005",
+      "01014",
+      "06136",
+      "01050",
+      "05003",
+      "06108"
+    ],
+    "good_at": [
+      "Resource Generation",
+      "Card Draw",
+      "Threat Reduction",
+      "Direct Damage"
+    ],
+    "weak_at": [
+      "Location Control",
+      "Willpower Boost",
+      "Attack Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/10407",
+        "rating": 311,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9113",
+        "rating": 286,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26086",
+        "rating": 256,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26088",
+        "rating": 244,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22463",
+        "rating": 166,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3659",
+        "rating": 107,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/735",
+        "rating": 107,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1467",
+        "rating": 98,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47376",
+        "rating": 96,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9966",
+        "rating": 93,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/301",
+        "rating": 83,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14451",
+        "rating": 81,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1167",
+        "rating": 81,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26982",
+        "rating": 76,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35254",
+        "rating": 74,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3899",
+        "rating": 71,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16230",
+        "rating": 68,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21920",
+        "rating": 67,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3472",
+        "rating": 64,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5090",
+        "rating": 60,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28511",
+        "rating": 60,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1352",
+        "rating": 59,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7909",
+        "rating": 58,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1782",
+        "rating": 58,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3642",
+        "rating": 56,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17740",
+        "rating": 55,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22485",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15724",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10246",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8415",
+        "rating": 50,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5123",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6882",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1401",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6585",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/40551",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20180",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10304",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26105",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2264",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21783",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1166",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/793",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18464",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39517",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16736",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29952",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17231",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26103",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4964",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3262",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34571",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5735",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5718",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5249",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2193",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5761",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12335",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14830",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1978",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4293",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5379",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1030",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8650",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1056",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16769",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9135",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10598",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6992",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/362",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4320",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20469",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2152",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/73",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3045",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5366",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12686",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6364",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13258",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/23601",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12902",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8896",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39780",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32614",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4228",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1562",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16605",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/60290",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7557",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2723",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21541",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2145",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19936",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9186",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18486",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13027",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29050",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21688",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26992",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/27221",
+        "rating": 21,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6375",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9803",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2211",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/44147",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11010",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2079",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26341",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5178",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3052",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7276",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16910",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26339",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/83",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1186",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2788",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/774",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4763",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8403",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/416",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4191",
+        "rating": 19,
+        "quest": "desert-crossing"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2917",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7913",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3019",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32672",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1888",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5285",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39817",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7494",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/63115",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1234",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8021",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28122",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30923",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7364",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39918",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7480",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11037",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14835",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5953",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24401",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16788",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3773",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9192",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2267",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34162",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35315",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/60777",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8188",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36457",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2335",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5783",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9206",
+        "rating": 16,
+        "quest": "peril-in-pelargir"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18631",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26030",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/40499",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2442",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18934",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2599",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8020",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8643",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/63405",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26738",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28183",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8124",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20641",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1722",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2595",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14189",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7515",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21109",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42622",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17642",
+        "rating": 15,
+        "quest": null
       }
     ],
     "confidence": "mined"
@@ -115,9 +1996,11 @@
     "name": "Hobbit",
     "identity": {
       "spheres": [
+        "Baggins",
         "Fellowship",
         "Leadership",
         "Lore",
+        "Neutral",
         "Spirit",
         "Tactics"
       ],
@@ -126,36 +2009,28 @@
       ]
     },
     "core": [
-      "141006",
-      "01023",
-      "01073",
       "02103",
-      "141014",
-      "143006",
-      "01034"
+      "04108",
+      "01073",
+      "141006",
+      "04062",
+      "01023"
     ],
     "flex": [
-      "141007",
-      "141008",
-      "141009",
-      "141013",
-      "141016",
-      "144008",
-      "146005",
-      "01014",
-      "01026",
-      "01031",
+      "19116",
+      "08146",
+      "141014",
+      "143006",
+      "01050",
       "01060",
-      "04108",
-      "04062",
-      "04083",
-      "01027"
+      "141013",
+      "19121"
     ],
     "good_at": [
-      "Direct Damage",
+      "Card Draw",
       "Action Advantage",
       "Readying",
-      "Ally Mustering"
+      "Threat Reduction"
     ],
     "weak_at": [
       "Healing",
@@ -176,7 +2051,7 @@
       {
         "url": "https://ringsdb.com/decklist/view/11738",
         "rating": 313,
-        "quest": "beneath-the-sands"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/6252",
@@ -186,276 +2061,792 @@
       {
         "url": "https://ringsdb.com/decklist/view/3313",
         "rating": 205,
-        "quest": "journey-along-the-anduin"
-      }
-    ],
-    "confidence": "mined"
-  },
-  {
-    "id": "dwarf",
-    "name": "Dwarf",
-    "identity": {
-      "spheres": [
-        "Leadership",
-        "Lore",
-        "Spirit",
-        "Tactics"
-      ],
-      "key_traits": [
-        "Dwarf"
-      ]
-    },
-    "core": [
-      "01059",
-      "01061",
-      "01073",
-      "01023",
-      "01026",
-      "03011",
-      "131009",
-      "131014",
-      "132006",
-      "132018",
-      "01014",
-      "01018",
-      "01027",
-      "01060",
-      "01062",
-      "01072",
-      "03004",
-      "03003",
-      "04061",
-      "04129",
-      "06141",
-      "06143"
-    ],
-    "flex": [
-      "12066",
-      "131006",
-      "131007",
-      "131011",
-      "131013",
-      "132008",
-      "132012",
-      "143004",
-      "01013",
-      "01015",
-      "01016",
-      "01020",
-      "01022",
-      "01031",
-      "01045",
-      "01048",
-      "01050",
-      "01051",
-      "01057",
-      "01063",
-      "01069",
-      "01070",
-      "01071",
-      "01019",
-      "01024",
-      "01028",
-      "01034",
-      "01035",
-      "01039",
-      "01058",
-      "01064",
-      "03006",
-      "03007",
-      "03008",
-      "04030",
-      "04035",
-      "04102",
-      "04109",
-      "04006",
-      "04079",
-      "04083",
-      "08006"
-    ],
-    "good_at": [
-      "Card Draw",
-      "Resource Generation",
-      "Willpower Boost",
-      "Direct Damage"
-    ],
-    "weak_at": [
-      "Location Control"
-    ],
-    "sources": [
-      {
-        "url": "https://ringsdb.com/decklist/view/24910",
-        "rating": 448,
-        "quest": "journey-along-the-anduin"
+        "quest": null
       },
       {
-        "url": "https://ringsdb.com/decklist/view/3470",
-        "rating": 319,
+        "url": "https://ringsdb.com/decklist/view/59",
+        "rating": 145,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12835",
+        "rating": 118,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37683",
+        "rating": 116,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14209",
+        "rating": 112,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39114",
+        "rating": 106,
+        "quest": "flight-to-the-ford"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3011",
+        "rating": 102,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38721",
+        "rating": 101,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35259",
+        "rating": 92,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6378",
+        "rating": 91,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7576",
+        "rating": 88,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3205",
+        "rating": 86,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5969",
+        "rating": 86,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32351",
+        "rating": 80,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1590",
+        "rating": 76,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12413",
+        "rating": 72,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11906",
+        "rating": 71,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11436",
+        "rating": 70,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6483",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1138",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2787",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11796",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10564",
+        "rating": 58,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/53900",
+        "rating": 55,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19164",
+        "rating": 52,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17418",
+        "rating": 52,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42865",
+        "rating": 50,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17139",
+        "rating": 49,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2674",
+        "rating": 48,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10026",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25185",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17248",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33025",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/51942",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/684",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8389",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17917",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2425",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3153",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13362",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25903",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2930",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5654",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34889",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14632",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12392",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2026",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7331",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9922",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3135",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13732",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7407",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7217",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21591",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12791",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3360",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13555",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25604",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9307",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16750",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7525",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11247",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11771",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17598",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9481",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/44961",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32640",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7570",
+        "rating": 26,
         "quest": "conflict-at-the-carrock"
       },
       {
-        "url": "https://ringsdb.com/decklist/view/26089",
-        "rating": 261,
+        "url": "https://ringsdb.com/decklist/view/150",
+        "rating": 26,
         "quest": null
       },
       {
-        "url": "https://ringsdb.com/decklist/view/104",
-        "rating": 257,
-        "quest": null
-      }
-    ],
-    "confidence": "mined"
-  },
-  {
-    "id": "gondor",
-    "name": "Gondor",
-    "identity": {
-      "spheres": [
-        "Leadership",
-        "Lore",
-        "Spirit",
-        "Tactics"
-      ],
-      "key_traits": [
-        "Gondor"
-      ]
-    },
-    "core": [
-      "01034",
-      "01073",
-      "01026",
-      "01050",
-      "01060",
-      "08113"
-    ],
-    "flex": [
-      "10007",
-      "10010",
-      "11004",
-      "11005",
-      "11008",
-      "11010",
-      "11015",
-      "12009",
-      "12032",
-      "12065",
-      "12086",
-      "12117",
-      "12144",
-      "12145",
-      "17005",
-      "17008",
-      "17032",
-      "17058",
-      "17085",
-      "17112",
-      "17115",
-      "17139",
-      "17141",
-      "19009",
-      "22002",
-      "22003",
-      "22028",
-      "22029",
-      "22032",
-      "22035",
-      "22062",
-      "22083",
-      "22142",
-      "131014",
-      "131015",
-      "131016",
-      "132015",
-      "142008",
-      "144005",
-      "01023",
-      "01032",
-      "01035",
-      "01036",
-      "01057",
-      "01062",
-      "01066",
-      "01070",
-      "02080",
-      "04006",
-      "04033",
-      "04059",
-      "04084",
-      "04135",
-      "04136",
-      "06040",
-      "06041",
-      "06111",
-      "07012",
-      "08033",
-      "08121",
-      "09008",
-      "01059",
-      "01069",
-      "02034",
-      "04108",
-      "04131",
-      "04134",
-      "05017",
-      "06064",
-      "09012",
-      "01014",
-      "01024",
-      "01029",
-      "05003",
-      "05004",
-      "05007",
-      "05008",
-      "05018",
-      "06005",
-      "06108",
-      "06135",
-      "06136",
-      "08140",
-      "01030",
-      "02006",
-      "02030",
-      "02055",
-      "02056",
-      "02121",
-      "02122",
-      "06110",
-      "06138",
-      "07006",
-      "07007",
-      "08004"
-    ],
-    "good_at": [
-      "Enemy Control",
-      "Card Draw",
-      "Threat Reduction",
-      "Direct Damage"
-    ],
-    "weak_at": [
-      "Healing",
-      "Location Control",
-      "Willpower Boost"
-    ],
-    "sources": [
-      {
-        "url": "https://ringsdb.com/decklist/view/10407",
-        "rating": 311,
-        "quest": "flight-of-the-stormcaller"
-      },
-      {
-        "url": "https://ringsdb.com/decklist/view/9113",
-        "rating": 286,
+        "url": "https://ringsdb.com/decklist/view/45129",
+        "rating": 26,
         "quest": null
       },
       {
-        "url": "https://ringsdb.com/decklist/view/26086",
-        "rating": 256,
+        "url": "https://ringsdb.com/decklist/view/5414",
+        "rating": 26,
         "quest": null
       },
       {
-        "url": "https://ringsdb.com/decklist/view/26088",
-        "rating": 244,
+        "url": "https://ringsdb.com/decklist/view/485",
+        "rating": 25,
         "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8884",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12586",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20545",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18305",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43834",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39869",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11411",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10347",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8121",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13810",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/713",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14052",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43443",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2707",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32541",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45961",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/61594",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/46103",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9985",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12794",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17992",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24781",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37396",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/52527",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11685",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20639",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1185",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/469",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19685",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1740",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4217",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6257",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9547",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3110",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18513",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15922",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45580",
+        "rating": 18,
+        "quest": "journey-in-the-dark"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42666",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2638",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11973",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19962",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2651",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13198",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36135",
+        "rating": 18,
+        "quest": "journey-in-the-dark"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/81",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5847",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12471",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20932",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6528",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5313",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8307",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3371",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35372",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/763",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11290",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21409",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26606",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2106",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5332",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35125",
+        "rating": 17,
+        "quest": "the-old-forest"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4076",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18250",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45960",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1461",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1665",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36939",
+        "rating": 16,
+        "quest": "the-road-to-isengard"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/41395",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10814",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34983",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20417",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13310",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4048",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7448",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7907",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7875",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22996",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14137",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35712",
+        "rating": 15,
+        "quest": "flight-to-the-ford"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/52755",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10018",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38705",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/62242",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13768",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/66720",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1603",
+        "rating": 15,
+        "quest": "the-temple-of-doom"
       }
     ],
     "confidence": "mined"
@@ -467,82 +2858,1287 @@
       "spheres": [
         "Leadership",
         "Lore",
-        "Spirit"
+        "Neutral",
+        "Spirit",
+        "Tactics"
       ],
       "key_traits": [
         "Rohan"
       ]
     },
     "core": [
-      "01023",
-      "01026",
-      "01045",
       "01050",
       "01057",
       "01073",
-      "01013",
-      "01014",
-      "01016",
-      "01031",
-      "01046",
-      "01048",
-      "01051",
-      "01053",
-      "01059",
-      "01060",
-      "01061",
-      "01062",
-      "01069"
+      "01023",
+      "144010",
+      "07007"
     ],
     "flex": [
-      "10059",
-      "10116",
-      "10143",
-      "10145",
-      "12059",
-      "143010",
-      "144010",
-      "01022",
-      "01049",
-      "01063",
-      "01015",
-      "01017",
-      "01020",
-      "01025",
-      "01027",
-      "01064",
-      "01070",
-      "01072",
-      "02026",
-      "05003",
-      "07007",
-      "07009",
-      "09006",
-      "09010"
+      "01034",
+      "01026",
+      "01016",
+      "01048",
+      "01046",
+      "01062",
+      "02055",
+      "02121",
+      "02030"
     ],
     "good_at": [
-      "Ally Mustering",
-      "Location Control",
-      "Card Draw",
-      "Threat Reduction"
+      "Action Advantage",
+      "Readying",
+      "Treachery Cancellation",
+      "Encounter Deck Manipulation"
     ],
     "weak_at": [
-      "Healing"
+      "Healing",
+      "Location Control",
+      "Willpower Boost"
     ],
     "sources": [
       {
         "url": "https://ringsdb.com/decklist/view/951",
         "rating": 1381,
-        "quest": "passage-through-mirkwood"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/961",
         "rating": 839,
-        "quest": "journey-along-the-anduin"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/2377",
         "rating": 233,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13174",
+        "rating": 171,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2306",
+        "rating": 153,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/947",
+        "rating": 123,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24740",
+        "rating": 120,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8297",
+        "rating": 107,
+        "quest": "mount-doom"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6512",
+        "rating": 98,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/27650",
+        "rating": 93,
+        "quest": "escape-from-dol-guldur"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7199",
+        "rating": 89,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9638",
+        "rating": 87,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14327",
+        "rating": 87,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/338",
+        "rating": 77,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15476",
+        "rating": 69,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21863",
+        "rating": 66,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/821",
+        "rating": 63,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35253",
+        "rating": 60,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4627",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24154",
+        "rating": 55,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3711",
+        "rating": 53,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3994",
+        "rating": 49,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32352",
+        "rating": 48,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/52978",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/765",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/44945",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2049",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30456",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14688",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8174",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5698",
+        "rating": 39,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8846",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20125",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1522",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9553",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10875",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21441",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1393",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/823",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7154",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10076",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38800",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4535",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14864",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12720",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6533",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11334",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5844",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24626",
+        "rating": 26,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6501",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24958",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18229",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8981",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/44",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18107",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2322",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2872",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/824",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47454",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31338",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7027",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22520",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28120",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16418",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8495",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20030",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24990",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8368",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6482",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/59985",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13097",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/48392",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2781",
+        "rating": 21,
+        "quest": "shadow-and-flame"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39665",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/62554",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18710",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2480",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16112",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3952",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7756",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4254",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14252",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10265",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20072",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1156",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1571",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2155",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2482",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25685",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2212",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7700",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/394",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6639",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25414",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5812",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24985",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9180",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14058",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1839",
+        "rating": 18,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7300",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20234",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10044",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8666",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4225",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2697",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16259",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6902",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26737",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1730",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8907",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1028",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22637",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/827",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2966",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8453",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10157",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32175",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/49850",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14193",
+        "rating": 15,
+        "quest": "to-catch-an-orc"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18078",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/23293",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "dwarf",
+    "name": "Dwarf",
+    "identity": {
+      "spheres": [
+        "Baggins",
+        "Fellowship",
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Dwarf"
+      ]
+    },
+    "core": [
+      "01073",
+      "01059",
+      "01057",
+      "01050",
+      "01061",
+      "132018"
+    ],
+    "flex": [
+      "01026",
+      "01023",
+      "04129",
+      "131006",
+      "03003",
+      "06143",
+      "131007",
+      "132006",
+      "03011",
+      "12066",
+      "04061",
+      "131014"
+    ],
+    "good_at": [
+      "Card Draw",
+      "Threat Reduction",
+      "Direct Damage",
+      "Action Advantage"
+    ],
+    "weak_at": [
+      "Healing",
+      "Location Control",
+      "Willpower Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/24910",
+        "rating": 448,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3470",
+        "rating": 319,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26089",
+        "rating": 261,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/104",
+        "rating": 257,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30155",
+        "rating": 169,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16008",
+        "rating": 151,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/307",
+        "rating": 121,
+        "quest": "escape-from-dol-guldur"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1107",
+        "rating": 117,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3784",
+        "rating": 106,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6538",
+        "rating": 91,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3807",
+        "rating": 90,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1373",
+        "rating": 88,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20671",
+        "rating": 88,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2181",
+        "rating": 71,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35255",
+        "rating": 67,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13422",
+        "rating": 64,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26102",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16274",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13191",
+        "rating": 59,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3906",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8286",
+        "rating": 53,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2257",
+        "rating": 49,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9832",
+        "rating": 48,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5593",
+        "rating": 47,
+        "quest": "the-siege-of-cair-andros"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10784",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15960",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17213",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/712",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21985",
+        "rating": 44,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4806",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3057",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3777",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15073",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1394",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13396",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7586",
+        "rating": 38,
+        "quest": "escape-from-dol-guldur"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12487",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16168",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12302",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17078",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10931",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16391",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3975",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/46933",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7844",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29215",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1327",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26864",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19375",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10069",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36464",
+        "rating": 28,
+        "quest": "the-uruk-hai"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28271",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1838",
+        "rating": 27,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3883",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7949",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16796",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24989",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24928",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8384",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11455",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17652",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/248",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/737",
+        "rating": 25,
+        "quest": "return-to-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28519",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39347",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35402",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16770",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8313",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2114",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22854",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7787",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/971",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/484",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33037",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12571",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17882",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21185",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2904",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24986",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26338",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4417",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4430",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2720",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9845",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/21973",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7931",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/112",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5221",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19099",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45953",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28121",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1996",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29358",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3821",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4745",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15591",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32513",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1710",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4069",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13907",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4853",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1726",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2607",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19538",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6251",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12618",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/886",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31071",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37488",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2213",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4621",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14897",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19827",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24516",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/48249",
+        "rating": 15,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14235",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17572",
+        "rating": 15,
         "quest": null
       }
     ],
@@ -553,8 +4149,12 @@
     "name": "Dúnedain",
     "identity": {
       "spheres": [
+        "Fellowship",
         "Leadership",
-        "Lore"
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
       ],
       "key_traits": [
         "Dúnedain"
@@ -562,62 +4162,33 @@
     },
     "core": [
       "01026",
+      "01073",
+      "01023",
       "01027",
-      "01069",
-      "10030",
-      "10116",
-      "01034",
-      "09004",
-      "09005",
-      "09010",
-      "01014",
-      "01015",
-      "01016",
-      "01060",
-      "01073"
+      "10010",
+      "01034"
     ],
     "flex": [
-      "10004",
-      "10010",
-      "10122",
+      "01014",
+      "10116",
+      "09010",
+      "01069",
       "10143",
-      "142003",
-      "01045",
-      "02096",
-      "04055",
+      "01050",
       "04108",
-      "04134",
-      "05017",
-      "06005",
-      "06085",
-      "07012",
-      "08086",
-      "09006",
-      "01022",
-      "01070",
-      "09009",
-      "09011",
-      "01013",
-      "01023",
-      "01024",
-      "01058",
-      "01059",
-      "01061",
-      "01062",
-      "01063",
-      "01064",
-      "01065",
-      "01066",
-      "01067"
+      "09005",
+      "01057",
+      "09014"
     ],
     "good_at": [
       "Resource Generation",
-      "Willpower Boost",
-      "Enemy Control",
-      "Engagement Control"
+      "Ally Mustering",
+      "Card Draw",
+      "Threat Reduction"
     ],
     "weak_at": [
       "Healing",
+      "Location Control",
       "Attack Boost"
     ],
     "sources": [
@@ -629,11 +4200,2480 @@
       {
         "url": "https://ringsdb.com/decklist/view/31709",
         "rating": 265,
-        "quest": "journey-along-the-anduin"
+        "quest": null
       },
       {
         "url": "https://ringsdb.com/decklist/view/24735",
         "rating": 180,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29842",
+        "rating": 136,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/305",
+        "rating": 134,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19204",
+        "rating": 132,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24992",
+        "rating": 112,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2972",
+        "rating": 100,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/293",
+        "rating": 99,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4140",
+        "rating": 91,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/53204",
+        "rating": 84,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8486",
+        "rating": 76,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42443",
+        "rating": 69,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6855",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4883",
+        "rating": 55,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19018",
+        "rating": 51,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33",
+        "rating": 50,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8441",
+        "rating": 49,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29291",
+        "rating": 45,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22057",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5907",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9215",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35257",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19160",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5046",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8266",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17959",
+        "rating": 34,
+        "quest": "the-fortress-of-nurn"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17061",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12268",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33422",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/733",
+        "rating": 30,
+        "quest": "a-journey-to-rhosgobel"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/306",
+        "rating": 28,
+        "quest": "the-hunt-for-gollum"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4852",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11005",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31786",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1531",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7641",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6463",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18440",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43447",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4375",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28812",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5047",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1029",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/27761",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30334",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2484",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32622",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38742",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6380",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38835",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/736",
+        "rating": 21,
+        "quest": "the-dead-marshes"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5830",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/732",
+        "rating": 20,
+        "quest": "conflict-at-the-carrock"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/734",
+        "rating": 20,
+        "quest": "the-hills-of-emyn-muil"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2214",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13127",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22026",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29571",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25967",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24355",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1330",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6077",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/54071",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8639",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9804",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5985",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13148",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43784",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14003",
+        "rating": 18,
+        "quest": "peril-in-pelargir"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9438",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9868",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18970",
+        "rating": 18,
+        "quest": "a-shadow-of-the-past"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/55295",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/789",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3272",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8114",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/667",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14119",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7710",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/938",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/43972",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/647",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26735",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2790",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30098",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/59575",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29811",
+        "rating": 16,
+        "quest": "fire-in-the-night"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/34323",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20585",
+        "rating": 16,
+        "quest": "the-fortress-of-nurn"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5756",
+        "rating": 15,
+        "quest": "the-battle-of-carn-dum"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37443",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25069",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39039",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7419",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/986",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8774",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/39194",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42813",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16010",
+        "rating": 15,
+        "quest": "the-battle-of-carn-dum"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32599",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22638",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "silvan",
+    "name": "Silvan",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Silvan"
+      ]
+    },
+    "core": [
+      "08063",
+      "01060",
+      "08009",
+      "08058",
+      "02102",
+      "08002",
+      "08027",
+      "08114"
+    ],
+    "flex": [
+      "08117",
+      "16003",
+      "01050",
+      "08065",
+      "08121",
+      "08087",
+      "04108",
+      "10089",
+      "01057",
+      "08064",
+      "08028",
+      "04107"
+    ],
+    "good_at": [
+      "Scrying",
+      "Ally Mustering",
+      "Healing",
+      "Action Advantage"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Card Draw",
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/26087",
+        "rating": 311,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10521",
+        "rating": 160,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2719",
+        "rating": 155,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2135",
+        "rating": 136,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/95",
+        "rating": 107,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24742",
+        "rating": 86,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35256",
+        "rating": 82,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/337",
+        "rating": 81,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2078",
+        "rating": 81,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/48428",
+        "rating": 75,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10693",
+        "rating": 71,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11773",
+        "rating": 70,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26104",
+        "rating": 65,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/800",
+        "rating": 58,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11169",
+        "rating": 53,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19287",
+        "rating": 51,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5524",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/46738",
+        "rating": 43,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3311",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2180",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2950",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8578",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/100",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18600",
+        "rating": 39,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16206",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15240",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14712",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3754",
+        "rating": 32,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1304",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1916",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12889",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10095",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/687",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15623",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18333",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/382",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/54120",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10720",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19240",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8927",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7111",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9069",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26340",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22349",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19523",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/46936",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9199",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9024",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20524",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22799",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30221",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13537",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/555",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2721",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14802",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11842",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6609",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2971",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4072",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3415",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17160",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8469",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4051",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/28355",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24121",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9217",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/919",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3995",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "istari",
+    "name": "Istari",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Istari"
+      ]
+    },
+    "core": [
+      "142009",
+      "142008",
+      "01057",
+      "04108",
+      "04084",
+      "142007"
+    ],
+    "flex": [
+      "143014",
+      "11015",
+      "01050",
+      "01026",
+      "08146",
+      "01046",
+      "09014",
+      "12091",
+      "19154",
+      "04083",
+      "19031",
+      "132017",
+      "143006",
+      "01060"
+    ],
+    "good_at": [
+      "Card Draw",
+      "Action Advantage",
+      "Readying",
+      "Resource Generation"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/9896",
+        "rating": 211,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19545",
+        "rating": 159,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5817",
+        "rating": 139,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2314",
+        "rating": 108,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20012",
+        "rating": 93,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13394",
+        "rating": 89,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8835",
+        "rating": 79,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35260",
+        "rating": 69,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3459",
+        "rating": 62,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/36224",
+        "rating": 61,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24644",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15159",
+        "rating": 45,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/53325",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/812",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19502",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19561",
+        "rating": 36,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1895",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/908",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/46083",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12532",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14244",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/61513",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17174",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19433",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19454",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4760",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/29534",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9209",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3756",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18510",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15020",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/35428",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12372",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31661",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/55758",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15873",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13007",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/55683",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/16738",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/61093",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38797",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1693",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20370",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "dale",
+    "name": "Dale",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Dale"
+      ]
+    },
+    "core": [
+      "18004",
+      "18008",
+      "01050",
+      "18007",
+      "18009",
+      "18006",
+      "18003",
+      "18012",
+      "18010",
+      "131012",
+      "18005"
+    ],
+    "flex": [
+      "12062",
+      "19002",
+      "19008",
+      "01073",
+      "01057",
+      "19092",
+      "01023",
+      "01026",
+      "17110"
+    ],
+    "good_at": [
+      "Action Advantage",
+      "Readying",
+      "Resource Generation",
+      "Defense Boost"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Card Draw"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/9011",
+        "rating": 173,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9595",
+        "rating": 145,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8959",
+        "rating": 105,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10610",
+        "rating": 75,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9696",
+        "rating": 63,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47938",
+        "rating": 48,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/49125",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11237",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/40940",
+        "rating": 41,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9442",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13457",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24689",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15985",
+        "rating": 28,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13069",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22003",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9401",
+        "rating": 26,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4006",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10961",
+        "rating": 25,
+        "quest": "fire-in-the-night"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9042",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11390",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/48662",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11373",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/37587",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11878",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9005",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12772",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10266",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18792",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17828",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11341",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45544",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18695",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8954",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9674",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8983",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11158",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10253",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12063",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9174",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10486",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "beorning",
+    "name": "Beorning",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Beorning"
+      ]
+    },
+    "core": [
+      "19005",
+      "02098",
+      "01034",
+      "10004",
+      "02004",
+      "04108"
+    ],
+    "flex": [
+      "19061",
+      "01073",
+      "19004",
+      "02005",
+      "02053",
+      "02119",
+      "06005",
+      "01072"
+    ],
+    "good_at": [
+      "Ranged",
+      "Enemy Control",
+      "Damage Prevention",
+      "Sentinel"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/13006",
+        "rating": 142,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/128",
+        "rating": 59,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4231",
+        "rating": 57,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47961",
+        "rating": 44,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30343",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13323",
+        "rating": 31,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/19367",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31337",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5237",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/30970",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9655",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12338",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1774",
+        "rating": 20,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12668",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17214",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12085",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14603",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3558",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22004",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14576",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/607",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "ent",
+    "name": "Ent",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Ent"
+      ]
+    },
+    "core": [
+      "143009",
+      "04108",
+      "10061",
+      "01072",
+      "04083",
+      "10031"
+    ],
+    "flex": [
+      "12009",
+      "143011",
+      "08119",
+      "08141",
+      "10032",
+      "12091",
+      "17143",
+      "143006",
+      "04134",
+      "02034",
+      "01073",
+      "06009",
+      "04062",
+      "06010",
+      "07012"
+    ],
+    "good_at": [
+      "Healing",
+      "Card Draw",
+      "Action Advantage",
+      "Readying"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Location Control",
+      "Willpower Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/944",
+        "rating": 101,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4331",
+        "rating": 80,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1671",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14722",
+        "rating": 54,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/14502",
+        "rating": 42,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8209",
+        "rating": 38,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8029",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15183",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2869",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22389",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10855",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22878",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/55238",
+        "rating": 15,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11924",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "harad",
+    "name": "Harad",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Harad"
+      ]
+    },
+    "core": [
+      "17004",
+      "17006",
+      "17008",
+      "17010",
+      "01026",
+      "17029",
+      "04083",
+      "01023",
+      "01073",
+      "12032",
+      "17090",
+      "04108"
+    ],
+    "flex": [
+      "16013",
+      "06058",
+      "08086",
+      "04135",
+      "01070",
+      "06034"
+    ],
+    "good_at": [
+      "Direct Damage",
+      "Resource Generation",
+      "Card Draw",
+      "Ranged"
+    ],
+    "weak_at": [
+      "Location Control",
+      "Enemy Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/42714",
+        "rating": 76,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8514",
+        "rating": 71,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5131",
+        "rating": 50,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4409",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4925",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/13608",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/7377",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/15382",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4328",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9296",
+        "rating": 17,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/4774",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "creature",
+    "name": "Creature",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Creature"
+      ]
+    },
+    "core": [
+      "19031",
+      "22117",
+      "02005",
+      "02098",
+      "02119",
+      "19032",
+      "22113",
+      "302041",
+      "302042",
+      "302049",
+      "02075",
+      "302040",
+      "302048",
+      "01073",
+      "02004"
+    ],
+    "flex": [
+      "302050",
+      "02053",
+      "02120",
+      "01023",
+      "19151",
+      "19154",
+      "131014",
+      "302051",
+      "04108",
+      "08059",
+      "09012"
+    ],
+    "good_at": [
+      "Sentinel",
+      "Ranged",
+      "Attack Boost",
+      "Defense Boost"
+    ],
+    "weak_at": [
+      "Healing",
+      "Enemy Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/17215",
+        "rating": 133,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22464",
+        "rating": 67,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/22660",
+        "rating": 47,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25182",
+        "rating": 33,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31333",
+        "rating": 21,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/41745",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32862",
+        "rating": 16,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/33373",
+        "rating": 15,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "woodman",
+    "name": "Woodman",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit"
+      ],
+      "key_traits": [
+        "Woodman"
+      ]
+    },
+    "core": [
+      "04083",
+      "04108",
+      "08146",
+      "01050",
+      "17008",
+      "19006",
+      "19030",
+      "143006",
+      "145007"
+    ],
+    "flex": [
+      "17033",
+      "19087",
+      "141016",
+      "305148",
+      "01069",
+      "02009",
+      "04058",
+      "10034",
+      "10061",
+      "11011",
+      "12037",
+      "12064",
+      "18010",
+      "18011",
+      "19029",
+      "19059",
+      "22141",
+      "131013",
+      "303082",
+      "305146",
+      "305147",
+      "05017",
+      "06115",
+      "01049",
+      "01053",
+      "01062",
+      "01073",
+      "01046",
+      "01057",
+      "02056",
+      "01048",
+      "01060",
+      "01061",
+      "04059",
+      "09014",
+      "01059"
+    ],
+    "good_at": [
+      "Action Advantage",
+      "Readying",
+      "Location Control",
+      "Healing"
+    ],
+    "weak_at": [
+      "Willpower Boost",
+      "Attack Boost",
+      "Enemy Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/10579",
+        "rating": 37,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18141",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/23026",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/38432",
+        "rating": 22,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/18332",
+        "rating": 19,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/10740",
+        "rating": 18,
+        "quest": "roam-across-rhovanion"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/41480",
+        "rating": 18,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/32401",
+        "rating": 16,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "corsair",
+    "name": "Corsair",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Corsair"
+      ]
+    },
+    "core": [
+      "12034",
+      "01034",
+      "01035",
+      "10089",
+      "12086",
+      "17004"
+    ],
+    "flex": [
+      "17006",
+      "17008",
+      "17010",
+      "17029",
+      "17090",
+      "17143",
+      "143010",
+      "144010",
+      "01026",
+      "04083",
+      "04108",
+      "04135",
+      "07012",
+      "01046",
+      "01050",
+      "01057",
+      "02081",
+      "04058",
+      "04059",
+      "04062",
+      "06010",
+      "06037",
+      "08063",
+      "08090",
+      "08117",
+      "08121",
+      "08140",
+      "09004",
+      "04134"
+    ],
+    "good_at": [
+      "Enemy Control",
+      "Action Advantage",
+      "Readying",
+      "Attack Boost"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Card Draw"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/4314",
+        "rating": 136,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5964",
+        "rating": 30,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17360",
+        "rating": 29,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8421",
+        "rating": 24,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/25781",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/8553",
+        "rating": 16,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "isengard",
+    "name": "Isengard",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Isengard"
+      ]
+    },
+    "core": [
+      "17037",
+      "22057",
+      "22063",
+      "22089",
+      "04084",
+      "07004",
+      "07005",
+      "07010",
+      "07012",
+      "07015",
+      "19028",
+      "22028",
+      "22058",
+      "22087",
+      "146005"
+    ],
+    "flex": [
+      "07011",
+      "07013",
+      "08057",
+      "04083",
+      "02103",
+      "10029",
+      "11015",
+      "12009",
+      "12010",
+      "12034",
+      "12037",
+      "12058",
+      "12059",
+      "12089",
+      "12117",
+      "12144",
+      "16003",
+      "17035",
+      "17058",
+      "17064",
+      "17143",
+      "18007",
+      "19010",
+      "19033",
+      "19086",
+      "19093",
+      "19115",
+      "19116",
+      "19117",
+      "19120",
+      "19148",
+      "19150",
+      "21003",
+      "22002",
+      "22004",
+      "22032",
+      "22056",
+      "22088",
+      "22140",
+      "131014",
+      "132018",
+      "141008",
+      "141009",
+      "142003",
+      "142006",
+      "142007",
+      "142008",
+      "142009",
+      "143006",
+      "144005",
+      "144010",
+      "146012",
+      "306185",
+      "306191",
+      "307011",
+      "308007",
+      "309042",
+      "309043",
+      "309045",
+      "505003",
+      "06002",
+      "06004",
+      "06006",
+      "06008",
+      "06033",
+      "06083",
+      "01073",
+      "02003",
+      "02026",
+      "02079",
+      "02080",
+      "02124",
+      "04036",
+      "04108",
+      "04129",
+      "05003",
+      "05006",
+      "06003",
+      "06009",
+      "06010",
+      "06108",
+      "08003",
+      "08119",
+      "08138",
+      "08146",
+      "04010",
+      "08145",
+      "02033",
+      "03003",
+      "03007",
+      "04057",
+      "04107",
+      "04134",
+      "08030",
+      "08091",
+      "08115",
+      "08120"
+    ],
+    "good_at": [
+      "Action Advantage",
+      "Readying",
+      "Card Draw",
+      "Willpower Boost"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/52101",
+        "rating": 40,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/17761",
+        "rating": 34,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/20198",
+        "rating": 25,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/62209",
+        "rating": 18,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "esgaroth",
+    "name": "Esgaroth",
+    "identity": {
+      "spheres": [
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Esgaroth"
+      ]
+    },
+    "core": [
+      "131015",
+      "132015",
+      "132009",
+      "132014",
+      "141014",
+      "01034",
+      "04031",
+      "04131",
+      "04108",
+      "04134",
+      "06004",
+      "08033"
+    ],
+    "flex": [
+      "10005",
+      "10093",
+      "12009",
+      "12060",
+      "131008",
+      "131016",
+      "143005",
+      "143006",
+      "144005",
+      "145004",
+      "145008",
+      "01035",
+      "01036",
+      "02098",
+      "05008",
+      "05009",
+      "06005",
+      "06060",
+      "07006",
+      "07008",
+      "01046",
+      "02056",
+      "02104",
+      "05017",
+      "06006",
+      "06008",
+      "06137",
+      "01060",
+      "01062",
+      "01073",
+      "04083",
+      "05007",
+      "05018"
+    ],
+    "good_at": [
+      "Attack Boost",
+      "Ranged",
+      "Card Draw",
+      "Enemy Control"
+    ],
+    "weak_at": [
+      "Threat Reduction",
+      "Healing",
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/4686",
+        "rating": 46,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1920",
+        "rating": 35,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/5176",
+        "rating": 25,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "bree",
+    "name": "Bree",
+    "identity": {
+      "spheres": [
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Bree"
+      ]
+    },
+    "core": [
+      "303075",
+      "303078",
+      "303079",
+      "09014",
+      "10034",
+      "12117",
+      "22115",
+      "303076",
+      "303080",
+      "303081",
+      "303083",
+      "01050",
+      "08117"
+    ],
+    "flex": [
+      "10004",
+      "10006",
+      "10086",
+      "16005",
+      "16013",
+      "17003",
+      "17087",
+      "17089",
+      "19005",
+      "19116",
+      "19152",
+      "22116",
+      "131012",
+      "141010",
+      "141015",
+      "142006",
+      "143006",
+      "303074",
+      "303077",
+      "307005",
+      "307006",
+      "307010",
+      "307014",
+      "307015",
+      "308003",
+      "308004",
+      "308007",
+      "308008",
+      "01046",
+      "01048",
+      "01063",
+      "01072",
+      "04083",
+      "06006",
+      "02010",
+      "02081",
+      "04084",
+      "04085",
+      "04135",
+      "01062",
+      "02103"
+    ],
+    "good_at": [
+      "Healing",
+      "Threat Reduction",
+      "Shadow Cancellation",
+      "Direct Damage"
+    ],
+    "weak_at": [
+      "Card Draw",
+      "Location Control",
+      "Willpower Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/26800",
+        "rating": 27,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/58716",
+        "rating": 23,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/47524",
+        "rating": 15,
         "quest": null
       }
     ],
