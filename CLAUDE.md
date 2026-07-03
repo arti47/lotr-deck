@@ -241,15 +241,52 @@ smoke test) in the `claude/codebase-review-pqugc6` branch.
       offers a one-click `removeOffSphereCards()` (with confirm). Rendered by
       `renderOffSphereBanner()` on `initPhase2` and every `refreshDeckUI`.
 
-### Phase D — Features (priority order)
-1. **Collection tracking**: mark owned expansions; filter card pool and
-   suggestions to owned cards; store in localStorage.
-2. **Playtest tools**: sample opening hand + mulligan, draw-probability
-   table for key cards by turn.
-3. **Better quest advisor**: overall deck-vs-quest score, concrete swap
-   suggestions, explain *why* a hero is recommended.
-4. **Deck sharing/export**: RingsDB-compatible export format, shareable
-   URL (state in fragment) or file download/upload.
+### Phase D — Tiered teaching deck advisor (major evolution)
+
+> **Full design: [`docs/phase-d-design.md`](docs/phase-d-design.md).** Direction
+> set in the 2026-07-03 requirements conversation. This is a big pivot from the
+> current heuristic reference tool — roughly **80% data/curation, 20% app code**.
+
+The target app: a **tiered** (beginner → power) advisor that **auto-generates a
+full deck** for any quest from the whole card pool, defines "optimal" as a
+**proven RingsDB-mined archetype tuned for quest fit + consistency +
+survivability**, and flags every card in a pasted deck **Key/Fine/Weak/Dead with
+a plain reason**. Stays zero-build by the rule: **pre-compute the *knowledge*
+offline (static JSON), compute the *judgment* client-side from it** — no runtime
+AI, no server. Offline AI may draft the curated data, but committed output is
+hand-verified (the `overlay.json` pattern).
+
+New static data artifacts (all dev-generated, validated, regenerable):
+`quest-overlay.json` (structured quest attributes), `archetypes.json` (mined deck
+cores), `quest-decks.json` (one baked deck + rationale per quest),
+`glossary.json`. New dev scripts: `sync-ringsdb-decks.js`,
+`build-quest-attributes.js`, `generate-quest-decks.js`; `validate-data.js` gains
+a **staleness guard** (fail when baked artifacts reference codes/quests no longer
+in the data).
+
+Sub-phases (see the design doc for deliverables, dependencies, open questions):
+- **D0 Foundations** — finish the 16 empty-tag cards + audit tag vocabulary;
+  define & curate `quest-overlay.json`; extend validator coverage. *(no RingsDB)*
+- **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
+  attributes; Phase 3 UI. Highest-leverage first step; answers the
+  "flag problematic cards" goal with **no** external data. *(depends on D0)*
+- **D2 Archetype mining** — `sync-ringsdb-decks.js` → `archetypes.json` +
+  coverage report. Expect sparse quest coverage; fallback chain mined →
+  hand-authored → inferred, labeled by `confidence`. *(RingsDB, build-time)*
+- **D3 Deck generation** — `generate-quest-decks.js` → baked `quest-decks.json`;
+  app loads + re-critiques live on edit. *(depends on D0, D2)*
+- **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"
+  everywhere, one-click "Build & Teach", how-to-play primer. *(depends on D1, D3)*
+
+Honesty is a first-class requirement: every generated deck/verdict carries a
+`confidence` badge (`curated`/`mined`/`inferred`); the app claims *"strong on
+paper,"* never *"wins,"* since "optimal" is unverifiable without playtesting.
+
+Deferred from the earlier Phase D list (revisit within this frame):
+collection/ownership tracking (decided **not** a generation constraint — generate
+from the entire pool), playtest tools (draw-probability/mulligan — overlaps the
+"survivability" model and honesty story), and deck sharing/export
+(RingsDB-compatible export, shareable URL).
 
 ### Phase E — Structural (opportunistic, zero-build)
 - [ ] Split `app.js` into native ES modules (`state.js`, `persistence.js`,
