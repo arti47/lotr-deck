@@ -368,20 +368,27 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
   an empty `core`; (c) `parseQuest` gained a `QUEST_ALIASES` table + whole-word
   (space-flattened) matching so nicknames/abbreviations and apostrophe/accent
   variants resolve. *(RingsDB, build-time)*
-- **D3 Deck generation** — *(data side done; app UI wiring pending)*.
-  `generate-quest-decks.js` bakes **one deck per quest (118/118)** into
-  `quest-decks.json`: picks the best-fit archetype (mined-for-this-quest → best
-  good_at/punished fit → inferred; 36 mined, 82 inferred), assembles a **legal
-  exactly-50-card** deck (archetype heroes + core/flex, sphere-gated, topped up
-  with pool cards for the quest's recommended tags), cuts cards the **D1 verdict
-  engine rates Dead** (reusing `verdicts.js` in a vm — no copy), and bakes
-  heroes + cards + per-card rationale + `confidence` + a coverage note. Hard
-  legality (min 50, 3-copy, 1-per-side-quest, sphere gating, 1–3 distinct-title
-  non-MotK heroes) is enforced at build and re-checked by `validate-data.js`
-  (staleness + legality guard). Verified: 118 decks, all 50 cards, 0 legality
-  violations, validator clean. **Remaining:** a `quest-decks.js` browser global
-  (like `quest-overlay.js`) + the app "Build & Teach" affordance that loads a
-  baked deck and re-critiques live. *(depends on D0, D2)*
+- **D3 Deck generation** ✅ DONE — pick a target quest in Phase 1, hit
+  **⚡ Build suggested deck**, and the app loads a full quest-tuned deck and jumps
+  to Analysis where the D1 panel teaches every card.
+  - `generate-quest-decks.js` bakes **one deck per quest (118/118)** into
+    `quest-decks.json`: best-fit archetype (mined-for-this-quest → best
+    good_at/punished fit → inferred; 36 mined, 82 inferred), a **legal
+    exactly-50-card** deck (archetype heroes + core/flex, sphere-gated, topped up
+    with pool cards for the quest's recommended tags), cards the **D1 engine
+    rates Dead** cut (reusing `verdicts.js` in a vm — no copy), plus per-card
+    rationale + `confidence` + coverage note. Hard legality (min 50, 3-copy,
+    1-per-side-quest, sphere gating, 1–3 distinct-title non-MotK heroes) enforced
+    at build and re-checked by `validate-data.js` (staleness + legality guard).
+  - `quest-decks.js` — browser global generated from `quest-decks.json` by
+    `scripts/build-quest-decks-js.js` (same `file://` reason as `quest-overlay.js`).
+  - App wiring: `updateBuildDeckButton()` shows the button only for quests with a
+    baked deck; `buildDeckForQuest()` loads heroes+cards **in place** (alias-safe),
+    autosaves, and switches to Phase 3. Two small additive hooks in the quest
+    handler + `restoreQuestDropdown`.
+  - Verified: 118 decks all exactly 50 cards, 0 legality violations, validator
+    exit 0; Playwright smoke drove the whole flow (select quest → build →
+    3 heroes, 50 cards, verdicts render, no JS errors). *(depends on D0, D2)*
 - **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"
   everywhere, one-click "Build & Teach", how-to-play primer. *(depends on D1, D3)*
 

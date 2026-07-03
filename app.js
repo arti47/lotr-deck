@@ -145,6 +145,7 @@ function initQuestDropdown() {
       questPreview.innerHTML = '';
       heroRec.innerHTML = '';
     }
+    updateBuildDeckButton();
     updatePhase1Dashboard();
     renderPhase2QuestPanel();
     if (document.getElementById('phase3').classList.contains('active')) {
@@ -280,6 +281,56 @@ function restoreQuestDropdown() {
       ? `<strong>Focus:</strong> ${escapeHtml(activeQuest.quest_focus)} &nbsp;·&nbsp; <strong>Pacing:</strong> ${escapeHtml(activeQuest.pacing)}${activeQuest.community_difficulty ? ` · Difficulty: ${escapeHtml(activeQuest.community_difficulty)}/10` : ''}`
       : '';
   }
+  updateBuildDeckButton();
+}
+
+// ==========================================
+// PHASE D3: BUILD & TEACH (baked quest decks)
+// ==========================================
+
+// Show the "Build suggested deck" button only when the active quest has a baked
+// deck in questDecksData (generated from quest-decks.json).
+function updateBuildDeckButton() {
+  const btn  = document.getElementById('btn-build-deck');
+  const note = document.getElementById('build-deck-note');
+  if (!btn) return;
+  const baked = activeQuest && typeof questDecksData !== 'undefined' ? questDecksData[activeQuest.quest_id] : null;
+  if (!baked) { btn.style.display = 'none'; if (note) note.textContent = ''; return; }
+  btn.style.display = '';
+  const conf = { mined: 'from published decks', inferred: 'inferred fit', curated: 'hand-tuned' }[baked.confidence] || baked.confidence;
+  btn.textContent = '⚡ Build suggested deck';
+  btn.title = `Auto-build a "${baked.archetype}" deck tuned for this quest, then explain each card`;
+  if (note) note.textContent = `${baked.archetype} archetype · ${conf} · strong on paper, not playtested`;
+}
+
+// Load the baked deck for the active quest into the current player (in place, so
+// the selectedHeroes/deckMap aliases stay valid), then jump to Analysis where the
+// D1 verdict panel teaches each card.
+function buildDeckForQuest() {
+  if (!activeQuest || typeof questDecksData === 'undefined') return;
+  const baked = questDecksData[activeQuest.quest_id];
+  if (!baked) return;
+  if ((selectedHeroes.length || deckMap.size) &&
+      !confirm(`Build the suggested "${baked.archetype}" deck for ${activeQuest.quest_name}?\n\nThis replaces this player's current heroes and deck.`)) return;
+
+  const heroes = (baked.heroes || [])
+    .map(code => allHeroes.find(h => h.ringsdb_code === code))
+    .filter(Boolean);
+  // Mutate the aliases in place — never reassign (see CLAUDE.md conventions).
+  selectedHeroes.splice(0, selectedHeroes.length, ...heroes);
+  deckMap.clear();
+  (baked.cards || []).forEach(([code, qty]) => {
+    const card = allDeckCards.find(c => c.ringsdb_code === code);
+    if (card) deckMap.set(cardKey(card), { card, qty });
+  });
+
+  syncHeroGridAndBadges();
+  updatePhase1Dashboard();
+  checkPhase1Completion();
+  applyPhase1Filters();
+  autoSave();
+
+  if (selectedHeroes.length) switchTab(3); // show the deck + per-card teaching
 }
 
 function autoSave() {
