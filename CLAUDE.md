@@ -172,14 +172,38 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
       as a warning, resolve/store by code, skip-hero and not-found reporting.
 - [x] Add `escapeHtml()` and apply at all data-derived interpolation sites.
 
-### Phase B — Data pipeline & validation
-- [ ] `scripts/sync-ringsdb.js` (dev-only, Node): fetch player cards from the
-      RingsDB API, regenerate `data.js`; curated `tags`/`summary` move to
-      `overlay.json` keyed by `ringsdb_code`.
-- [ ] `scripts/validate-data.js`: fail on duplicate `ringsdb_code`, quest tags
-      with no card-tag mapping, mapped tags absent from the card pool, missing
-      fields. Run after every data edit.
-- [ ] One-time cleanup of duplicated/templated summaries surfaced by the sync.
+### Phase B — Data pipeline & validation 🔶 MOSTLY DONE
+- [x] `scripts/validate-data.js`: fails on duplicate `ringsdb_code` and missing
+      required fields; warns on tag-mapping drift (mapped card-tags absent from
+      the pool) and unmeasurable quest tags. Reads the tag mapping straight out
+      of `app.js` so there's a single source of truth. Currently passes clean
+      (0 errors) with the expected `Contract`/`Cost Reduction`/`Solo Play`
+      advisory warning.
+- [x] `scripts/extract-overlay.js`: pulls curated `tags`/`summary` into
+      `overlay.json` keyed by `ringsdb_code` (1084 cards). Re-runnable.
+- [x] One-time cleanup: removed the 2 duplicate-code entries surfaced by the
+      validator. `01073` was the same Gandalf curated twice; `01001` was a
+      mis-coded distinct "Title attachment" Aragorn (looked AI-synthesized).
+      `data.js` is now 1084 cards with unique codes — matching the app's
+      post-dedup load, so nothing visible changed.
+- [🔶] `scripts/sync-ringsdb.js`: written and unit-tested (field mapping +
+      overlay merge + graceful failure), but **not yet run against the live
+      API** — `ringsdb.com` is blocked by the egress policy in the Claude Code
+      web sandbox (403 CONNECT). Run it on an unrestricted network:
+      `node scripts/sync-ringsdb.js` (dry run → `data.generated.js`), review,
+      then `--apply`. Verify the diff and re-run the validator afterward.
+
+### Dev scripts (zero runtime deps — Node stdlib only)
+
+| Command | What it does |
+|---|---|
+| `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors. **Run after any data edit.** |
+| `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
+| `node scripts/sync-ringsdb.js [--apply]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Needs network access to ringsdb.com. |
+
+`scripts/lib.js` holds the shared loaders (they `vm`-eval the browser data files
+and scrape `QUEST_TAG_TO_CARD_TAGS` out of `app.js`). `overlay.json` is the
+committed curation backup — the thing a stat re-sync must never clobber.
 
 ### Phase C — Rules & fellowship warnings (warn, don't block)
 - [ ] Minimum-50 semantics: <50 = "incomplete", >50 allowed with consistency note.

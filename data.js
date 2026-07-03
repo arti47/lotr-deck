@@ -16829,29 +16829,6 @@ const cardData = [
     "ringsdb_code": "20002"
   },
   {
-    "name": "Gandalf",
-    "sphere": "Neutral",
-    "type": "Ally",
-    "cost_threat": "5",
-    "traits": [
-      "Istari"
-    ],
-    "text": "At the end of the round, discard Gandalf from play. Response: After Gandalf enters play, (choose 1): draw 3 cards, deal 4 damage to 1 enemy in play, or reduce your threat by 5.",
-    "summary": "Gandalf draws 3 cards on demand by exhausting, providing reliable hand replenishment for Neutral decks.",
-    "tags": [
-      "Card Draw (Active)",
-      "Threat Reduction",
-      "Direct Damage"
-    ],
-    "willpower": 4,
-    "attack": 4,
-    "defense": 4,
-    "health": 4,
-    "is_unique": true,
-    "imagesrc": "https://ringsdb.com/bundles/cards/01073.png",
-    "ringsdb_code": "01073"
-  },
-  {
     "name": "Andrath Guardsman",
     "sphere": "Leadership",
     "type": "Ally",
@@ -20346,29 +20323,6 @@ const cardData = [
     "is_unique": true,
     "imagesrc": "https://ringsdb.com/bundles/cards/306182.png",
     "ringsdb_code": "306182"
-  },
-  {
-    "name": "Aragorn",
-    "sphere": "Leadership",
-    "type": "Hero",
-    "cost_threat": "12",
-    "traits": [
-      "Dúnedain",
-      "Ranger"
-    ],
-    "text": "Aragorn gains a resource icon matching each Title attachment attached to him.\nSetup: Search your collection for a Title attachment with a printed cost of 1 and attach it to Aragorn.\nAction: Ready a Title attachment with a printed cost of 1 attached to Aragorn. (Limit once per round.)",
-    "summary": "Aragorn readies after a triggered condition, effectively acting twice per round without needing Unexpected Courage.",
-    "tags": [
-      "Action Advantage (Readying)",
-      "Attachment Synergy"
-    ],
-    "willpower": 2,
-    "attack": 3,
-    "defense": 2,
-    "health": 5,
-    "is_unique": true,
-    "imagesrc": "https://ringsdb.com/bundles/cards/01001.png",
-    "ringsdb_code": "01001"
   },
   {
     "name": "A Fair Exchange",
