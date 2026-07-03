@@ -4,16 +4,18 @@
     "name": "Noldor",
     "identity": {
       "spheres": [
-        "Leadership",
         "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Spirit"
       ],
       "key_traits": [
         "Noldor"
       ]
     },
+    "heroes": [
+      "10084",
+      "10140",
+      "11001"
+    ],
     "core": [
       "01050",
       "04059",
@@ -1094,9 +1096,6 @@
     "name": "Gondor",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
-        "Neutral",
         "Spirit",
         "Tactics"
       ],
@@ -1104,6 +1103,11 @@
         "Gondor"
       ]
     },
+    "heroes": [
+      "07001",
+      "17055",
+      "22027"
+    ],
     "core": [
       "01026",
       "01073",
@@ -1996,18 +2000,19 @@
     "name": "Hobbit",
     "identity": {
       "spheres": [
-        "Baggins",
-        "Fellowship",
         "Leadership",
         "Lore",
-        "Neutral",
-        "Spirit",
         "Tactics"
       ],
       "key_traits": [
         "Hobbit"
       ]
     },
+    "heroes": [
+      "141002",
+      "141003",
+      "141004"
+    ],
     "core": [
       "02103",
       "04108",
@@ -2858,14 +2863,17 @@
       "spheres": [
         "Leadership",
         "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Spirit"
       ],
       "key_traits": [
         "Rohan"
       ]
     },
+    "heroes": [
+      "01002",
+      "01007",
+      "01012"
+    ],
     "core": [
       "01050",
       "01057",
@@ -3510,18 +3518,19 @@
     "name": "Dwarf",
     "identity": {
       "spheres": [
-        "Baggins",
-        "Fellowship",
         "Leadership",
         "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Spirit"
       ],
       "key_traits": [
         "Dwarf"
       ]
     },
+    "heroes": [
+      "02116",
+      "131003",
+      "131004"
+    ],
     "core": [
       "01073",
       "01059",
@@ -4149,17 +4158,18 @@
     "name": "Dúnedain",
     "identity": {
       "spheres": [
-        "Fellowship",
         "Leadership",
-        "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Lore"
       ],
       "key_traits": [
         "Dúnedain"
       ]
     },
+    "heroes": [
+      "01001",
+      "01002",
+      "01010"
+    ],
     "core": [
       "01026",
       "01073",
@@ -4717,14 +4727,17 @@
       "spheres": [
         "Leadership",
         "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Spirit"
       ],
       "key_traits": [
         "Silvan"
       ]
     },
+    "heroes": [
+      "08001",
+      "08056",
+      "08112"
+    ],
     "core": [
       "08063",
       "01060",
@@ -5109,16 +5122,15 @@
     "name": "Istari",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Neutral"
       ],
       "key_traits": [
         "Istari"
       ]
     },
+    "heroes": [
+      "142002"
+    ],
     "core": [
       "142009",
       "142008",
@@ -5380,13 +5392,17 @@
       "spheres": [
         "Leadership",
         "Lore",
-        "Spirit",
-        "Tactics"
+        "Spirit"
       ],
       "key_traits": [
         "Dale"
       ]
     },
+    "heroes": [
+      "01012",
+      "18001",
+      "18002"
+    ],
     "core": [
       "18004",
       "18008",
@@ -5631,15 +5647,18 @@
     "name": "Beorning",
     "identity": {
       "spheres": [
-        "Leadership",
         "Lore",
-        "Spirit",
         "Tactics"
       ],
       "key_traits": [
         "Beorning"
       ]
     },
+    "heroes": [
+      "145002",
+      "19001",
+      "19145"
+    ],
     "core": [
       "19005",
       "02098",
@@ -5783,14 +5802,15 @@
     "name": "Ent",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
-        "Tactics"
+        "Lore"
       ],
       "key_traits": [
         "Ent"
       ]
     },
+    "heroes": [
+      "143003"
+    ],
     "core": [
       "143009",
       "04108",
@@ -5906,16 +5926,15 @@
     "name": "Harad",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
-        "Neutral",
-        "Spirit",
-        "Tactics"
+        "Leadership"
       ],
       "key_traits": [
         "Harad"
       ]
     },
+    "heroes": [
+      "17001"
+    ],
     "core": [
       "17004",
       "17006",
@@ -6013,14 +6032,17 @@
     "identity": {
       "spheres": [
         "Leadership",
-        "Lore",
-        "Spirit",
         "Tactics"
       ],
       "key_traits": [
         "Creature"
       ]
     },
+    "heroes": [
+      "22108",
+      "302038",
+      "302039"
+    ],
     "core": [
       "19031",
       "22117",
@@ -6110,15 +6132,17 @@
     "name": "Woodman",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
-        "Neutral",
-        "Spirit"
+        "Lore"
       ],
       "key_traits": [
         "Woodman"
       ]
     },
+    "heroes": [
+      "08056",
+      "144003",
+      "19026"
+    ],
     "core": [
       "04083",
       "04108",
@@ -6228,8 +6252,6 @@
     "name": "Corsair",
     "identity": {
       "spheres": [
-        "Leadership",
-        "Lore",
         "Spirit",
         "Tactics"
       ],
@@ -6237,6 +6259,11 @@
         "Corsair"
       ]
     },
+    "heroes": [
+      "08112",
+      "12109",
+      "145002"
+    ],
     "core": [
       "12034",
       "01034",
@@ -6327,14 +6354,17 @@
     "identity": {
       "spheres": [
         "Leadership",
-        "Lore",
-        "Neutral",
-        "Tactics"
+        "Lore"
       ],
       "key_traits": [
         "Isengard"
       ]
     },
+    "heroes": [
+      "06001",
+      "07002",
+      "22054"
+    ],
     "core": [
       "17037",
       "22057",
@@ -6491,14 +6521,17 @@
     "name": "Esgaroth",
     "identity": {
       "spheres": [
-        "Lore",
-        "Spirit",
         "Tactics"
       ],
       "key_traits": [
         "Esgaroth"
       ]
     },
+    "heroes": [
+      "05001",
+      "132003",
+      "145002"
+    ],
     "core": [
       "131015",
       "132015",
@@ -6591,6 +6624,11 @@
         "Bree"
       ]
     },
+    "heroes": [
+      "131005",
+      "303071",
+      "303073"
+    ],
     "core": [
       "303075",
       "303078",

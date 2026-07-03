@@ -235,12 +235,24 @@ function main() {
         quest: quest ? quest.quest_id : null,
       }));
 
-    const spheres = [...cl.spheres].sort();
+    // Representative hero lineup = the single most common exact hero set among
+    // the cluster's decks. D3 generates from this; its spheres define the
+    // archetype (the union of spheres across a big cluster is noise).
+    const comboFreq = {};
+    cl.decks.forEach(({ split }) => {
+      const k = [...split.heroCodes].sort().join(',');
+      if (k) comboFreq[k] = (comboFreq[k] || 0) + 1;
+    });
+    const topCombo = Object.entries(comboFreq).sort((a, b) => b[1] - a[1])[0];
+    const heroes = topCombo ? topCombo[0].split(',') : [];
+    const spheres = [...new Set(heroes.map(h => byCode.get(h)?.sphere).filter(Boolean))].sort();
+
     const name = cl.trait === 'Generic' ? `${spheres.join('/')} (generic)` : cl.trait;
     archetypes.push({
       id: slug(name),
       name,
       identity: { spheres, key_traits: cl.trait === 'Generic' ? [] : [cl.trait] },
+      heroes,
       core, flex, good_at, weak_at,
       sources,
       confidence: 'mined',

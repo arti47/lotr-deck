@@ -144,6 +144,12 @@ if (fs.existsSync(archPath)) {
     [...(a.core || []), ...(a.flex || [])].forEach(code => {
       if (!byCode.has(code)) err(`archetype "${label}" references card code ${code} not in data.js (staleness)`);
     });
+    // heroes (D3 generates from these): codes exist and are actually Hero type.
+    (a.heroes || []).forEach(code => {
+      const c = byCode.get(code);
+      if (!c) err(`archetype "${label}" hero code ${code} not in data.js (staleness)`);
+      else if (c.type !== 'Hero') err(`archetype "${label}" hero code ${code} (${c.name}) is not a Hero`);
+    });
     (a.sources || []).forEach(s => {
       if (s.quest && !questById.has(s.quest)) err(`archetype "${label}" source quest "${s.quest}" is not a known quest_id`);
     });
