@@ -1,7 +1,33 @@
 let cardDatabase = [];
 let allHeroes = [];
 let allDeckCards = [];
+let allCardTags = new Set();   // every distinct card-level tag present in the pool
 let currentViewedCard = null;
+
+// Stable identity for a card. RingsDB codes are unique per printing; names are not
+// (dozens of names have multiple versions). Everything that stores or looks up a
+// card — deckMap, saved state, imports — keys on this, never on the bare name.
+function cardKey(card) {
+  return card && (card.ringsdb_code || `${card.name}|${card.sphere}|${card.type}`);
+}
+
+// Escape data-derived strings before interpolating them into innerHTML.
+function escapeHtml(s) {
+  if (s === null || s === undefined) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Deck total across a Map<key,{card,qty}>.
+function deckTotal(map) {
+  let n = 0;
+  map.forEach(i => { n += i.qty; });
+  return n;
+}
 
 // Each player owns heroes[] and deck Map. selectedHeroes/deckMap always point to the active player.
 let selectedHeroes = [];
@@ -45,7 +71,9 @@ window.onload = () => {
     const uniqueCards = [];
     const seenCards = new Set();
     cardData.forEach(card => {
-      const uniqueKey = `${card.name}-${card.sphere}-${card.type}`;
+      // Dedup on RingsDB code (unique per printing). The old name+sphere+type key
+      // collapsed distinct printings that share a name (e.g. multiple Frodos).
+      const uniqueKey = cardKey(card);
       if (!seenCards.has(uniqueKey)) {
         seenCards.add(uniqueKey);
         uniqueCards.push(card);
@@ -55,6 +83,8 @@ window.onload = () => {
     cardDatabase = uniqueCards;
     allHeroes    = cardDatabase.filter(c => c.type === 'Hero');
     allDeckCards = cardDatabase.filter(c => c.type !== 'Hero');
+    allCardTags  = new Set();
+    cardDatabase.forEach(c => (c.tags || []).forEach(t => allCardTags.add(t)));
 
     updatePlayerTabs();
     populatePhase1Dropdowns();
@@ -91,8 +121,8 @@ function initQuestDropdown() {
     activeQuest = questData.find(q => q.quest_name === e.target.value) || null;
     const heroRec = document.getElementById('quest-hero-recommendations');
     if (activeQuest) {
-      const diff = activeQuest.community_difficulty ? ` · Difficulty: ${activeQuest.community_difficulty}/10` : '';
-      questPreview.innerHTML = `<strong>Focus:</strong> ${activeQuest.quest_focus} &nbsp;·&nbsp; <strong>Pacing:</strong> ${activeQuest.pacing}${diff}`;
+      const diff = activeQuest.community_difficulty ? ` · Difficulty: ${escapeHtml(activeQuest.community_difficulty)}/10` : '';
+      questPreview.innerHTML = `<strong>Focus:</strong> ${escapeHtml(activeQuest.quest_focus)} &nbsp;·&nbsp; <strong>Pacing:</strong> ${escapeHtml(activeQuest.pacing)}${diff}`;
       const normStr = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
       const recommendedHeroes = (activeQuest.tech_cards_mentioned || [])
         .map(name => cardDatabase.find(c => c.name === name) || cardDatabase.find(c => normStr(c.name) === normStr(name)))
@@ -100,10 +130,10 @@ function initQuestDropdown() {
       if (recommendedHeroes.length) {
         const badges = recommendedHeroes.map(c => {
           const sc = TT_SPHERE_COLOR[c.sphere] || '#555';
-          return `<span class="p1-hero-rec" data-imagesrc="${c.imagesrc||''}" data-cardname="${c.name}" data-ringsdbcode="${c.ringsdb_code||''}"
+          return `<span class="p1-hero-rec" data-imagesrc="${escapeHtml(c.imagesrc||'')}" data-cardname="${escapeHtml(c.name)}" data-ringsdbcode="${escapeHtml(c.ringsdb_code||'')}"
             style="display:inline-flex;align-items:center;gap:4px;margin:2px 4px 2px 0;cursor:pointer;">
-            <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${c.sphere}</span>
-            <span style="font-size:0.85em;text-decoration:underline dotted #aaa;" title="${c.name}">${c.name}</span>
+            <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${escapeHtml(c.sphere)}</span>
+            <span style="font-size:0.85em;text-decoration:underline dotted #aaa;" title="${escapeHtml(c.name)}">${escapeHtml(c.name)}</span>
           </span>`;
         }).join('');
         heroRec.innerHTML = `<span style="font-size:0.82em;color:#0056b3;font-weight:bold;">Recommended heroes:</span> ${badges}`;
@@ -188,29 +218,39 @@ function wireHeroRecPreviews() {
 
 function serializeState() {
   return {
-    version: 1,
+    version: 2,
     activeQuestName: activeQuest ? activeQuest.quest_name : null,
     activePlayer,
     players: players.map(p => ({
       name: p.name,
+      // Persist RingsDB codes (with heroNames kept only for the saved-decks
+      // preview line). Codes restore the exact printing; names could not.
+      heroCodes: p.heroes.map(h => h.ringsdb_code || null),
       heroNames: p.heroes.map(h => h.name),
-      deck: Array.from(p.deck.entries()).map(([name, item]) => [name, item.qty])
+      deck: Array.from(p.deck.values()).map(item => [cardKey(item.card), item.qty])
     }))
   };
 }
 
 function deserializeState(data) {
-  if (!data || data.version !== 1) return false;
+  if (!data || (data.version !== 1 && data.version !== 2)) return false;
+  const v1 = data.version === 1;
   activeQuest = data.activeQuestName
     ? (questData.find(q => q.quest_name === data.activeQuestName) || null)
     : null;
   players.length = 0;
   (data.players || []).forEach(p => {
-    const heroes = (p.heroNames || []).map(n => allHeroes.find(h => h.name === n)).filter(Boolean);
-    const deck   = new Map();
-    (p.deck || []).forEach(([name, qty]) => {
-      const card = allDeckCards.find(c => c.name === name);
-      if (card) deck.set(name, { card, qty });
+    // v1 stored hero/card names; v2 stores ringsdb codes. Resolve by code when
+    // present, fall back to name for legacy saves.
+    const heroes = v1
+      ? (p.heroNames || []).map(n => allHeroes.find(h => h.name === n)).filter(Boolean)
+      : (p.heroCodes || []).map(code => allHeroes.find(h => h.ringsdb_code === code)).filter(Boolean);
+    const deck = new Map();
+    (p.deck || []).forEach(([key, qty]) => {
+      const card = v1
+        ? allDeckCards.find(c => c.name === key)
+        : (allDeckCards.find(c => cardKey(c) === key) || allDeckCards.find(c => c.name === key));
+      if (card) deck.set(cardKey(card), { card, qty });
     });
     players.push({ name: p.name, heroes, deck });
   });
@@ -228,7 +268,7 @@ function restoreQuestDropdown() {
   sel.value = activeQuest ? activeQuest.quest_name : '';
   if (qp) {
     qp.innerHTML = activeQuest
-      ? `<strong>Focus:</strong> ${activeQuest.quest_focus} &nbsp;·&nbsp; <strong>Pacing:</strong> ${activeQuest.pacing}${activeQuest.community_difficulty ? ` · Difficulty: ${activeQuest.community_difficulty}/10` : ''}`
+      ? `<strong>Focus:</strong> ${escapeHtml(activeQuest.quest_focus)} &nbsp;·&nbsp; <strong>Pacing:</strong> ${escapeHtml(activeQuest.pacing)}${activeQuest.community_difficulty ? ` · Difficulty: ${escapeHtml(activeQuest.community_difficulty)}/10` : ''}`
       : '';
   }
 }
@@ -289,10 +329,11 @@ function renderSavedDecksList() {
   }
   container.innerHTML = decks.slice().reverse().map(d => {
     const date     = new Date(d.savedAt).toLocaleDateString();
-    const heroLine = (d.state.players || []).map(p => (p.heroNames || []).join(', ') || '(no heroes)').join(' | ');
+    const heroLine = escapeHtml((d.state.players || []).map(p => (p.heroNames || []).join(', ') || '(no heroes)').join(' | '));
+    const safeName = escapeHtml(d.name);
     return `<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid #eee;">
       <div style="flex:1;min-width:0;">
-        <div style="font-weight:bold;font-size:0.88em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${d.name}">${d.name}</div>
+        <div style="font-weight:bold;font-size:0.88em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${safeName}">${safeName}</div>
         <div style="font-size:0.75em;color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${heroLine}">${date} · ${heroLine}</div>
       </div>
       <button onclick="loadNamedDeck(${d.id})" style="padding:2px 8px;font-size:0.8em;background:#007bff;color:#fff;border:none;border-radius:3px;cursor:pointer;white-space:nowrap;">Load</button>
@@ -337,6 +378,7 @@ function switchPlayer(index) {
   applyPhase1Filters();
   if (document.getElementById('phase2').classList.contains('active')) initPhase2();
   if (document.getElementById('phase3').classList.contains('active')) { initPhase3(); renderQuestMatchup(); }
+  autoSave();
 }
 
 function addPlayer() {
@@ -351,6 +393,9 @@ function addPlayer() {
 function removePlayer(index) {
   if (players.length <= 1) return;
   players.splice(index, 1);
+  // Keep activePlayer pointing at the same player. Removing one before it shifts
+  // every later index down by one; removing the active/last one clamps to the end.
+  if (index < activePlayer) activePlayer--;
   if (activePlayer >= players.length) activePlayer = players.length - 1;
   selectedHeroes = players[activePlayer].heroes;
   deckMap        = players[activePlayer].deck;
@@ -441,7 +486,7 @@ function renderHeroes(heroesToRender) {
     div.dataset.heroname    = hero.name;
     div.dataset.ringsdbcode = hero.ringsdb_code || '';
     if (selectedHeroes.some(h => heroMatches(h, hero.ringsdb_code, hero.name))) div.classList.add('selected');
-    div.innerHTML = `<strong>${hero.name}</strong><br><span style="font-size:0.9em;color:#555;">${hero.sphere} | Threat: ${hero.cost_threat}</span>`;
+    div.innerHTML = `<strong>${escapeHtml(hero.name)}</strong><br><span style="font-size:0.9em;color:#555;">${escapeHtml(hero.sphere)} | Threat: ${escapeHtml(hero.cost_threat)}</span>`;
     div.onclick = () => toggleHeroSelection(hero, div);
     container.appendChild(div);
   });
@@ -486,14 +531,14 @@ function updatePhase1Dashboard() {
     const div = document.createElement('div');
     div.className = 'detail-card';
     div.style.position = 'relative';
-    const traits  = hero.traits ? hero.traits.join(', ') : 'None';
-    const text    = hero.text   ? hero.text.replace(/\n/g, '<br><br>') : 'No text available.';
-    const summary = hero.summary || '';
+    const traits  = hero.traits ? escapeHtml(hero.traits.join(', ')) : 'None';
+    const text    = hero.text   ? escapeHtml(hero.text).replace(/\n/g, '<br><br>') : 'No text available.';
+    const summary = escapeHtml(hero.summary || '');
     div.innerHTML = `
-      <button class="hero-remove-btn" data-heroname="${hero.name}" title="Remove hero" style="position:absolute;top:8px;right:8px;background:none;border:1px solid #ddd;border-radius:50%;width:22px;height:22px;font-size:15px;line-height:1;cursor:pointer;color:#aaa;padding:0;display:flex;align-items:center;justify-content:center;">×</button>
+      <button class="hero-remove-btn" data-heroname="${escapeHtml(hero.name)}" data-ringsdbcode="${escapeHtml(hero.ringsdb_code || '')}" title="Remove hero" style="position:absolute;top:8px;right:8px;background:none;border:1px solid #ddd;border-radius:50%;width:22px;height:22px;font-size:15px;line-height:1;cursor:pointer;color:#aaa;padding:0;display:flex;align-items:center;justify-content:center;">×</button>
       ${renderCardImage(hero)}
-      <h3>${hero.name}</h3>
-      <p class="stats">Sphere: ${hero.sphere} | Threat: ${hero.cost_threat}</p>
+      <h3>${escapeHtml(hero.name)}</h3>
+      <p class="stats">Sphere: ${escapeHtml(hero.sphere)} | Threat: ${escapeHtml(hero.cost_threat)}</p>
       ${renderStatBadges(hero)}
       <p><em><strong>Traits:</strong> ${traits}</em></p>
       <hr style="border:0;border-top:1px solid #eee;margin:10px 0;">
@@ -506,7 +551,7 @@ function updatePhase1Dashboard() {
 
   container.querySelectorAll('.hero-remove-btn').forEach(btn => {
     btn.onclick = () => {
-      const idx = selectedHeroes.findIndex(h => h.name === btn.dataset.heroname);
+      const idx = selectedHeroes.findIndex(h => heroMatches(h, btn.dataset.ringsdbcode, btn.dataset.heroname));
       if (idx > -1) selectedHeroes.splice(idx, 1);
       syncHeroGridAndBadges();
       updatePhase1Dashboard();
@@ -619,7 +664,8 @@ function renderDeckCards(cardsToRender) {
     const div = document.createElement('div');
     div.className = 'hero-card';
 
-    const qty = deckMap.has(card.name) ? deckMap.get(card.name).qty : 0;
+    const entry = deckMap.get(cardKey(card));
+    const qty = entry ? entry.qty : 0;
     if (qty > 0) {
       div.classList.add('selected');
       const badge = document.createElement('div');
@@ -632,7 +678,7 @@ function renderDeckCards(cardsToRender) {
     nameSpan.textContent = card.name;
     const detailSpan = document.createElement('span');
     detailSpan.style.cssText = 'font-size:0.9em;color:#555;';
-    detailSpan.innerHTML = `<br>${card.type} | Cost: ${card.cost_threat}`;
+    detailSpan.innerHTML = `<br>${escapeHtml(card.type)} | Cost: ${escapeHtml(card.cost_threat)}`;
     div.appendChild(nameSpan);
     div.appendChild(detailSpan);
 
@@ -651,11 +697,12 @@ function refreshDeckUI() {
 }
 
 function addCardToDeck(card) {
-  const total = Array.from(deckMap.values()).reduce((s, i) => s + i.qty, 0);
+  const total = deckTotal(deckMap);
   if (total >= 50) return alert('Your deck is full! (50 cards maximum).');
-  const cur = deckMap.has(card.name) ? deckMap.get(card.name).qty : 0;
+  const key = cardKey(card);
+  const cur = deckMap.has(key) ? deckMap.get(key).qty : 0;
   if (cur >= 3) return alert('You can only have up to 3 copies of a card.');
-  deckMap.set(card.name, { card, qty: cur + 1 });
+  deckMap.set(key, { card, qty: cur + 1 });
   refreshDeckUI();
 }
 
@@ -667,21 +714,23 @@ function clearDeck() {
 }
 
 function removeCardFromDeck(card) {
-  if (!deckMap.has(card.name)) return;
-  const cur = deckMap.get(card.name).qty;
-  if (cur > 1) deckMap.set(card.name, { card, qty: cur - 1 });
-  else deckMap.delete(card.name);
+  const key = cardKey(card);
+  if (!deckMap.has(key)) return;
+  const cur = deckMap.get(key).qty;
+  if (cur > 1) deckMap.set(key, { card, qty: cur - 1 });
+  else deckMap.delete(key);
   refreshDeckUI();
 }
 
 function renderDeckStatsBar() {
   const bar = document.getElementById('deck-stats-bar');
   if (!bar) return;
-  let allies = 0, attachments = 0, events = 0, totalCost = 0, costCount = 0;
+  let allies = 0, attachments = 0, events = 0, sideQuests = 0, totalCost = 0, costCount = 0;
   deckMap.forEach(({ card, qty }) => {
     if (card.type === 'Ally')       allies += qty;
     else if (card.type === 'Attachment') attachments += qty;
     else if (card.type === 'Event') events += qty;
+    else if (card.type === 'Player Side Quest') sideQuests += qty;
     const c = parseInt(card.cost_threat);
     if (!isNaN(c)) { totalCost += c * qty; costCount += qty; }
   });
@@ -690,6 +739,7 @@ function renderDeckStatsBar() {
     <span style="background:#dbeafe;padding:2px 8px;border-radius:10px;">${allies} Allies</span>
     <span style="background:#fce7f3;padding:2px 8px;border-radius:10px;">${attachments} Attachments</span>
     <span style="background:#d1fae5;padding:2px 8px;border-radius:10px;">${events} Events</span>
+    ${sideQuests ? `<span style="background:#ede9fe;padding:2px 8px;border-radius:10px;">${sideQuests} Side Quests</span>` : ''}
     <span style="background:#fef9c3;padding:2px 8px;border-radius:10px;">Avg cost: ${avg}</span>
   </div>`;
 }
@@ -701,15 +751,14 @@ function updatePhase2Dashboard() {
 
   const listContainer = document.getElementById('decklist-container');
   listContainer.innerHTML = '';
-  const sortedNames = Array.from(deckMap.keys()).sort();
-  if (sortedNames.length === 0) {
+  const sortedItems = Array.from(deckMap.values()).sort((a, b) => a.card.name.localeCompare(b.card.name));
+  if (sortedItems.length === 0) {
     listContainer.innerHTML = '<span style="color:#999;font-style:italic;">No cards added yet.</span>';
   } else {
-    sortedNames.forEach(name => {
-      const item = deckMap.get(name);
+    sortedItems.forEach(item => {
       const div = document.createElement('div');
       div.className = 'decklist-item';
-      div.innerHTML = `<span><strong>${item.qty}x</strong> ${name}</span>`;
+      div.innerHTML = `<span><strong>${item.qty}x</strong> ${escapeHtml(item.card.name)}</span>`;
       div.onclick = () => { currentViewedCard = item.card; updatePhase2Dashboard(); };
       listContainer.appendChild(div);
     });
@@ -722,16 +771,16 @@ function updatePhase2Dashboard() {
   }
 
   const card     = currentViewedCard;
-  const traits   = card.traits ? card.traits.join(', ') : 'None';
-  const text     = card.text   ? card.text.replace(/\n/g, '<br><br>') : 'No text available.';
-  const summary  = card.summary || '';
-  const cur      = deckMap.has(card.name) ? deckMap.get(card.name).qty : 0;
+  const traits   = card.traits ? escapeHtml(card.traits.join(', ')) : 'None';
+  const text     = card.text   ? escapeHtml(card.text).replace(/\n/g, '<br><br>') : 'No text available.';
+  const summary  = escapeHtml(card.summary || '');
+  const cur      = deckMap.has(cardKey(card)) ? deckMap.get(cardKey(card)).qty : 0;
 
   detailsContainer.innerHTML = `
     <div class="detail-card" style="margin-bottom:0;">
       ${renderCardImage(card)}
-      <h3>${card.name}</h3>
-      <p class="stats">Sphere: ${card.sphere || 'Neutral'} | Type: ${card.type} | Cost: ${card.cost_threat}</p>
+      <h3>${escapeHtml(card.name)}</h3>
+      <p class="stats">Sphere: ${escapeHtml(card.sphere || 'Neutral')} | Type: ${escapeHtml(card.type)} | Cost: ${escapeHtml(card.cost_threat)}</p>
       ${renderStatBadges(card)}
       <p><em><strong>Traits:</strong> ${traits}</em></p>
       <hr style="border:0;border-top:1px solid #eee;margin:10px 0;">
@@ -757,13 +806,30 @@ function importDecklist() {
   const text = document.getElementById('import-textarea').value;
   if (!text.trim()) return alert('Please paste a decklist first.');
 
+  // Confirm before discarding the current player's heroes/deck.
+  if ((selectedHeroes.length || deckMap.size) &&
+      !confirm('Importing replaces this player\'s current heroes and deck. Continue?')) return;
+
   // Clear current player's deck in-place (preserves the reference in players[])
   selectedHeroes.splice(0);
   deckMap.clear();
 
+  // Resolve a printed name to a card. Try the line as-is first so names that
+  // legitimately end in a parenthetical (e.g. "Gandalf (MotK)") still match;
+  // only if that fails do we strip a trailing "(set/sphere)" annotation.
+  const resolve = name => {
+    const lc = name.toLowerCase();
+    let m = cardDatabase.find(c => c.name.toLowerCase() === lc);
+    if (m) return m;
+    const stripped = name.replace(/\s*\(.*?\)\s*$/, '').trim().toLowerCase();
+    if (stripped && stripped !== lc) m = cardDatabase.find(c => c.name.toLowerCase() === stripped);
+    return m || null;
+  };
+
   const lines = text.split('\n');
   let cardsFound = 0;
   const notFound = [];
+  const skippedHeroes = [];
 
   lines.forEach(line => {
     let cleanLine = line.trim();
@@ -771,20 +837,22 @@ function importDecklist() {
 
     let qty = 1;
     const qtyMatch = cleanLine.match(/^(\d+)x?\s+(.+)$/i);
-    if (qtyMatch) { qty = parseInt(qtyMatch[1]); cleanLine = qtyMatch[2]; }
+    if (qtyMatch) { qty = parseInt(qtyMatch[1]); cleanLine = qtyMatch[2].trim(); }
 
-    cleanLine = cleanLine.replace(/\s*\(.*?\)\s*$/, '').trim();
-    const matched = cardDatabase.find(c => c.name.toLowerCase() === cleanLine.toLowerCase());
+    const matched = resolve(cleanLine);
 
     if (matched) {
       cardsFound++;
       if (matched.type === 'Hero') {
-        if (selectedHeroes.length < 3 && !selectedHeroes.some(h => h.name === matched.name))
-          selectedHeroes.push(matched);
+        if (selectedHeroes.some(h => heroMatches(h, matched.ringsdb_code, matched.name))) return;
+        if (selectedHeroes.length < 3) selectedHeroes.push(matched);
+        else skippedHeroes.push(matched.name);
       } else {
-        deckMap.set(matched.name, { card: matched, qty: Math.min(qty, 3) });
+        const key = cardKey(matched);
+        const cur = deckMap.has(key) ? deckMap.get(key).qty : 0;
+        deckMap.set(key, { card: matched, qty: Math.min(cur + qty, 3) });
       }
-    } else if (cleanLine && !cleanLine.includes('Threat:') && !['Allies','Events','Attachments'].some(w => cleanLine.includes(w))) {
+    } else if (cleanLine && !cleanLine.includes('Threat:') && !['Allies','Events','Attachments','Side Quests'].some(w => cleanLine.includes(w))) {
       notFound.push(cleanLine);
     }
   });
@@ -794,9 +862,14 @@ function importDecklist() {
   applyPhase1Filters();
   applyPhase2Filters();
   updatePhase2Dashboard();
+  renderPhase2QuestPanel();
+  autoSave();
 
   if (cardsFound > 0) {
-    let msg = `Imported ${selectedHeroes.length} Heroes and ${Array.from(deckMap.values()).reduce((s,i) => s+i.qty,0)} Cards!`;
+    const total = deckTotal(deckMap);
+    let msg = `Imported ${selectedHeroes.length} Heroes and ${total} Cards!`;
+    if (total > 50) msg += `\n\nNote: ${total} deck cards exceeds the 50-card minimum — trim for consistency.`;
+    if (skippedHeroes.length) msg += `\n\nSkipped (already 3 heroes):\n- ${skippedHeroes.join('\n- ')}`;
     if (notFound.length) msg += `\n\nCould not find:\n- ${notFound.join('\n- ')}`;
     alert(msg);
   } else {
@@ -835,10 +908,11 @@ function renderDeckHealth() {
   const allyCount       = deckItems.filter(i => i.card.type === 'Ally').reduce((s, i) => s + i.qty, 0);
   const attachmentCount = deckItems.filter(i => i.card.type === 'Attachment').reduce((s, i) => s + i.qty, 0);
   const eventCount      = deckItems.filter(i => i.card.type === 'Event').reduce((s, i) => s + i.qty, 0);
+  const sideQuestCount  = deckItems.filter(i => i.card.type === 'Player Side Quest').reduce((s, i) => s + i.qty, 0);
 
-  // Card draw (tagged)
+  // Card draw (tagged). The data uses "Card Draw (Active)" and "Card Draw (Passive)".
   const cardDrawCount = deckItems
-    .filter(i => i.card.tags && (i.card.tags.includes('Card Draw (Active)') || i.card.tags.includes('Card Draw (Reactive)')))
+    .filter(i => i.card.tags && (i.card.tags.includes('Card Draw (Active)') || i.card.tags.includes('Card Draw (Passive)')))
     .reduce((s, i) => s + i.qty, 0);
 
   // Cost curve: % of deck cards costing 3+
@@ -940,6 +1014,7 @@ function renderDeckHealth() {
     metricRow(allyColor,  'Allies',         allyCount,           'target ~25') +
     metricRow(attColor,   'Attachments',    attachmentCount,     'target 12–13') +
     metricRow(evtColor,   'Events',         eventCount,          'target 12–13') +
+    (sideQuestCount ? metricRow(G, 'Side Quests', sideQuestCount, 'optional') : '') +
 
     sectionHdr('Coverage') +
     metricRow(drawColor,   'Card Draw',      `${cardDrawCount}`,  drawNote) +
@@ -958,7 +1033,7 @@ function renderFellowshipStats() {
 
   const rows = players.map((p, i) => {
     const threat = p.heroes.reduce((s, h) => s + parseInt(h.cost_threat || 0), 0);
-    const deckTotal = Array.from(p.deck.values()).reduce((s, item) => s + item.qty, 0);
+    const pTotal = deckTotal(p.deck);
 
     [...p.heroes.map(h => ({ card: h, qty: 1 })), ...Array.from(p.deck.values())].forEach(({ card: c, qty }) => {
       totWP  += (c.willpower || 0) * qty;
@@ -969,7 +1044,7 @@ function renderFellowshipStats() {
 
     const isActive = i === activePlayer;
     return `<div style="padding:6px 12px;border-radius:4px;border:1px solid ${isActive ? '#007bff' : '#ddd'};background:${isActive ? '#e8f4ff' : '#f8f9fa'};">
-      <strong>${p.name}</strong> &nbsp;·&nbsp; Threat: ${threat} &nbsp;·&nbsp; ${p.heroes.length} heroes &nbsp;·&nbsp; ${deckTotal} cards
+      <strong>${escapeHtml(p.name)}</strong> &nbsp;·&nbsp; Threat: ${threat} &nbsp;·&nbsp; ${p.heroes.length} heroes &nbsp;·&nbsp; ${pTotal} cards
     </div>`;
   });
 
@@ -1020,9 +1095,17 @@ function renderCostCurve() {
     const rect = document.createElement('div');
     rect.style.cssText = `width:70%;height:${heightPct}%;background:#007bff;border-radius:3px 3px 0 0;min-height:2px;transition:background 0.15s;`;
 
-    barDiv.innerHTML = `<span style="font-size:0.9em;color:#666;font-weight:bold;">${count}</span>`;
+    // Build children as nodes. Using `innerHTML +=` after appendChild would
+    // re-parse the bar and detach the live `rect` the hover handler mutates.
+    const countLabel = document.createElement('span');
+    countLabel.style.cssText = 'font-size:0.9em;color:#666;font-weight:bold;';
+    countLabel.textContent = count;
+    const costLabel = document.createElement('strong');
+    costLabel.style.marginTop = '8px';
+    costLabel.textContent = cost;
+    barDiv.appendChild(countLabel);
     barDiv.appendChild(rect);
-    barDiv.innerHTML += `<strong style="margin-top:8px;">${cost}</strong>`;
+    barDiv.appendChild(costLabel);
 
     barDiv.addEventListener('mouseenter', () => {
       if (activeRect) activeRect.style.background = '#007bff';
@@ -1047,29 +1130,29 @@ function showCostCardList(costKey, items) {
   const label = costKey === '0' ? 'Cost 0 / X' : `Cost ${costKey}`;
   let html = `<strong style="color:#0056b3;">${label}</strong><ul style="margin:6px 0 0 0;padding-left:18px;line-height:1.8;">`;
   items.forEach(({ card, qty }) => {
-    html += `<li><a href="#" style="text-decoration:none;color:#333;" data-card="${card.name}">${qty}× ${card.name}</a> <span style="color:#999;font-size:0.85em;">(${card.type})</span></li>`;
+    html += `<li><a href="#" style="text-decoration:none;color:#333;" data-key="${escapeHtml(cardKey(card))}">${qty}× ${escapeHtml(card.name)}</a> <span style="color:#999;font-size:0.85em;">(${escapeHtml(card.type)})</span></li>`;
   });
   html += '</ul>';
   listDiv.innerHTML = html;
 
-  listDiv.querySelectorAll('a[data-card]').forEach(link => {
+  listDiv.querySelectorAll('a[data-key]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      const found = items.find(i => i.card.name === link.dataset.card);
+      const found = items.find(i => cardKey(i.card) === link.dataset.key);
       if (found) showCostCardDetail(found.card);
     });
   });
 }
 
 function showCostCardDetail(card) {
-  const traits  = card.traits ? card.traits.join(', ') : 'None';
-  const text    = card.text   ? card.text.replace(/\n/g, '<br><br>') : 'No text available.';
-  const summary = card.summary || '';
+  const traits  = card.traits ? escapeHtml(card.traits.join(', ')) : 'None';
+  const text    = card.text   ? escapeHtml(card.text).replace(/\n/g, '<br><br>') : 'No text available.';
+  const summary = escapeHtml(card.summary || '');
   document.getElementById('cost-card-detail').innerHTML = `
     <div class="detail-card" style="margin-bottom:0;margin-top:0;border-color:#0056b3;">
       ${renderCardImage(card)}
-      <h3 style="color:#0056b3;">${card.name}</h3>
-      <p class="stats">Sphere: ${card.sphere} | Type: ${card.type} | Cost: ${card.cost_threat}</p>
+      <h3 style="color:#0056b3;">${escapeHtml(card.name)}</h3>
+      <p class="stats">Sphere: ${escapeHtml(card.sphere)} | Type: ${escapeHtml(card.type)} | Cost: ${escapeHtml(card.cost_threat)}</p>
       ${renderStatBadges(card)}
       <p><em><strong>Traits:</strong> ${traits}</em></p>
       <hr style="border:0;border-top:1px solid #eee;margin:10px 0;">
@@ -1145,10 +1228,10 @@ function renderSynergies() {
   const makeItems = (entries, type) => entries.map(([t, c]) => {
     const heroMark = (type === 'trait' && heroTraitSet.has(t))
       ? '<span style="color:#28a745;font-size:0.75em;margin-left:4px;">● hero</span>' : '';
-    const safe = t.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+    const safe = escapeHtml(t);
     return `<li class="syn-item" data-type="${type}" data-value="${safe}"
       style="cursor:pointer;padding:3px 5px;border-radius:3px;list-style:disc;">
-      ${t} <span style="color:#888;">(${c})</span>${heroMark}
+      ${safe} <span style="color:#888;">(${c})</span>${heroMark}
     </li>`;
   }).join('');
 
@@ -1169,7 +1252,7 @@ function renderSynergies() {
   const deckOnlyTraits = [...deckTraitSet].filter(t => !heroTraitSet.has(t));
 
   const pill = (t, bg, border) =>
-    `<span style="background:${bg};border:1px solid ${border};padding:1px 8px;border-radius:12px;margin:2px;display:inline-block;font-size:0.88em;">${t}</span>`;
+    `<span style="background:${bg};border:1px solid ${border};padding:1px 8px;border-radius:12px;margin:2px;display:inline-block;font-size:0.88em;">${escapeHtml(t)}</span>`;
 
   let alignHtml = '';
   if (sharedTraits.length)   alignHtml += `<div><span style="color:#28a745;font-weight:bold;">Synergistic:</span> ${sharedTraits.map(t=>pill(t,'#d4edda','#b1dfbb')).join('')}</div>`;
@@ -1200,27 +1283,27 @@ function showTraitDetail(type, traitName) {
 
   const allowedSpheres = selectedHeroes.map(h => h.sphere).concat(['Neutral', '']);
   const suggestions = allDeckCards.filter(card => {
-    if (deckMap.has(card.name)) return false;
+    if (deckMap.has(cardKey(card))) return false;
     if (!allowedSpheres.includes(card.sphere)) return false;
     const list = type === 'trait' ? (card.traits || []) : (card.tags || []);
     return list.includes(traitName);
   }).slice(0, 8);
 
   let html = `<div style="border-top:2px solid #0056b3;padding-top:14px;margin-top:14px;">
-    <strong style="color:#0056b3;font-size:1.05em;">${traitName}</strong>`;
+    <strong style="color:#0056b3;font-size:1.05em;">${escapeHtml(traitName)}</strong>`;
 
   if (heroMatches.length) {
     html += `<div style="margin-top:8px;"><strong>Heroes:</strong> ${heroMatches.map(h =>
-      `<span style="background:#e9f5ff;border:1px solid #b8d9ff;padding:2px 10px;border-radius:12px;margin:2px;display:inline-block;">${h.name}</span>`
+      `<span style="background:#e9f5ff;border:1px solid #b8d9ff;padding:2px 10px;border-radius:12px;margin:2px;display:inline-block;">${escapeHtml(h.name)}</span>`
     ).join('')}</div>`;
   }
 
   if (inDeck.length) {
-    const deckTotal = inDeck.reduce((s, i) => s + i.qty, 0);
-    html += `<div style="margin-top:10px;"><strong>In Deck (${deckTotal}):</strong>
+    const inDeckTotal = inDeck.reduce((s, i) => s + i.qty, 0);
+    html += `<div style="margin-top:10px;"><strong>In Deck (${inDeckTotal}):</strong>
       <ul style="margin:4px 0;padding-left:20px;line-height:1.7;font-size:0.9em;">`;
     inDeck.sort((a,b) => a.card.name.localeCompare(b.card.name)).forEach(({ card, qty }) => {
-      html += `<li>${qty}× ${card.name} <span style="color:#999;">(${card.type})</span></li>`;
+      html += `<li>${qty}× ${escapeHtml(card.name)} <span style="color:#999;">(${escapeHtml(card.type)})</span></li>`;
     });
     html += '</ul></div>';
   } else {
@@ -1232,7 +1315,7 @@ function showTraitDetail(type, traitName) {
       <strong>Suggestions (${suggestions.length} cards not in deck):</strong>
       <ul style="margin:4px 0;padding-left:20px;line-height:1.7;font-size:0.9em;">`;
     suggestions.forEach(card => {
-      html += `<li>${card.name} <span style="color:#999;">(${card.type} · Cost ${card.cost_threat} · ${card.sphere || 'Neutral'})</span></li>`;
+      html += `<li>${escapeHtml(card.name)} <span style="color:#999;">(${escapeHtml(card.type)} · Cost ${escapeHtml(card.cost_threat)} · ${escapeHtml(card.sphere || 'Neutral')})</span></li>`;
     });
     html += '</ul></div>';
   } else {
@@ -1250,18 +1333,25 @@ function evaluateQuestMatchup() {
   const deckCards = Array.from(player.deck.values());
   const heroes    = player.heroes;
 
+  const resolveCardTags = tag => QUEST_TAG_TO_CARD_TAGS[tag] || [tag];
+
+  // A quest tag is measurable only if at least one of its mapped card tags
+  // actually exists in the card pool. Otherwise scoring it would always read
+  // "Critical Tech Missing" regardless of the deck (e.g. Contract, Solo Play).
+  const isMeasurable = tag => resolveCardTags(tag).some(t => allCardTags.has(t));
+
   const getTagCount = tag => {
-    const cardTags = QUEST_TAG_TO_CARD_TAGS[tag] || [tag];
+    const cardTags = resolveCardTags(tag);
     return deckCards.reduce((n, item) =>
       n + ((item.card.tags && item.card.tags.some(t => cardTags.includes(t))) ? item.qty : 0), 0);
   };
 
-  const startingThreat = heroes.reduce((s, h) => s + parseInt(h.cost_threat || 0), 0);
-
   const techAlerts     = [];
   const punishedAlerts = [];
+  const unmeasuredTags = [];
 
   activeQuest.recommended_tags.forEach(tag => {
+    if (!isMeasurable(tag)) { unmeasuredTags.push(tag); return; }
     const count = getTagCount(tag);
     if (count <= 2) {
       techAlerts.push({ status: 'red',    tag, count, label: count === 0 ? 'Critical Tech Missing' : 'Insufficient coverage' });
@@ -1273,11 +1363,12 @@ function evaluateQuestMatchup() {
   });
 
   activeQuest.punished_tags.forEach(tag => {
+    if (!isMeasurable(tag)) return;
     const count = getTagCount(tag);
     if (count > 0) punishedAlerts.push({ tag, count });
   });
 
-  return { techAlerts, punishedAlerts };
+  return { techAlerts, punishedAlerts, unmeasuredTags };
 }
 
 // ==========================================
@@ -1301,7 +1392,7 @@ function getTagSuggestions(questTag) {
   const inSphere  = matching.filter(c => allowedSpheres.includes(c.sphere));
   const results   = inSphere.length ? inSphere : matching;
   return results
-    .sort((a, b) => (a.cost || 0) - (b.cost || 0))
+    .sort((a, b) => (parseInt(a.cost_threat) || 0) - (parseInt(b.cost_threat) || 0))
     .slice(0, 6)
     .map(c => ({ ...c, _outOfSphere: !allowedSpheres.includes(c.sphere) }));
 }
@@ -1321,25 +1412,27 @@ function populateTagTooltip(tag) {
   const hasOutOfSphere = suggestions.some(c => c._outOfSphere);
 
   if (!suggestions.length) {
-    tooltip.innerHTML = `<div style="font-weight:bold;margin-bottom:4px;font-size:0.9em;color:#0056b3;">Add cards for: ${tag}</div><div style="font-size:0.85em;color:#888;">No cards found for this tag.</div>`;
+    tooltip.innerHTML = `<div style="font-weight:bold;margin-bottom:4px;font-size:0.9em;color:#0056b3;">Add cards for: ${escapeHtml(tag)}</div><div style="font-size:0.85em;color:#888;">No cards found for this tag.</div>`;
   } else {
-    let inner = `<div style="font-weight:bold;margin-bottom:6px;font-size:0.9em;color:#0056b3;">Add cards for: ${tag}</div>`;
+    let inner = `<div style="font-weight:bold;margin-bottom:6px;font-size:0.9em;color:#0056b3;">Add cards for: ${escapeHtml(tag)}</div>`;
     if (hasOutOfSphere) {
       inner += `<div style="font-size:0.78em;color:#a0522d;margin-bottom:6px;">No in-sphere cards — showing off-sphere options.</div>`;
     }
     suggestions.forEach(card => {
       const sc  = TT_SPHERE_COLOR[card.sphere] || '#555';
-      const img = card.imagesrc || '';
-      const qty = deckMap.has(card.name) ? deckMap.get(card.name).qty : 0;
+      const img = escapeHtml(card.imagesrc || '');
+      const key = cardKey(card);
+      const qty = deckMap.has(key) ? deckMap.get(key).qty : 0;
+      const cost = parseInt(card.cost_threat);
       const addDisabled    = qty >= 3 ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"' : 'style="padding:1px 7px;font-size:0.78em;background:#0056b3;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
       const removeDisabled = qty === 0 ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"' : 'style="padding:1px 7px;font-size:0.78em;background:#888;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
       inner += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
-        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${card.sphere||'?'}</span>
-        <span class="tip-card-name" data-imagesrc="${img}" data-cardname="${card.name}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${card.name}">${card.name}</span>
-        <span style="font-size:0.78em;color:#888;margin-right:2px;">${card.cost != null ? card.cost+'g' : ''}</span>
+        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${escapeHtml(card.sphere||'?')}</span>
+        <span class="tip-card-name" data-imagesrc="${img}" data-cardname="${escapeHtml(card.name)}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${escapeHtml(card.name)}">${escapeHtml(card.name)}</span>
+        <span style="font-size:0.78em;color:#888;margin-right:2px;">${!isNaN(cost) ? cost+'g' : ''}</span>
         <span style="font-size:0.75em;color:#555;min-width:14px;text-align:center;">${qty > 0 ? qty+'×' : ''}</span>
-        <button data-cardname="${card.name}" data-action="add" ${addDisabled}>+</button>
-        <button data-cardname="${card.name}" data-action="remove" ${removeDisabled}>−</button>
+        <button data-key="${escapeHtml(key)}" data-action="add" ${addDisabled}>+</button>
+        <button data-key="${escapeHtml(key)}" data-action="remove" ${removeDisabled}>−</button>
       </div>`;
     });
     tooltip.innerHTML = inner;
@@ -1363,10 +1456,10 @@ function populateTagTooltip(tag) {
     span.addEventListener('mouseleave', () => { imgPreview.style.display = 'none'; });
   });
 
-  tooltip.querySelectorAll('button[data-cardname]').forEach(btn => {
+  tooltip.querySelectorAll('button[data-key]').forEach(btn => {
     btn.onclick = (e) => {
       e.stopPropagation();
-      const card = allDeckCards.find(c => c.name === btn.dataset.cardname);
+      const card = allDeckCards.find(c => cardKey(c) === btn.dataset.key);
       if (!card) return;
       ttSuppressHide = true;
       if (btn.dataset.action === 'remove') removeCardFromDeck(card);
@@ -1442,14 +1535,15 @@ function populatePunishedTooltip(tag) {
   const tooltip = document.getElementById('tag-suggestion-tooltip');
   const items   = getTagCards(tag);
 
-  let inner = `<div style="font-weight:bold;margin-bottom:6px;font-size:0.9em;color:#8B0000;">⛔ In deck with: ${tag}</div>`;
+  let inner = `<div style="font-weight:bold;margin-bottom:6px;font-size:0.9em;color:#8B0000;">⛔ In deck with: ${escapeHtml(tag)}</div>`;
 
   if (!items.length) {
     inner += `<div style="font-size:0.85em;color:#888;">No cards with this tag in your deck.</div>`;
   } else {
     items.forEach(({ card, qty }) => {
       const sc  = TT_SPHERE_COLOR[card.sphere] || '#555';
-      const img = card.imagesrc || '';
+      const img = escapeHtml(card.imagesrc || '');
+      const key = cardKey(card);
       const addDis = qty >= 3
         ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"'
         : 'style="padding:1px 7px;font-size:0.78em;background:#0056b3;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
@@ -1457,11 +1551,11 @@ function populatePunishedTooltip(tag) {
         ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"'
         : 'style="padding:1px 7px;font-size:0.78em;background:#dc3545;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
       inner += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
-        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${card.sphere||'?'}</span>
-        <span class="punished-card-name" data-imagesrc="${img}" data-cardname="${card.name}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${card.name}">${card.name}</span>
+        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${escapeHtml(card.sphere||'?')}</span>
+        <span class="punished-card-name" data-imagesrc="${img}" data-cardname="${escapeHtml(card.name)}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${escapeHtml(card.name)}">${escapeHtml(card.name)}</span>
         <span style="font-size:0.75em;color:#555;min-width:18px;text-align:center;">${qty > 0 ? qty+'×' : ''}</span>
-        <button class="punished-card-btn" data-cardname="${card.name}" data-action="add" ${addDis}>+</button>
-        <button class="punished-card-btn" data-cardname="${card.name}" data-action="remove" ${remDis}>−</button>
+        <button class="punished-card-btn" data-key="${escapeHtml(key)}" data-action="add" ${addDis}>+</button>
+        <button class="punished-card-btn" data-key="${escapeHtml(key)}" data-action="remove" ${remDis}>−</button>
       </div>`;
     });
   }
@@ -1489,7 +1583,7 @@ function populatePunishedTooltip(tag) {
   tooltip.querySelectorAll('.punished-card-btn').forEach(btn => {
     btn.onclick = e => {
       e.stopPropagation();
-      const card = allDeckCards.find(c => c.name === btn.dataset.cardname);
+      const card = allDeckCards.find(c => cardKey(c) === btn.dataset.key);
       if (!card) return;
       ttSuppressHide = true;
       if (btn.dataset.action === 'remove') removeCardFromDeck(card);
@@ -1571,25 +1665,29 @@ function renderQuestMatchup() {
   const statusColor = { red: '#c0392b', yellow: '#856404', green: '#1a7a3c' };
 
   let html = `<div style="margin-top:16px;padding:15px;border:2px solid #0056b3;background:#eef5fb;border-radius:6px;">
-    <strong style="color:#0056b3;font-size:1.05em;">Quest Matchup: ${activeQuest.quest_name}</strong>
-    <div style="font-size:0.82em;color:#666;margin-top:2px;">${activeQuest.quest_focus} · Pacing: ${activeQuest.pacing}</div>
-    ${activeQuest.hazards_description ? `<p style="font-size:0.88em;color:#444;margin:8px 0 10px;">${activeQuest.hazards_description}</p>` : ''}
+    <strong style="color:#0056b3;font-size:1.05em;">Quest Matchup: ${escapeHtml(activeQuest.quest_name)}</strong>
+    <div style="font-size:0.82em;color:#666;margin-top:2px;">${escapeHtml(activeQuest.quest_focus)} · Pacing: ${escapeHtml(activeQuest.pacing)}</div>
+    ${activeQuest.hazards_description ? `<p style="font-size:0.88em;color:#444;margin:8px 0 10px;">${escapeHtml(activeQuest.hazards_description)}</p>` : ''}
     <hr style="border:0;border-top:1px solid #c2d9f0;margin-bottom:10px;">`;
 
   if (result.punishedAlerts.length) {
     result.punishedAlerts.forEach(({ tag, count }) => {
-      const countSpan = `<span class="punished-count-span" data-tag="${tag}" style="cursor:pointer;font-weight:bold;border-bottom:1px dotted #8B0000;">${count} card${count !== 1 ? 's' : ''}</span>`;
-      html += `<div style="background:#fdecea;border-left:3px solid #8B0000;padding:7px 10px;border-radius:3px;margin-bottom:6px;font-size:0.88em;">⛔ <strong>Risky:</strong> This quest punishes <strong>${tag}</strong> — you have ${countSpan} with this tag.</div>`;
+      const countSpan = `<span class="punished-count-span" data-tag="${escapeHtml(tag)}" style="cursor:pointer;font-weight:bold;border-bottom:1px dotted #8B0000;">${count} card${count !== 1 ? 's' : ''}</span>`;
+      html += `<div style="background:#fdecea;border-left:3px solid #8B0000;padding:7px 10px;border-radius:3px;margin-bottom:6px;font-size:0.88em;">⛔ <strong>Risky:</strong> This quest punishes <strong>${escapeHtml(tag)}</strong> — you have ${countSpan} with this tag.</div>`;
     });
   }
 
   if (result.techAlerts.length) {
     html += `<strong style="display:block;margin-bottom:6px;">Required Capabilities:</strong><ul id="tech-alerts-list" style="margin:0;padding-left:20px;font-size:0.9em;line-height:1.9;">`;
     result.techAlerts.forEach(({ status, tag, count, label }) => {
-      const hoverable = `data-tag="${tag}" class="tech-alert-item" style="cursor:pointer;"`;
-      html += `<li ${hoverable}>${statusIcon[status]} <span style="color:${statusColor[status]};font-weight:bold;">${label}:</span> ${tag} <span style="color:#888;">(${count} card${count!==1?'s':''})</span></li>`;
+      const hoverable = `data-tag="${escapeHtml(tag)}" class="tech-alert-item" style="cursor:pointer;"`;
+      html += `<li ${hoverable}>${statusIcon[status]} <span style="color:${statusColor[status]};font-weight:bold;">${label}:</span> ${escapeHtml(tag)} <span style="color:#888;">(${count} card${count!==1?'s':''})</span></li>`;
     });
     html += '</ul>';
+  }
+
+  if (result.unmeasuredTags && result.unmeasuredTags.length) {
+    html += `<div style="margin-top:8px;font-size:0.8em;color:#888;">Not scored (no card data): ${result.unmeasuredTags.map(escapeHtml).join(', ')}</div>`;
   }
 
   if (activeQuest.tech_cards_mentioned && activeQuest.tech_cards_mentioned.length) {
@@ -1598,21 +1696,22 @@ function renderQuestMatchup() {
     activeQuest.tech_cards_mentioned.forEach(name => {
       const card = cardDatabase.find(c => c.name === name) || cardDatabase.find(c => normStr(c.name) === normStr(name));
       if (!card) {
-        html += `<div style="font-size:0.85em;color:#555;padding:2px 0;">${name}</div>`;
+        html += `<div style="font-size:0.85em;color:#555;padding:2px 0;">${escapeHtml(name)}</div>`;
         return;
       }
       if (card.type === 'Hero') return;
       const sc  = TT_SPHERE_COLOR[card.sphere] || '#555';
-      const img = card.imagesrc || '';
-      const qty = deckMap.has(card.name) ? deckMap.get(card.name).qty : 0;
+      const img = escapeHtml(card.imagesrc || '');
+      const key = cardKey(card);
+      const qty = deckMap.has(key) ? deckMap.get(key).qty : 0;
       const addDisabled    = qty >= 3 ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"' : 'style="padding:1px 7px;font-size:0.78em;background:#0056b3;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
       const removeDisabled = qty === 0 ? 'disabled style="padding:1px 7px;font-size:0.78em;background:#ccc;color:#fff;border:none;border-radius:3px;cursor:not-allowed;"' : 'style="padding:1px 7px;font-size:0.78em;background:#888;color:#fff;border:none;border-radius:3px;cursor:pointer;"';
       html += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-        <button class="notable-card-btn" data-cardname="${card.name}" data-action="add" ${addDisabled}>+</button>
-        <button class="notable-card-btn" data-cardname="${card.name}" data-action="remove" ${removeDisabled}>−</button>
-        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${card.sphere||'?'}</span>
+        <button class="notable-card-btn" data-key="${escapeHtml(key)}" data-action="add" ${addDisabled}>+</button>
+        <button class="notable-card-btn" data-key="${escapeHtml(key)}" data-action="remove" ${removeDisabled}>−</button>
+        <span style="background:${sc};color:#fff;font-size:0.7em;padding:1px 5px;border-radius:3px;white-space:nowrap;">${escapeHtml(card.sphere||'?')}</span>
         <span style="font-size:0.75em;color:#555;min-width:14px;text-align:center;">${qty > 0 ? qty+'×' : ''}</span>
-        <span class="notable-card-name" data-imagesrc="${img}" data-cardname="${card.name}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${card.name}">${card.name}</span>
+        <span class="notable-card-name" data-imagesrc="${img}" data-cardname="${escapeHtml(card.name)}" style="flex:1;font-size:0.85em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;text-decoration:underline dotted #aaa;" title="${escapeHtml(card.name)}">${escapeHtml(card.name)}</span>
       </div>`;
     });
     html += `</div></div>`;
@@ -1645,7 +1744,7 @@ function renderQuestMatchup() {
   container.querySelectorAll('.notable-card-btn').forEach(btn => {
     btn.onclick = e => {
       e.stopPropagation();
-      const card = allDeckCards.find(c => c.name === btn.dataset.cardname);
+      const card = allDeckCards.find(c => cardKey(c) === btn.dataset.key);
       if (!card) return;
       if (btn.dataset.action === 'remove') removeCardFromDeck(card);
       else addCardToDeck(card);
@@ -1667,14 +1766,14 @@ function renderPhase2QuestPanel() {
   const statusColor = { red: '#c0392b', yellow: '#856404', green: '#1a7a3c' };
 
   let html = `<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
-    <strong style="color:#0056b3;font-size:0.95em;">${activeQuest.quest_name}</strong>
-    <span style="font-size:0.75em;color:#888;">${activeQuest.quest_focus} · ${activeQuest.pacing}</span>
+    <strong style="color:#0056b3;font-size:0.95em;">${escapeHtml(activeQuest.quest_name)}</strong>
+    <span style="font-size:0.75em;color:#888;">${escapeHtml(activeQuest.quest_focus)} · ${escapeHtml(activeQuest.pacing)}</span>
   </div>
   <ul style="margin:0;padding-left:18px;font-size:0.85em;line-height:1.85;">`;
 
   result.techAlerts.forEach(({ status, tag, count, label }) => {
-    const hoverable = `data-tag="${tag}" class="tech-alert-item" style="cursor:pointer;"`;
-    html += `<li ${hoverable}>${statusIcon[status]} <span style="color:${statusColor[status]};font-weight:bold;">${tag}</span> <span style="color:#888;">(${count} card${count !== 1 ? 's' : ''})</span></li>`;
+    const hoverable = `data-tag="${escapeHtml(tag)}" class="tech-alert-item" style="cursor:pointer;"`;
+    html += `<li ${hoverable}>${statusIcon[status]} <span style="color:${statusColor[status]};font-weight:bold;">${escapeHtml(tag)}</span> <span style="color:#888;">(${count} card${count !== 1 ? 's' : ''})</span></li>`;
   });
 
   html += '</ul>';
@@ -1690,12 +1789,13 @@ function generateExport() {
     let text = `LotR LCG Decklist\nStarting Threat: ${threat}\n\nHEROES (${p.heroes.length})\n`;
     p.heroes.forEach(h => text += `${h.name} (${h.sphere})\n`);
 
-    const allies = [], attachments = [], events = [];
+    const allies = [], attachments = [], events = [], sideQuests = [];
     p.deck.forEach(item => {
       const line = `${item.qty}x ${item.card.name} (${item.card.sphere || 'Neutral'})\n`;
       if (item.card.type === 'Ally')       allies.push(line);
       else if (item.card.type === 'Attachment') attachments.push(line);
       else if (item.card.type === 'Event') events.push(line);
+      else if (item.card.type === 'Player Side Quest') sideQuests.push(line);
     });
 
     const getQty = arr => arr.reduce((s, str) => s + parseInt(str[0]), 0);
@@ -1703,6 +1803,7 @@ function generateExport() {
     if (allies.length)       text += `\nAllies (${getQty(allies)})\n`       + allies.sort().join('');
     if (attachments.length)  text += `\nAttachments (${getQty(attachments)})\n` + attachments.sort().join('');
     if (events.length)       text += `\nEvents (${getQty(events)})\n`       + events.sort().join('');
+    if (sideQuests.length)   text += `\nSide Quests (${getQty(sideQuests)})\n` + sideQuests.sort().join('');
     return text;
   };
 

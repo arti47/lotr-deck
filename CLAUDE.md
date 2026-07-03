@@ -57,6 +57,10 @@ or the alias breaks.
 
 ## Known Bugs (verified 2026-07-03 code review)
 
+> **All ten items below were fixed in Phase A** (branch
+> `claude/app-logic-review-kjvv47`). They are kept here as the record of what
+> was wrong and why. See the Roadmap → Phase A section for the resolution notes.
+
 Ordered roughly by severity. Each was confirmed against the actual data, not
 just by reading code.
 
@@ -144,21 +148,29 @@ Other notes:
 
 ## Roadmap
 
-### Phase A — Correctness (do first)
-- [ ] Key cards by `ringsdb_code` everywhere: `deckMap`, serialization
-      (bump state to `version: 2`, migrate v1 name-based saves on load),
-      import resolution, hero matching.
-- [ ] Fix `card.cost` → `cost_threat` in tag suggestions (sort + label).
-- [ ] Fix card-draw tag names in deck health (`Passive`, not `Reactive`).
-- [ ] Fix or remove unsatisfiable quest tags (`Contract`, `Cost Reduction`,
-      `Solo Play`) — either add card tags or drop them from quest data.
-- [ ] Full Player Side Quest support: type filter option, stats bar,
-      composition, export section, 1-copy warning.
-- [ ] Fix `removePlayer()` active-index shift; autosave in `switchPlayer()`.
-- [ ] Fix cost-curve hover (build DOM nodes, no `innerHTML +=`).
-- [ ] Import fixes: don't strip `(MotK)`, accumulate duplicate lines,
-      confirm before wiping, report >50 as a warning.
-- [ ] Add `escapeHtml()` and apply at all interpolation sites.
+### Phase A — Correctness ✅ DONE
+All items below were implemented and verified (16-test Node logic harness +
+Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
+- [x] Key cards by `ringsdb_code` everywhere via `cardKey()`: `deckMap`,
+      serialization (`version: 2`, v1 name-based saves migrated on load),
+      import resolution, hero matching. Load-time dedup now keys on code —
+      recovers 10 legitimately-distinct printings the old key silently dropped
+      (1084 cards vs 1074), while still collapsing the 2 true duplicates.
+- [x] Fix `card.cost` → `cost_threat` in tag suggestions (sort + label).
+- [x] Fix card-draw tag names in deck health (`Passive`, not `Reactive`).
+- [x] Unsatisfiable quest tags: matchup now only scores tags whose mapped card
+      tags exist in the pool (`allCardTags`); the rest (`Contract`,
+      `Cost Reduction`, `Solo Play`) are listed as "Not scored (no card data)"
+      instead of a false 🔴. Self-correcting if the data changes.
+- [x] Player Side Quest support: type-filter option, stats bar, deck-health
+      composition row, export section. (No copy restriction added — standard
+      rules allow up to 3, so the earlier "1-copy warning" idea was dropped.)
+- [x] Fix `removePlayer()` active-index shift; autosave in `switchPlayer()`.
+- [x] Fix cost-curve hover (build DOM nodes, no `innerHTML +=`).
+- [x] Import fixes: preserve `(MotK)` (match full line before stripping),
+      accumulate duplicate lines (cap 3), confirm before wiping, report >50
+      as a warning, resolve/store by code, skip-hero and not-found reporting.
+- [x] Add `escapeHtml()` and apply at all data-derived interpolation sites.
 
 ### Phase B — Data pipeline & validation
 - [ ] `scripts/sync-ringsdb.js` (dev-only, Node): fetch player cards from the
