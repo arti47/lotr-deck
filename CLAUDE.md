@@ -331,21 +331,26 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
     `initPhase3` + the quest-change handler.
   - Verified: 13-case Node engine harness + Playwright panel smoke. Only the 4
     curated quests produce verdicts until the other 114 are curated.
-- **D2 Archetype mining** 🔶 TOOL DONE, DATA PENDING — `sync-ringsdb-decks.js`
-  clusters published decklists by identity (hero spheres + dominant trait),
-  promotes recurring cards to `core` (≥50% of a cluster's decks) / `flex`
-  (≥25%), derives `good_at`/`weak_at` over the quest-tag vocabulary from core
-  tags, parses a quest from each deck's title/description (low yield, honest),
-  filters by votes, and emits a coverage report → `archetypes.json` (array,
-  `confidence: "mined"`). Heroes are detected by *type* from `data.js`, so a
-  dump that lumps heroes into `slots` still works. `validate-data.js` gained the
-  **staleness guard**: core/flex codes must exist in `data.js`, source quests
-  must be real `quest_ids`, ids unique, confidence enum-checked. Verified with a
-  10-case Node harness on synthetic decklists. **No real `archetypes.json` yet**
-  — `ringsdb.com` decklists are blocked by egress policy; run it against a saved
-  dump: `node scripts/sync-ringsdb-decks.js --file decks.json [--apply]`. Expect
-  sparse quest coverage; the D3 fallback chain (mined → hand-authored →
-  inferred) covers the gaps. *(RingsDB, build-time)*
+- **D2 Archetype mining** ✅ DONE — `sync-ringsdb-decks.js` clusters published
+  decklists by **dominant faction trait** (Dwarf, Noldor, Hobbit… — the archetype
+  identity in this game; generic traits Noble/Warrior/Ranger/Scout/Healer are
+  de-prioritised, and clustering by exact sphere-set fragmented variants so it
+  was dropped in favour of trait). Recurring cards become `core` (≥50% of a
+  cluster's decks) / `flex` (≥25%); `good_at`/`weak_at` derive over the quest-tag
+  vocabulary from core tags; a quest is parsed from each deck's title/description
+  (low yield, honest); filtered by votes. Heroes detected by *type* from
+  `data.js`, so a dump that lumps heroes into `slots` works. `validate-data.js`
+  gained the **staleness guard** (core/flex codes exist in `data.js`, source
+  quests are real `quest_ids`, ids unique, confidence enum-checked). Verified
+  with an 11-case Node harness on synthetic decklists.
+- [x] **First real mine** from a 30-deck "top decks" RingsDB dump →
+  **`archetypes.json`: 6 archetypes** (Noldor 8 decks, Hobbit 5, Dwarf 4,
+  Gondor 4, Rohan 3, Dúnedain 3), each with a sensible core (Dwarf = Erebor
+  Hammersmith, Miner of the Iron Hills, King Under the Mountain, Longbeards…).
+  **Quest coverage is sparse (8/118)** — expected from parsing quests out of
+  free text on a small top-decks sample; the D3 fallback chain (mined →
+  hand-authored → inferred) covers the rest. Re-run with a bigger/decks-per-
+  archetype dump to enrich. *(RingsDB, build-time)*
 - **D3 Deck generation** — `generate-quest-decks.js` → baked `quest-decks.json`;
   app loads + re-critiques live on edit. *(depends on D0, D2)*
 - **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"

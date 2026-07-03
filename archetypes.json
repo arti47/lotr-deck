@@ -1,0 +1,642 @@
+[
+  {
+    "id": "noldor",
+    "name": "Noldor",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Neutral",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Noldor"
+      ]
+    },
+    "core": [
+      "01050",
+      "01026",
+      "04107",
+      "10145",
+      "01057",
+      "01073",
+      "04083",
+      "04059",
+      "04108"
+    ],
+    "flex": [
+      "11015",
+      "12006",
+      "01045",
+      "02079",
+      "04058",
+      "06010",
+      "01049",
+      "10033",
+      "12008",
+      "12009",
+      "17006",
+      "131014",
+      "01014",
+      "01031",
+      "01046",
+      "02100",
+      "04106",
+      "04134",
+      "04137",
+      "08146",
+      "01048",
+      "04110",
+      "06005",
+      "01060",
+      "06006",
+      "06008",
+      "08064",
+      "04031"
+    ],
+    "good_at": [
+      "Action Advantage",
+      "Readying",
+      "Card Draw",
+      "Threat Reduction"
+    ],
+    "weak_at": [
+      "Location Control",
+      "Attack Boost",
+      "Enemy Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/8682",
+        "rating": 1035,
+        "quest": "the-battle-of-the-pelennor-fields"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/42",
+        "rating": 574,
+        "quest": "conflict-at-the-carrock"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6936",
+        "rating": 262,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/1251",
+        "rating": 259,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12958",
+        "rating": 250,
+        "quest": "mount-gundabad"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2705",
+        "rating": 219,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/802",
+        "rating": 209,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/12498",
+        "rating": 209,
+        "quest": "journey-to-the-cross-roads"
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "hobbit",
+    "name": "Hobbit",
+    "identity": {
+      "spheres": [
+        "Fellowship",
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Hobbit"
+      ]
+    },
+    "core": [
+      "141006",
+      "01023",
+      "01073",
+      "02103",
+      "141014",
+      "143006",
+      "01034"
+    ],
+    "flex": [
+      "141007",
+      "141008",
+      "141009",
+      "141013",
+      "141016",
+      "144008",
+      "146005",
+      "01014",
+      "01026",
+      "01031",
+      "01060",
+      "04108",
+      "04062",
+      "04083",
+      "01027"
+    ],
+    "good_at": [
+      "Direct Damage",
+      "Action Advantage",
+      "Readying",
+      "Ally Mustering"
+    ],
+    "weak_at": [
+      "Healing",
+      "Location Control",
+      "Willpower Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/535",
+        "rating": 467,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/45463",
+        "rating": 353,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/11738",
+        "rating": 313,
+        "quest": "beneath-the-sands"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/6252",
+        "rating": 206,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3313",
+        "rating": 205,
+        "quest": "journey-along-the-anduin"
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "dwarf",
+    "name": "Dwarf",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Dwarf"
+      ]
+    },
+    "core": [
+      "01059",
+      "01061",
+      "01073",
+      "01023",
+      "01026",
+      "03011",
+      "131009",
+      "131014",
+      "132006",
+      "132018",
+      "01014",
+      "01018",
+      "01027",
+      "01060",
+      "01062",
+      "01072",
+      "03004",
+      "03003",
+      "04061",
+      "04129",
+      "06141",
+      "06143"
+    ],
+    "flex": [
+      "12066",
+      "131006",
+      "131007",
+      "131011",
+      "131013",
+      "132008",
+      "132012",
+      "143004",
+      "01013",
+      "01015",
+      "01016",
+      "01020",
+      "01022",
+      "01031",
+      "01045",
+      "01048",
+      "01050",
+      "01051",
+      "01057",
+      "01063",
+      "01069",
+      "01070",
+      "01071",
+      "01019",
+      "01024",
+      "01028",
+      "01034",
+      "01035",
+      "01039",
+      "01058",
+      "01064",
+      "03006",
+      "03007",
+      "03008",
+      "04030",
+      "04035",
+      "04102",
+      "04109",
+      "04006",
+      "04079",
+      "04083",
+      "08006"
+    ],
+    "good_at": [
+      "Card Draw",
+      "Resource Generation",
+      "Willpower Boost",
+      "Direct Damage"
+    ],
+    "weak_at": [
+      "Location Control"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/24910",
+        "rating": 448,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/3470",
+        "rating": 319,
+        "quest": "conflict-at-the-carrock"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26089",
+        "rating": 261,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/104",
+        "rating": 257,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "gondor",
+    "name": "Gondor",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit",
+        "Tactics"
+      ],
+      "key_traits": [
+        "Gondor"
+      ]
+    },
+    "core": [
+      "01034",
+      "01073",
+      "01026",
+      "01050",
+      "01060",
+      "08113"
+    ],
+    "flex": [
+      "10007",
+      "10010",
+      "11004",
+      "11005",
+      "11008",
+      "11010",
+      "11015",
+      "12009",
+      "12032",
+      "12065",
+      "12086",
+      "12117",
+      "12144",
+      "12145",
+      "17005",
+      "17008",
+      "17032",
+      "17058",
+      "17085",
+      "17112",
+      "17115",
+      "17139",
+      "17141",
+      "19009",
+      "22002",
+      "22003",
+      "22028",
+      "22029",
+      "22032",
+      "22035",
+      "22062",
+      "22083",
+      "22142",
+      "131014",
+      "131015",
+      "131016",
+      "132015",
+      "142008",
+      "144005",
+      "01023",
+      "01032",
+      "01035",
+      "01036",
+      "01057",
+      "01062",
+      "01066",
+      "01070",
+      "02080",
+      "04006",
+      "04033",
+      "04059",
+      "04084",
+      "04135",
+      "04136",
+      "06040",
+      "06041",
+      "06111",
+      "07012",
+      "08033",
+      "08121",
+      "09008",
+      "01059",
+      "01069",
+      "02034",
+      "04108",
+      "04131",
+      "04134",
+      "05017",
+      "06064",
+      "09012",
+      "01014",
+      "01024",
+      "01029",
+      "05003",
+      "05004",
+      "05007",
+      "05008",
+      "05018",
+      "06005",
+      "06108",
+      "06135",
+      "06136",
+      "08140",
+      "01030",
+      "02006",
+      "02030",
+      "02055",
+      "02056",
+      "02121",
+      "02122",
+      "06110",
+      "06138",
+      "07006",
+      "07007",
+      "08004"
+    ],
+    "good_at": [
+      "Enemy Control",
+      "Card Draw",
+      "Threat Reduction",
+      "Direct Damage"
+    ],
+    "weak_at": [
+      "Healing",
+      "Location Control",
+      "Willpower Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/10407",
+        "rating": 311,
+        "quest": "flight-of-the-stormcaller"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/9113",
+        "rating": 286,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26086",
+        "rating": 256,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/26088",
+        "rating": 244,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "rohan",
+    "name": "Rohan",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore",
+        "Spirit"
+      ],
+      "key_traits": [
+        "Rohan"
+      ]
+    },
+    "core": [
+      "01023",
+      "01026",
+      "01045",
+      "01050",
+      "01057",
+      "01073",
+      "01013",
+      "01014",
+      "01016",
+      "01031",
+      "01046",
+      "01048",
+      "01051",
+      "01053",
+      "01059",
+      "01060",
+      "01061",
+      "01062",
+      "01069"
+    ],
+    "flex": [
+      "10059",
+      "10116",
+      "10143",
+      "10145",
+      "12059",
+      "143010",
+      "144010",
+      "01022",
+      "01049",
+      "01063",
+      "01015",
+      "01017",
+      "01020",
+      "01025",
+      "01027",
+      "01064",
+      "01070",
+      "01072",
+      "02026",
+      "05003",
+      "07007",
+      "07009",
+      "09006",
+      "09010"
+    ],
+    "good_at": [
+      "Ally Mustering",
+      "Location Control",
+      "Card Draw",
+      "Threat Reduction"
+    ],
+    "weak_at": [
+      "Healing"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/951",
+        "rating": 1381,
+        "quest": "passage-through-mirkwood"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/961",
+        "rating": 839,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/2377",
+        "rating": 233,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  },
+  {
+    "id": "dunedain",
+    "name": "Dúnedain",
+    "identity": {
+      "spheres": [
+        "Leadership",
+        "Lore"
+      ],
+      "key_traits": [
+        "Dúnedain"
+      ]
+    },
+    "core": [
+      "01026",
+      "01027",
+      "01069",
+      "10030",
+      "10116",
+      "01034",
+      "09004",
+      "09005",
+      "09010",
+      "01014",
+      "01015",
+      "01016",
+      "01060",
+      "01073"
+    ],
+    "flex": [
+      "10004",
+      "10010",
+      "10122",
+      "10143",
+      "142003",
+      "01045",
+      "02096",
+      "04055",
+      "04108",
+      "04134",
+      "05017",
+      "06005",
+      "06085",
+      "07012",
+      "08086",
+      "09006",
+      "01022",
+      "01070",
+      "09009",
+      "09011",
+      "01013",
+      "01023",
+      "01024",
+      "01058",
+      "01059",
+      "01061",
+      "01062",
+      "01063",
+      "01064",
+      "01065",
+      "01066",
+      "01067"
+    ],
+    "good_at": [
+      "Resource Generation",
+      "Willpower Boost",
+      "Enemy Control",
+      "Engagement Control"
+    ],
+    "weak_at": [
+      "Healing",
+      "Attack Boost"
+    ],
+    "sources": [
+      {
+        "url": "https://ringsdb.com/decklist/view/28",
+        "rating": 398,
+        "quest": null
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/31709",
+        "rating": 265,
+        "quest": "journey-along-the-anduin"
+      },
+      {
+        "url": "https://ringsdb.com/decklist/view/24735",
+        "rating": 180,
+        "quest": null
+      }
+    ],
+    "confidence": "mined"
+  }
+]

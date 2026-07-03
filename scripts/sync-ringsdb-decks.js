@@ -81,11 +81,16 @@ function splitDeck(deck) {
   return { heroCodes: [...new Set(heroCodes)], cardCounts };
 }
 
+// Broad traits many unrelated heroes share — weak archetype identifiers. Prefer a
+// faction/tribe trait (Dwarf, Noldor, Hobbit, Gondor…) when the heroes have one;
+// fall back to these only when there's nothing more specific.
+const GENERIC_TRAITS = new Set(['Noble', 'Warrior', 'Ranger', 'Scout', 'Healer']);
 function dominantTrait(codes) {
   const freq = {};
   codes.forEach(code => (byCode.get(code)?.traits || []).forEach(t => freq[t] = (freq[t] || 0) + 1));
-  const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
-  return top ? top[0] : null;
+  const ranked = Object.entries(freq).sort((a, b) => b[1] - a[1]);
+  const faction = ranked.find(([t]) => !GENERIC_TRAITS.has(t));
+  return (faction || ranked[0] || [null])[0];
 }
 
 function main() {
@@ -98,8 +103,11 @@ function main() {
   const decks = JSON.parse(fs.readFileSync(FILE, 'utf8'));
   if (!Array.isArray(decks)) { console.error('Dump must be a JSON array of decklists.'); process.exit(2); }
 
-  // Filter by popularity, then cluster by identity.
-  const clusters = new Map(); // key -> { spheres, trait, decks:[{deck, split, quest, votes}] }
+  // Filter by popularity, then cluster by identity. Key on the dominant faction
+  // trait — the archetype identity in this game (Dwarves, Noldor, Hobbits…) —
+  // rather than the exact sphere-set, which fragments variants of one archetype.
+  // Spheres are accumulated as descriptive info (the union across the cluster).
+  const clusters = new Map(); // trait -> { trait, spheres:Set, decks:[…] }
   let considered = 0, skippedVotes = 0, skippedTiny = 0;
   decks.forEach(deck => {
     const votes = deck.nb_votes ?? deck.votes ?? 0;
@@ -107,11 +115,11 @@ function main() {
     const split = splitDeck(deck);
     if (!split.heroCodes.length) { skippedTiny++; return; }
     considered++;
-    const spheres = [...new Set(split.heroCodes.map(c => byCode.get(c).sphere).filter(Boolean))].sort();
     const trait = dominantTrait(split.heroCodes) || dominantTrait(Object.keys(split.cardCounts)) || 'Generic';
-    const key = `${spheres.join('/')}|${trait}`;
-    if (!clusters.has(key)) clusters.set(key, { spheres, trait, decks: [] });
-    clusters.get(key).decks.push({ deck, split, quest: parseQuest(deck), votes });
+    if (!clusters.has(trait)) clusters.set(trait, { trait, spheres: new Set(), decks: [] });
+    const cl = clusters.get(trait);
+    split.heroCodes.forEach(c => { const s = byCode.get(c).sphere; if (s) cl.spheres.add(s); });
+    cl.decks.push({ deck, split, quest: parseQuest(deck), votes });
   });
 
   const archetypes = [];
@@ -139,11 +147,12 @@ function main() {
         quest: quest ? quest.quest_id : null,
       }));
 
-    const name = `${cl.spheres.join('/')} ${cl.trait}`.trim();
+    const spheres = [...cl.spheres].sort();
+    const name = cl.trait === 'Generic' ? `${spheres.join('/')} (generic)` : cl.trait;
     archetypes.push({
       id: slug(name),
       name,
-      identity: { spheres: cl.spheres, key_traits: cl.trait === 'Generic' ? [] : [cl.trait] },
+      identity: { spheres, key_traits: cl.trait === 'Generic' ? [] : [cl.trait] },
       core, flex, good_at, weak_at,
       sources,
       confidence: 'mined',
