@@ -22,9 +22,30 @@ const { ROOT, loadCards } = require('./lib');
 const API_URL = 'https://ringsdb.com/api/public/cards/';
 const APPLY = process.argv.includes('--apply');
 const KEEP_MISSING = !process.argv.includes('--drop-missing'); // keep local cards absent from the API by default
+// `--file <path>` reads records from a saved RingsDB JSON dump instead of the
+// network (useful when ringsdb.com is unreachable — same array the API returns).
+const fileArgIdx = process.argv.indexOf('--file');
+const FROM_FILE = fileArgIdx > -1 ? process.argv[fileArgIdx + 1] : null;
 
 // Field order mirrors the existing data.js so a real sync produces a minimal diff.
 const KNOWN_TYPES = ['Hero', 'Ally', 'Attachment', 'Event', 'Player Side Quest'];
+
+// RingsDB serves card text with HTML markup (<b>…</b>) and Windows line endings.
+// The app escapes text into innerHTML, so strip tags to plain text and normalise
+// whitespace to match the existing single-newline convention in data.js.
+function cleanText(s) {
+  if (!s) return '';
+  return s
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&mdash;/g, '—').replace(/&ndash;/g, '–')
+    .replace(/&rsquo;/g, '’').replace(/&hellip;/g, '...')
+    .replace(/\r\n/g, '\n').replace(/\r/g, '\n')
+    .replace(/[ \t]+\n/g, '\n').replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{2,}/g, '\n').replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
 
 function loadOverlay() {
   const p = path.join(ROOT, 'overlay.json');
@@ -55,15 +76,19 @@ function mapCard(r, overlay) {
     type,
     cost_threat,
     traits: splitTraits(r.traits),
-    text: r.text || '',
+    text: cleanText(r.text),
   };
 
   const curated = overlay[r.code] || {};
   card.summary = curated.summary || '';
   card.tags = curated.tags || [];
 
+  // data.js always carries all four stat keys, using null where a card has no
+  // such stat (attachments/events/side quests). Mirror that so the sync doesn't
+  // reshape ~800 non-character cards.
   ['willpower', 'attack', 'defense', 'health'].forEach(stat => {
-    if (r[stat] !== null && r[stat] !== undefined) card[stat] = r[stat];
+    const v = r[stat];
+    card[stat] = (v === undefined || v === null) ? null : v;
   });
 
   card.is_unique = !!r.is_unique;
@@ -76,15 +101,21 @@ async function main() {
   const overlay = loadOverlay();
 
   let records;
-  try {
-    const res = await fetch(API_URL, { headers: { 'Accept': 'application/json' } });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-    records = await res.json();
-  } catch (e) {
-    console.error(`\nFailed to fetch ${API_URL}\n  ${e.message}\n`);
-    console.error('This script needs outbound access to ringsdb.com. If you are behind a');
-    console.error('restrictive proxy (e.g. the Claude Code web sandbox), run it locally instead.');
-    process.exit(2);
+  if (FROM_FILE) {
+    console.log(`Reading records from ${FROM_FILE} (no network).`);
+    records = JSON.parse(fs.readFileSync(FROM_FILE, 'utf8'));
+  } else {
+    try {
+      const res = await fetch(API_URL, { headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      records = await res.json();
+    } catch (e) {
+      console.error(`\nFailed to fetch ${API_URL}\n  ${e.message}\n`);
+      console.error('This script needs outbound access to ringsdb.com. If you are behind a');
+      console.error('restrictive proxy (e.g. the Claude Code web sandbox), run it locally instead,');
+      console.error('or pass a saved dump:  node scripts/sync-ringsdb.js --file card_data.json');
+      process.exit(2);
+    }
   }
 
   const mapped = [];
@@ -96,26 +127,27 @@ async function main() {
 
   // Reconcile against the current file so we can report and optionally preserve.
   const current = loadCards();
-  const apiCodes = new Set(mapped.map(c => c.ringsdb_code));
+  const apiByCode = new Map(mapped.map(c => [c.ringsdb_code, c]));
+  const apiCodes = new Set(apiByCode.keys());
   const localByCode = new Map(current.map(c => [c.ringsdb_code, c]));
 
   const added = mapped.filter(c => !localByCode.has(c.ringsdb_code)).map(c => c.ringsdb_code);
   const missing = current.filter(c => !apiCodes.has(c.ringsdb_code));
 
-  let final = mapped;
-  if (KEEP_MISSING && missing.length) {
-    // Preserve local-only cards (e.g. fan-made packs not in the public API) as-is.
-    final = mapped.concat(missing);
-  }
-
-  // Dedup on code, keeping first (API wins over preserved local on collision).
+  // Order-preserving merge: keep data.js's current order (each card refreshed
+  // from the API, or kept as-is if local-only), then append new API cards. This
+  // keeps the git diff legible instead of reshuffling ~1000 entries.
+  const final = [];
   const seen = new Set();
-  final = final.filter(c => {
-    if (seen.has(c.ringsdb_code)) return false;
+  current.forEach(c => {
+    const refreshed = apiByCode.get(c.ringsdb_code);
+    if (refreshed) { final.push(refreshed); }
+    else if (KEEP_MISSING) { final.push(c); }
     seen.add(c.ringsdb_code);
-    return true;
   });
-  final.sort((a, b) => String(a.ringsdb_code).localeCompare(String(b.ringsdb_code)));
+  mapped.forEach(c => {
+    if (!seen.has(c.ringsdb_code)) { final.push(c); seen.add(c.ringsdb_code); }
+  });
 
   const body = 'const cardData = ' + JSON.stringify(final, null, 2) + ';\n';
   const outFile = APPLY ? 'data.js' : 'data.generated.js';

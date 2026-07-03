@@ -10633,7 +10633,7 @@ const cardData = [
     "traits": [
       "Gondor"
     ],
-    "text": "Response:  After you play Linhir Sea-captain from your hand, if you paid all of its resouce cost from a single hero's resource pool, both that hero and Linhir Sea-captain do not exhaust to quest this round.",
+    "text": "Response: After you play Linhir Sea-captain from your hand, if you paid all of its resouce cost from a single hero's resource pool, both that hero and Linhir Sea-captain do not exhaust to quest this round.",
     "summary": "Linhir Sea-captain provides niche utility to Spirit decks, best in builds that can trigger its specific condition reliably each round.",
     "tags": [
       "Action Advantage (Non-Exhausting)",
@@ -10811,7 +10811,7 @@ const cardData = [
       "Gondor",
       "Warrior"
     ],
-    "text": "Response: After Soldier of Dol Amroth enters play, reduce the cost of the next  [tactics] card you play this phase by 1.",
+    "text": "Response: After Soldier of Dol Amroth enters play, reduce the cost of the next [tactics] card you play this phase by 1.",
     "summary": "Soldier of Dol Amroth provides niche utility to Tactics decks, best in builds that can trigger its specific condition reliably each round.",
     "tags": [
       "Resource Discount",
@@ -10903,7 +10903,7 @@ const cardData = [
       "Item",
       "Weapon"
     ],
-    "text": "Attach to a Ranger character. Restricted.\nAttached character gets +1 [attack]  (+2 [attack] instead when attacking an enemy with an attachment on it).",
+    "text": "Attach to a Ranger character. Restricted.\nAttached character gets +1 [attack] (+2 [attack] instead when attacking an enemy with an attachment on it).",
     "summary": "Ranger Spear grants +1 attack at the cost of a Restricted slot, directly improving kill potential against high-defense enemies.",
     "tags": [
       "Attack Boost",
@@ -13348,7 +13348,7 @@ const cardData = [
     "traits": [
       "Hobbit"
     ],
-    "text": "Action: Exhaust Rosie Cotton to choose a Hobbit hero and an attribute ([willpower], [attack],  [defense]). Add Rosie Cotton's [willpower]  to that hero's chosen attribute until the end of the phase. (Limit once per phase.)",
+    "text": "Action: Exhaust Rosie Cotton to choose a Hobbit hero and an attribute ([willpower], [attack], [defense]). Add Rosie Cotton's [willpower] to that hero's chosen attribute until the end of the phase. (Limit once per phase.)",
     "summary": "Rosie Cotton provides niche utility to Leadership decks, best in builds that can trigger its specific condition reliably each round.",
     "tags": [
       "Attack Boost",
@@ -13486,7 +13486,7 @@ const cardData = [
       "Item",
       "Weapon"
     ],
-    "text": "Attach to a Rohan hero. Restricted.\nResponse: After attached hero is declared as an attacker, exhaust Gúthwinë to give that hero +2 [attack]  for this attack. If this attack destroys an enemy, return a Rohan ally from your discard pile to your hand.",
+    "text": "Attach to a Rohan hero. Restricted.\nResponse: After attached hero is declared as an attacker, exhaust Gúthwinë to give that hero +2 [attack] for this attack. If this attack destroys an enemy, return a Rohan ally from your discard pile to your hand.",
     "summary": "Gúthwinë grants +2 attack at the cost of a Restricted slot, directly improving kill potential against high-defense enemies.",
     "tags": [
       "Attack Boost",
@@ -13834,7 +13834,7 @@ const cardData = [
       "Harad",
       "Noble"
     ],
-    "text": "You may use resources from Kahliel's resource pool to pay for Harad ally cards of any sphere.\nAction: Discard a  Harad ally card from your hand to ready a  Harad character in play. (Limit once per phase.)",
+    "text": "You may use resources from Kahliel's resource pool to pay for Harad ally cards of any sphere.\nAction: Discard a Harad ally card from your hand to ready a Harad character in play. (Limit once per phase.)",
     "summary": "Kahliel readies after a triggered condition, effectively acting twice per round without needing Unexpected Courage.",
     "tags": [
       "Action Advantage (Readying)"
@@ -14858,7 +14858,7 @@ const cardData = [
     "type": "Event",
     "cost_threat": "1",
     "traits": [],
-    "text": "Action: Search the top 10 cards of your deck for a Weapon  or Armor  attachment and add it to your hand. Shuffle your deck.\nValour Action: Search the top 5 cards of your deck for a Weapon  or Armor  attachment and put it into play. Shuffle your deck.",
+    "text": "Action: Search the top 10 cards of your deck for a Weapon or Armor attachment and add it to your hand. Shuffle your deck.\nValour Action: Search the top 5 cards of your deck for a Weapon or Armor attachment and put it into play. Shuffle your deck.",
     "summary": "Open the Armory searches or tutors from your deck, finding a specific card you need for the current board state.",
     "tags": [
       "Player Deck Manipulation",
@@ -15174,7 +15174,7 @@ const cardData = [
       "Dale",
       "Scout"
     ],
-    "text": "North Realm Lookout gets +1 [willpower] and does not exhaust to quest while it has an Item  attachment",
+    "text": "North Realm Lookout gets +1 [willpower] and does not exhaust to quest while it has an Item attachment",
     "summary": "North Realm Lookout boosts each character's willpower by +1, temporarily inflating questing power for a critical push through a difficult quest stage.",
     "tags": [
       "Action Advantage (Non-Exhausting)",
@@ -15198,7 +15198,7 @@ const cardData = [
       "Dale",
       "Warrior"
     ],
-    "text": "Reduce the cost to play Weapon  attachments on Warrior of Dale by 1.\nWarrior of Dale gets +1 [attack] and gains ranged while it has a Weapon  attachment.",
+    "text": "Reduce the cost to play Weapon attachments on Warrior of Dale by 1.\nWarrior of Dale gets +1 [attack] and gains ranged while it has a Weapon attachment.",
     "summary": "Warrior of Dale has Ranged and gets +1 attack under certain conditions, serving as a flexible ranged attacker in multiplayer.",
     "tags": [
       "Resource Discount",
@@ -15690,7 +15690,7 @@ const cardData = [
       "Scout",
       "Warrior"
     ],
-    "text": "Response: After you play Wiglaf, play an Item  attachment on him from your hand for no cost.\nAction: Exhaust an attachment on Wiglaf to ready him. (Limit once per phase.)",
+    "text": "Response: After you play Wiglaf, play an Item attachment on him from your hand for no cost.\nAction: Exhaust an attachment on Wiglaf to ready him. (Limit once per phase.)",
     "summary": "Wiglaf readies characters after a triggered condition, granting an extra action to a hero or ally who already exhausted.",
     "tags": [
       "Action Advantage (Readying)",
@@ -16834,7 +16834,7 @@ const cardData = [
     "type": "Ally",
     "cost_threat": "2",
     "traits": [
-      "Dúnedain",
+      "Dunedain",
       "Ranger"
     ],
     "text": "Response: After you play Andrath Guardsman from your hand, choose a non-unique enemy engaged with you. That enemy cannot attack you this round.",
@@ -16925,7 +16925,7 @@ const cardData = [
     "type": "Event",
     "cost_threat": "1",
     "traits": [],
-    "text": "Quest Action: Choose a location in the staging area. Until the end of the phase, that location does not contribute its [threat].",
+    "text": "Quest Action: Choose a location in the staging area. Until the end of the phase, that location does not contribute its [threat]",
     "summary": "Secret Paths reduces threat in the staging area, easing a difficult questing round or buying time for the team to set up defenses.",
     "tags": [
       "Staging Area Control"
@@ -21501,7 +21501,7 @@ const cardData = [
     "traits": [
       "Item"
     ],
-    "text": "Attach to a Dwarf hero.\nAction: Exhaust Narvi's Belt to give attached hero a [leadership], [lore], [tactics], or [spirit] icon until the end of the phase.",
+    "text": "Attach to a Dwarf hero.\nAction: Exhaust Narvi's Belt to give attached hero a [leadership], [lore], [tactics] or [spirit] icon until the end of the phase.",
     "summary": "Narvi's Belt grants an off-sphere resource icon, enabling cross-sphere decks to meet resource-match requirements without dedicated sphere heroes.",
     "tags": [
       "Resource Smoothing"
@@ -21523,7 +21523,7 @@ const cardData = [
       "Dwarf",
       "Warrior"
     ],
-    "text": "Sentinel.\nResponse: When you play Erebor Guard from your hand, discard the top 2 cards of your deck to reduce its cost by 2.",
+    "text": "Sentinel.\nResponse: When you play Erebor Guard from you hand, discard the top 2 cards of your deck to reduce its cost by 2.",
     "summary": "Erebor Guard has Sentinel, allowing it to defend across player boundaries and absorb hits from enemies that would otherwise overwhelm a neighbor.",
     "tags": [
       "Resource Discount",
@@ -21548,7 +21548,7 @@ const cardData = [
       "Silvan",
       "Noble"
     ],
-    "text": "Response: After a Silvan ally enters play, that ally gets +1 [willpower], +1 [attack] and +1 [defense] until the end of the round.",
+    "text": "Response: After a Silvan ally enters play, that ally gets +1 [willpower] +1 [attack] and +1 [defense] until the end of the round.",
     "summary": "Celeborn can gain +1 attack under the right conditions, enabling them to crack high-defense enemies single-handedly.",
     "tags": [
       "Attack Boost",
@@ -21573,7 +21573,7 @@ const cardData = [
     "traits": [
       "Title"
     ],
-    "text": "Attach to a Ranger hero.\nResponse: After attached hero commits to a quest, name enemy, location or treachery. If a card of the named type is revealed during this quest phase, exhaust Wingfoot to ready attached hero.",
+    "text": "Attach to a Ranger hero.\nResponse: After attached hero commits to a quest. name enemy, location or treachery. If a card of the named type is revealed during this quest phase, exhaust Wingfoot to ready attached hero.",
     "summary": "Wingfoot allows the attached character to ready, effectively giving them two actions per round at the cost of an attachment slot.",
     "tags": [
       "Action Advantage (Readying)",
@@ -21596,7 +21596,7 @@ const cardData = [
       "Item",
       "Weapon"
     ],
-    "text": "Attach to a Noble hero. Limit 1 per hero.\nRestricted.\nAttached hero gets +1 [attack] (+2 [attack] if your threat is 40 or higher).",
+    "text": "Restricted.\nAttach to a Noble hero. Limit 1 per hero. Restricted. Attached hero gets +1 [attack] (+2 [attack] if your threat is 40 or higher).",
     "summary": "Valiant Sword grants +1 attack at the cost of a Restricted slot, directly improving kill potential against high-defense enemies.",
     "tags": [
       "Attack Boost",
@@ -21618,7 +21618,7 @@ const cardData = [
     "type": "Event",
     "cost_threat": "4",
     "traits": [],
-    "text": "While your threat is less than 40, reduce the cost to play Pillars of the Kings by 4.\nAction: Set your threat to 40. If this effect raised your threat, draw a card (draw 4 cards instead if it raised your threat by 10 or more).",
+    "text": "While your threat is less than 40, reduce the cost to play Pillars of the Kings by 4. Action: Set your threat to 40. If this effect raised your threat, draw a card (draw 4 cards instead if it raised your threat by 10 or more).",
     "summary": "Pillars of the Kings draws 4 cards immediately, refilling the hand after a heavy resource dump or card-intensive round.",
     "tags": [
       "Resource Discount",
@@ -21642,7 +21642,7 @@ const cardData = [
       "Gondor",
       "Scout"
     ],
-    "text": "Response: After Hirgon quests successfully, play a [tactics] ally from your hand, reducing its cost by 1 (to a minimum of 1). Then, you may raise your threat by 1 to give that ally +1 [attack] and +1 [defense] until the end of the round.",
+    "text": "Response: After Hirgon quests successfully, play a [tactics] ally from your hand, reducing its cost by 1 (to a minimum of 1). Then, you may raise your threat by 1 to give that ally +1 [attack] and +1 [defense]  until the end of the round.",
     "summary": "Hirgon can gain +1 attack under the right conditions, enabling them to crack high-defense enemies single-handedly.",
     "tags": [
       "Threat Payment",
@@ -21666,7 +21666,7 @@ const cardData = [
     "traits": [
       "Rohan"
     ],
-    "text": "While committed to a quest, Escort from Edoras gets +2 [willpower].\nForced: After resolving a quest to which Escort from Edoras was committed, discard Escort from Edoras from play.",
+    "text": "While committed to a quest, Escort from Edoras gets +2 [willpower]\nForced: After resolving a quest to which Escort from Edoras was committed, discard Escort from Edoras from play.",
     "summary": "Escort from Edoras boosts each character's willpower by +2, temporarily inflating questing power for a critical push through a difficult quest stage.",
     "tags": [
       "Willpower Boost",
@@ -21688,7 +21688,7 @@ const cardData = [
     "traits": [
       "Rohan"
     ],
-    "text": "Action: Discard Westfold Horse-breaker to choose and ready a hero.",
+    "text": "Action: Discard Westfold Westfold Horse-breaker to choose and ready a hero.",
     "summary": "Westfold Horse-breaker readies characters after a triggered condition, granting an extra action to a hero or ally who already exhausted.",
     "tags": [
       "Action Advantage (Readying)"
@@ -21707,7 +21707,7 @@ const cardData = [
     "type": "Event",
     "cost_threat": "3",
     "traits": [],
-    "text": "Action: Until the end of the phase, all Rohan characters get +2 [willpower].",
+    "text": "Action: Until the end of the phase, all Rohan characters get +2 [willpower]",
     "summary": "Astonishing Speed gives +2 willpower to characters during questing, providing a burst push through a tough quest stage or threat-spike scenario.",
     "tags": [
       "Willpower Boost"
@@ -21726,7 +21726,7 @@ const cardData = [
     "type": "Event",
     "cost_threat": "2",
     "traits": [],
-    "text": "Response: At the beginning of the quest phase, search the top 5 cards of the encounter deck for an enemy and put it into play engaged with you. Then, reveal 1 less encounter card this phase (to a minimum of 0). Shuffle the encounter deck.",
+    "text": "Response: At the beginning of the quest phase, search the top 5 cards of the encounter deck for an enemy and put it into play engaged with you. Then, reveal one less encounter card this phase (to a minimum of 0). Shuffle the encounter deck.",
     "summary": "Wait no Longer manipulates the encounter deck directly, removing or reordering dangerous cards before they can be revealed.",
     "tags": [
       "Encounter Deck Manipulation",
@@ -23389,7 +23389,7 @@ const cardData = [
     "traits": [
       "Hobbit"
     ],
-    "text": "Action: Exhaust Rosie Cotton to choose a Hobbit hero and an attribute ([willpower], [attack],  [defense]). Add Rosie Cotton's [willpower]  to that hero's chosen attribute until the end of the phase. (Limit once per phase.)",
+    "text": "Action: Exhaust Rosie Cotton to choose a Hobbit hero and an attribute ([willpower], [attack], [defense]). Add Rosie Cotton's [willpower] to that hero's chosen attribute until the end of the phase. (Limit once per phase.)",
     "summary": "(MotK) Rosie Cotton offers niche situational power tied to specific conditions, best in a deck built to trigger those conditions reliably.",
     "tags": [
       "Attack Boost",
@@ -23601,7 +23601,7 @@ const cardData = [
       "Scout",
       "Warrior"
     ],
-    "text": "Response: After you play Wiglaf, play an Item  attachment on him from your hand for no cost.\nAction: Exhaust an attachment on Wiglaf to ready him. (Limit once per phase.)",
+    "text": "Response: After you play Wiglaf, play an Item attachment on him from your hand for no cost.\nAction: Exhaust an attachment on Wiglaf to ready him. (Limit once per phase.)",
     "summary": "(MotK) Wiglaf readies after a triggered condition, effectively acting twice per round without needing Unexpected Courage.",
     "tags": [
       "Action Advantage (Readying)",
@@ -24220,5 +24220,322 @@ const cardData = [
     "is_unique": true,
     "imagesrc": "https://ringsdb.com/bundles/cards/99309043.png",
     "ringsdb_code": "99309043"
+  },
+  {
+    "name": "Grim Resolve",
+    "sphere": "Leadership",
+    "type": "Event",
+    "cost_threat": "5",
+    "traits": [],
+    "text": "Action: Ready all character cards in play.",
+    "summary": "",
+    "tags": [],
+    "willpower": null,
+    "attack": null,
+    "defense": null,
+    "health": null,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/01025.png",
+    "ringsdb_code": "01025"
+  },
+  {
+    "name": "Galadriel",
+    "sphere": "Spirit",
+    "type": "Hero",
+    "cost_threat": "9",
+    "traits": [
+      "Noldor",
+      "Noble"
+    ],
+    "text": "Galadriel cannot quest, attack, or defend. Allies you control do not exhaust to commit to the quest during the round they enter play.\nAction: Exhaust Galadriel to choose a player. That player reduces his threat by 1 and draws 1 card. (Limit once per round.)",
+    "summary": "",
+    "tags": [],
+    "willpower": 4,
+    "attack": 0,
+    "defense": 0,
+    "health": 4,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/08112.png",
+    "ringsdb_code": "08112"
+  },
+  {
+    "name": "Thorin Stonehelm",
+    "sphere": "Tactics",
+    "type": "Hero",
+    "cost_threat": "9",
+    "traits": [
+      "Dwarf",
+      "Noble",
+      "Warrior"
+    ],
+    "text": "Response: After Thorin Stonehelm is declared as an attacker, discard the top card of your deck to deal 1 damage to an enemy engaged with you.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 3,
+    "defense": 1,
+    "health": 4,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/22001.png",
+    "ringsdb_code": "22001"
+  },
+  {
+    "name": "Gildor Inglorion",
+    "sphere": "Leadership",
+    "type": "Hero",
+    "cost_threat": "9",
+    "traits": [
+      "Noldor",
+      "Noble"
+    ],
+    "text": "Action: Pay 1 resource from Gildor Inglorion's resource pool to choose a player to draw 1 card (Limit once per round.)",
+    "summary": "",
+    "tags": [],
+    "willpower": 3,
+    "attack": 2,
+    "defense": 1,
+    "health": 3,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/22081.png",
+    "ringsdb_code": "22081"
+  },
+  {
+    "name": "Aragorn",
+    "sphere": "Neutral",
+    "type": "Hero",
+    "cost_threat": "12",
+    "traits": [
+      "Dúnedain",
+      "Ranger"
+    ],
+    "text": "Aragorn gains a resource icon matching each Title attachment attached to him.\nSetup: Search your collection for a Title attachment with a printed cost of 1 and attach it to Aragorn.\nAction: Ready a Title attachment with a printed cost of 1 attached to Aragorn. (Limit once per round.)",
+    "summary": "",
+    "tags": [],
+    "willpower": 2,
+    "attack": 3,
+    "defense": 2,
+    "health": 5,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/306183.png",
+    "ringsdb_code": "306183"
+  },
+  {
+    "name": "Ghân-buri-Ghân",
+    "sphere": "Lore",
+    "type": "Hero",
+    "cost_threat": "10",
+    "traits": [
+      "Wose",
+      "Scout"
+    ],
+    "text": "Planning Action: Search the top 10 cards of the encounter deck for a location, reveal it, and shuffle the encounter deck. Then, search the top 10 cards of your deck for a [lore] attachment, play it for no cost, and shuffle your deck. (Limit once per round.)",
+    "summary": "",
+    "tags": [],
+    "willpower": 3,
+    "attack": 2,
+    "defense": 1,
+    "health": 4,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310074.png",
+    "ringsdb_code": "310074"
+  },
+  {
+    "name": "Ose-bori-Ose",
+    "sphere": "Lore",
+    "type": "Hero",
+    "cost_threat": "8",
+    "traits": [
+      "Wose",
+      "Ranger"
+    ],
+    "text": "Response: After you play a [lore] attachment, if it is not attached to a character, your threat is considered to be 20 until the end of the round.",
+    "summary": "",
+    "tags": [],
+    "willpower": 2,
+    "attack": 2,
+    "defense": 1,
+    "health": 3,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310075.png",
+    "ringsdb_code": "310075"
+  },
+  {
+    "name": "Sharp-eyed Drû",
+    "sphere": "Lore",
+    "type": "Ally",
+    "cost_threat": "3",
+    "traits": [
+      "Wose",
+      "Scout"
+    ],
+    "text": "Sharp-eyed Drû gets +1 [defense] while your threat is 20 or less, and +1 [defense] while the active location has at least 4 [threat]. If both are true, Sharp-eyed Drû also gains sentinel.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 0,
+    "defense": 2,
+    "health": 3,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310076.png",
+    "ringsdb_code": "310076"
+  },
+  {
+    "name": "Mushroom Gatherer",
+    "sphere": "Lore",
+    "type": "Ally",
+    "cost_threat": "2",
+    "traits": [
+      "Wose",
+      "Healer"
+    ],
+    "text": "Secrecy 1.\nRefresh Action: Exhaust Mushroom Gatherer to either deal 1 damage to any 1 enemy in play, or heal 1 damage from any 1 character in play.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 1,
+    "defense": 0,
+    "health": 2,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310077.png",
+    "ringsdb_code": "310077"
+  },
+  {
+    "name": "Drû-buri-Drû",
+    "sphere": "Lore",
+    "type": "Ally",
+    "cost_threat": "2",
+    "traits": [
+      "Wose",
+      "Warrior"
+    ],
+    "text": "Response: At the end of any phase, exhaust Drû-buri-Drû to move a [lore] card attached to an encounter card to another eligible encounter card.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 2,
+    "defense": 0,
+    "health": 2,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310078.png",
+    "ringsdb_code": "310078"
+  },
+  {
+    "name": "Drúedain Seer",
+    "sphere": "Lore",
+    "type": "Ally",
+    "cost_threat": "3",
+    "traits": [
+      "Wose",
+      "Scout"
+    ],
+    "text": "Secrecy 1.\nResponse: After Drúedain Seer commits to the quest, place 1 [threat] token on any 1 location in the staging area to ready any 1 Wose or Scout character.",
+    "summary": "",
+    "tags": [],
+    "willpower": 2,
+    "attack": 1,
+    "defense": 0,
+    "health": 2,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310079.png",
+    "ringsdb_code": "310079"
+  },
+  {
+    "name": "Gorgûn-hunter",
+    "sphere": "Lore",
+    "type": "Ally",
+    "cost_threat": "3",
+    "traits": [
+      "Wose",
+      "Ranger"
+    ],
+    "text": "Gorgûn-hunter gets +1 [attack] while your threat is 20 or less, and +1 [attack] while the active location has at least 4 [threat]. If both are true, Gorgûn-hunter also gains ranged.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 2,
+    "defense": 0,
+    "health": 3,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310080.png",
+    "ringsdb_code": "310080"
+  },
+  {
+    "name": "Poisoned Darts",
+    "sphere": "Lore",
+    "type": "Attachment",
+    "cost_threat": "0",
+    "traits": [
+      "Trap",
+      "Wose"
+    ],
+    "text": "Play Poisoned Darts into the staging area unattached.\nIf unattached, attach Poisoned Darts to the next eligible enemy that enters the staging area.\nResponse: When the attached enemy would take any amount of damage, increase that amount by 1.",
+    "summary": "",
+    "tags": [],
+    "willpower": null,
+    "attack": null,
+    "defense": null,
+    "health": null,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310081.png",
+    "ringsdb_code": "310081"
+  },
+  {
+    "name": "Púkel-man",
+    "sphere": "Lore",
+    "type": "Attachment",
+    "cost_threat": "1",
+    "traits": [
+      "Trap",
+      "Wose"
+    ],
+    "text": "Attach to a location or enemy. Attached card gets +1 [threat].\nResponse: At the end of the round, place 1 progress on attached location or deal 1 damage to attached enemy.",
+    "summary": "",
+    "tags": [],
+    "willpower": null,
+    "attack": null,
+    "defense": null,
+    "health": null,
+    "is_unique": false,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310082.png",
+    "ringsdb_code": "310082"
+  },
+  {
+    "name": "Chieftain's Staff",
+    "sphere": "Lore",
+    "type": "Attachment",
+    "cost_threat": "2",
+    "traits": [
+      "Item"
+    ],
+    "text": "Attach to a Wose hero.\nWhile the active location has at least 4 [threat], Wose characters you control get +1 [willpower].\nPlanning Action: Exhaust Chieftain’s Staff and place 1 [threat] token on any 1 location in the staging area to reduce the cost of the next [lore] card you play this phase by 1.",
+    "summary": "",
+    "tags": [],
+    "willpower": null,
+    "attack": null,
+    "defense": null,
+    "health": null,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/310083.png",
+    "ringsdb_code": "310083"
+  },
+  {
+    "name": "(MotK) Drû-buri-Drû",
+    "sphere": "Lore",
+    "type": "Hero",
+    "cost_threat": "5",
+    "traits": [
+      "Wose",
+      "Warrior"
+    ],
+    "text": "Response: At the end of any phase, exhaust Drû-buri-Drû to move a [lore] card attached to an encounter card to another eligible encounter card.",
+    "summary": "",
+    "tags": [],
+    "willpower": 1,
+    "attack": 2,
+    "defense": 0,
+    "health": 2,
+    "is_unique": true,
+    "imagesrc": "https://ringsdb.com/bundles/cards/99310078.png",
+    "ringsdb_code": "99310078"
   }
 ];

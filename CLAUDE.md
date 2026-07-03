@@ -172,7 +172,7 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
       as a warning, resolve/store by code, skip-hero and not-found reporting.
 - [x] Add `escapeHtml()` and apply at all data-derived interpolation sites.
 
-### Phase B — Data pipeline & validation 🔶 MOSTLY DONE
+### Phase B — Data pipeline & validation ✅ DONE
 - [x] `scripts/validate-data.js`: fails on duplicate `ringsdb_code` and missing
       required fields; warns on tag-mapping drift (mapped card-tags absent from
       the pool) and unmeasurable quest tags. Reads the tag mapping straight out
@@ -186,12 +186,22 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
       mis-coded distinct "Title attachment" Aragorn (looked AI-synthesized).
       `data.js` is now 1084 cards with unique codes — matching the app's
       post-dedup load, so nothing visible changed.
-- [🔶] `scripts/sync-ringsdb.js`: written and unit-tested (field mapping +
-      overlay merge + graceful failure), but **not yet run against the live
-      API** — `ringsdb.com` is blocked by the egress policy in the Claude Code
-      web sandbox (403 CONNECT). Run it on an unrestricted network:
-      `node scripts/sync-ringsdb.js` (dry run → `data.generated.js`), review,
-      then `--apply`. Verify the diff and re-run the validator afterward.
+- [x] `scripts/sync-ringsdb.js`: regenerates `data.js` from RingsDB, stripping
+      the API's HTML/`\r\n` from card text and merging `overlay.json` curation
+      back in by code. Order-preserving (existing cards keep their place, new
+      ones append) so the diff stays legible. `ringsdb.com` is blocked by the
+      web-sandbox egress policy, so it also accepts a saved dump via
+      `--file <path>` (same array shape the API returns). Dry-run by default
+      (`data.generated.js`); `--apply` overwrites `data.js`.
+- [x] **First real sync applied** from a RingsDB dump: 1084 → **1100 cards**
+      (16 new: Galadriel, Ghân-buri-Ghân + Drúedain, a new Aragorn, etc.).
+      24 card texts refreshed to official wording; 0 cost/stat/tag/summary
+      changes (curation fully preserved via overlay). 5 local-only codes
+      (starter-pack `20xxx` + one custom) kept. Validator passes clean.
+      Caveat: the 16 new cards have **empty `tags`** until curated by hand, so
+      they don't yet participate in synergy/quest-matchup scoring. One upstream
+      RingsDB quirk rides along — Andrath Guardsman's trait is `Dunedain`
+      (missing accent) in RingsDB's own data.
 
 ### Dev scripts (zero runtime deps — Node stdlib only)
 
@@ -199,7 +209,7 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
 |---|---|
 | `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors. **Run after any data edit.** |
 | `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
-| `node scripts/sync-ringsdb.js [--apply]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Needs network access to ringsdb.com. |
+| `node scripts/sync-ringsdb.js [--apply] [--file dump.json]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Uses ringsdb.com, or a saved dump via `--file`. |
 
 `scripts/lib.js` holds the shared loaders (they `vm`-eval the browser data files
 and scrape `QUEST_TAG_TO_CARD_TAGS` out of `app.js`). `overlay.json` is the
