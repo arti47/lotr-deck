@@ -219,6 +219,9 @@ function wireHeroRecPreviews() {
 function serializeState() {
   return {
     version: 2,
+    // Persist the stable quest_id; keep activeQuestName for old readers and the
+    // human-readable saved-deck line. Load resolves by id first (see below).
+    activeQuestId: activeQuest ? (activeQuest.quest_id || null) : null,
     activeQuestName: activeQuest ? activeQuest.quest_name : null,
     activePlayer,
     players: players.map(p => ({
@@ -235,9 +238,12 @@ function serializeState() {
 function deserializeState(data) {
   if (!data || (data.version !== 1 && data.version !== 2)) return false;
   const v1 = data.version === 1;
-  activeQuest = data.activeQuestName
-    ? (questData.find(q => q.quest_name === data.activeQuestName) || null)
-    : null;
+  // Resolve the quest by stable quest_id first; fall back to name for saves
+  // written before the id migration (mirrors the v1→v2 card-code fallback).
+  activeQuest =
+    (data.activeQuestId && questData.find(q => q.quest_id === data.activeQuestId)) ||
+    (data.activeQuestName && questData.find(q => q.quest_name === data.activeQuestName)) ||
+    null;
   players.length = 0;
   (data.players || []).forEach(p => {
     // v1 stored hero/card names; v2 stores ringsdb codes. Resolve by code when

@@ -54,9 +54,9 @@ or the alias breaks.
   card-level tag vocabulary. The two vocabularies are maintained by hand and
   can drift; drift = silent scoring bugs (now caught by `validate-data.js`).
 - Persistence: `localStorage` keys `lotr_autosave` (state **v2**) and
-  `lotr_saved_decks` (named slots). Serialization is by `ringsdb_code` since
-  Phase A (v1 name-based saves migrated on load). Note: `activeQuestName` is
-  still name-based — the D0 migration to `quest_id` is pending.
+  `lotr_saved_decks` (named slots). Serialization is by `ringsdb_code` (cards)
+  and `quest_id` (active quest) since Phase A/D0; old name-based saves still
+  load via fallbacks.
 
 ## Known Bugs (verified 2026-07-03 code review)
 
@@ -306,8 +306,10 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
         quest_ids), enum values, and reports coverage. **Awaiting sign-off on the
         field set before curating the remaining 114** (`confidence: ai_draft`
         until human-verified).
-  - [ ] Migrate `serializeState()`'s `activeQuestName` → `quest_id` (name
-        fallback for old saves), same pattern as the v1→v2 card-code migration.
+  - [x] Migrated `serializeState()` to persist `activeQuestId`; load resolves by
+        `quest_id` first, falling back to `activeQuestName` for old saves (same
+        pattern as the v1→v2 card-code migration). A stale saved name no longer
+        wins over the id. Verified with a 7-case Node harness.
 - **D1 Per-card verdicts** — client-side verdict engine + reasons over quest
   attributes; Phase 3 UI. Highest-leverage first step; answers the
   "flag problematic cards" goal with **no** external data. *(depends on D0)*
