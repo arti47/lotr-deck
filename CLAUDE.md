@@ -223,6 +223,8 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
 | `node scripts/validate-data.js` | Lint `data.js`/`quests.js`/tag mapping. Exit 1 on errors (incl. missing/duplicate `quest_id`). **Run after any data edit.** |
 | `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
 | `node scripts/add-quest-ids.js [--apply]` | Stamp permanent `quest_id` slugs onto quests missing one. Idempotent; dry-run by default. |
+| `node scripts/sync-ringsdb-decks.js --file decks.json [--apply]` | Mine `archetypes.json` from a RingsDB decklist dump (D2). Dry-run by default. `--min-votes`/`--min-decks` tune thresholds. |
+| `node scripts/generate-quest-decks.js [--apply]` | Bake one quest-tuned deck per quest into `quest-decks.json` (D3), from `archetypes.json` + `quest-overlay.json` + the D1 engine. Dry-run by default. |
 | `node scripts/build-quest-overlay-js.js` | Regenerate the browser global `quest-overlay.js` from `quest-overlay.json` (D1 verdicts read it). Run after editing the JSON. |
 | `node scripts/sync-ringsdb-decks.js --file decks.json [--apply]` | Mine `archetypes.json` from a RingsDB decklist dump (D2). Dry-run by default. `--min-votes`/`--min-decks` tune thresholds. |
 | `node scripts/sync-ringsdb.js [--apply] [--file dump.json]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Uses ringsdb.com, or a saved dump via `--file`. |
@@ -366,8 +368,20 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
   an empty `core`; (c) `parseQuest` gained a `QUEST_ALIASES` table + whole-word
   (space-flattened) matching so nicknames/abbreviations and apostrophe/accent
   variants resolve. *(RingsDB, build-time)*
-- **D3 Deck generation** — `generate-quest-decks.js` → baked `quest-decks.json`;
-  app loads + re-critiques live on edit. *(depends on D0, D2)*
+- **D3 Deck generation** — *(data side done; app UI wiring pending)*.
+  `generate-quest-decks.js` bakes **one deck per quest (118/118)** into
+  `quest-decks.json`: picks the best-fit archetype (mined-for-this-quest → best
+  good_at/punished fit → inferred; 36 mined, 82 inferred), assembles a **legal
+  exactly-50-card** deck (archetype heroes + core/flex, sphere-gated, topped up
+  with pool cards for the quest's recommended tags), cuts cards the **D1 verdict
+  engine rates Dead** (reusing `verdicts.js` in a vm — no copy), and bakes
+  heroes + cards + per-card rationale + `confidence` + a coverage note. Hard
+  legality (min 50, 3-copy, 1-per-side-quest, sphere gating, 1–3 distinct-title
+  non-MotK heroes) is enforced at build and re-checked by `validate-data.js`
+  (staleness + legality guard). Verified: 118 decks, all 50 cards, 0 legality
+  violations, validator clean. **Remaining:** a `quest-decks.js` browser global
+  (like `quest-overlay.js`) + the app "Build & Teach" affordance that loads a
+  baked deck and re-critiques live. *(depends on D0, D2)*
 - **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"
   everywhere, one-click "Build & Teach", how-to-play primer. *(depends on D1, D3)*
 

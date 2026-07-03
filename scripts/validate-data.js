@@ -160,6 +160,41 @@ if (fs.existsSync(archPath)) {
   });
 }
 
+// --- quest-decks.json (Phase D3 baked decks; optional) ---
+// Staleness + legality guard: keys are real quest_ids; heroes/cards codes exist;
+// 1-3 heroes of Hero type; copy caps (3, or 1 for side quests); size >= 50.
+let questDeckCount = null;
+const qdPath = path.join(ROOT, 'quest-decks.json');
+if (fs.existsSync(qdPath)) {
+  const CONF = ['curated', 'mined', 'inferred'];
+  let qd;
+  try { qd = JSON.parse(fs.readFileSync(qdPath, 'utf8')); }
+  catch (e) { err(`quest-decks.json is not valid JSON: ${e.message}`); qd = {}; }
+  const isHero = code => (byCode.get(code) || []).some(c => c.type === 'Hero');
+  questDeckCount = Object.keys(qd).length;
+  Object.entries(qd).forEach(([qid, d]) => {
+    if (!questById.has(qid)) err(`quest-decks.json key "${qid}" is not a known quest_id`);
+    if (d.confidence && !CONF.includes(d.confidence)) err(`quest-decks "${qid}".confidence = "${d.confidence}" (allowed: ${CONF.join('/')})`);
+    const heroes = d.heroes || [];
+    if (heroes.length < 1 || heroes.length > 3) err(`quest-decks "${qid}" has ${heroes.length} heroes (must be 1–3)`);
+    heroes.forEach(code => {
+      if (!byCode.has(code)) err(`quest-decks "${qid}" hero code ${code} not in data.js (staleness)`);
+      else if (!isHero(code)) err(`quest-decks "${qid}" hero code ${code} is not a Hero`);
+    });
+    let size = 0;
+    (d.cards || []).forEach(([code, qty]) => {
+      const list = byCode.get(code);
+      if (!list) { err(`quest-decks "${qid}" card code ${code} not in data.js (staleness)`); return; }
+      size += qty;
+      const card = list[0];
+      const cap = card.type === 'Player Side Quest' ? 1 : 3;
+      if (qty > cap) err(`quest-decks "${qid}" has ${qty}× ${card.name} (max ${cap})`);
+      if (card.type === 'Hero') err(`quest-decks "${qid}" card slot ${code} (${card.name}) is a Hero`);
+    });
+    if (size < 50) warn(`quest-decks "${qid}" deck is ${size} cards (< 50 minimum)`);
+  });
+}
+
 // --- Report ---
 const line = '─'.repeat(60);
 console.log(line);
@@ -167,6 +202,7 @@ console.log(`Cards: ${cards.length}  ·  unique codes: ${byCode.size}  ·  dupli
 console.log(`Quests: ${quests.length}  ·  unique quest_ids: ${questById.size}  ·  distinct card tags: ${cardTags.size}  ·  mapped tags: ${mappedTags.size}`);
 if (overlayCoverage) console.log(`quest-overlay.json: ${overlayCoverage} quests curated`);
 if (archetypeCount !== null) console.log(`archetypes.json: ${archetypeCount} archetypes`);
+if (questDeckCount !== null) console.log(`quest-decks.json: ${questDeckCount} baked decks`);
 console.log(line);
 
 if (warnings.length) {

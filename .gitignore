@@ -1,3 +1,4 @@
-# Dry-run output of scripts/sync-ringsdb.js (review artifact, not committed)
+# Dry-run output of the sync/generate scripts (review artifacts, not committed)
 data.generated.js
 archetypes.generated.json
+quest-decks.generated.json
