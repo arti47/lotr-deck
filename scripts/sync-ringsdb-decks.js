@@ -54,16 +54,86 @@ const slug = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
-// Parse a quest_id from a deck's title/description by scanning for quest names.
+// Flatten to lowercase ASCII words separated by single spaces, so matching is
+// whole-word (padded with spaces) and punctuation/accents/apostrophes don't
+// block a hit ("The Steward’s Fear" ~ "stewards fear").
+const flat = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+// Curated nicknames/abbreviations for quests people rarely spell out in full.
+// Keyed by the stable quest_id. Kept distinctive (unique place names + standard
+// community abbreviations) to hold false positives down; matched whole-word.
+const QUEST_ALIASES = {
+  'journey-along-the-anduin': ['jda', 'jata', 'journey down the anduin', 'anduin'],
+  'escape-from-dol-guldur':   ['efdg', 'dol guldur'],
+  'the-hunt-for-gollum':      ['hfg', 'hunt for gollum'],
+  'conflict-at-the-carrock':  ['catc', 'carrock'],
+  'the-hills-of-emyn-muil':   ['hoem', 'emyn muil'],
+  'a-journey-to-rhosgobel':   ['rhosgobel'],
+  'the-dead-marshes':         ['dead marshes'],
+  'return-to-mirkwood':       ['rtm', 'return to mirkwood'],
+  'the-seventh-level':        ['seventh level'],
+  'flight-from-moria':        ['flight from moria'],
+  'the-redhorn-gate':         ['redhorn'],
+  'road-to-rivendell':        ['road to rivendell'],
+  'the-watcher-in-the-water': ['watcher in the water'],
+  'foundations-of-stone':     ['foundations of stone'],
+  'shadow-and-flame':         ['shadow and flame'],
+  'peril-in-pelargir':        ['pelargir'],
+  'into-ithilien':            ['into ithilien'],
+  'the-siege-of-cair-andros': ['cair andros'],
+  'the-stewards-fear':        ['stewards fear'],
+  'encounter-at-amon-din':    ['amon din'],
+  'assault-on-osgiliath':     ['osgiliath'],
+  'the-druadan-forest':       ['druadan'],
+  'the-fords-of-isen':        ['fords of isen'],
+  'the-blood-of-gondor':      ['blood of gondor'],
+  'to-catch-an-orc':          ['to catch an orc'],
+  'a-knife-in-the-dark':      ['knife in the dark'],
+  'trouble-in-tharbad':       ['tharbad'],
+  'into-fangorn':             ['into fangorn', 'fangorn'],
+  'flight-to-the-ford':       ['flight to the ford'],
+  'the-ring-goes-south':      ['ring goes south'],
+  'celebrimbors-secret':      ['celebrimbor'],
+  'the-dunland-trap':         ['dunland trap'],
+  'race-across-harad':        ['race across harad'],
+  'journey-in-the-dark':      ['journey in the dark'],
+  'the-antlered-crown':       ['antlered crown'],
+  'the-three-trials':         ['three trials'],
+  'the-nin-in-eilph':         ['nin in eilph'],
+  'intruders-in-chetwood':    ['chetwood'],
+  'the-weather-hills':        ['weather hills'],
+  'deadmens-dike':            ['deadmens dike'],
+  'the-battle-of-carn-dum':   ['carn dum'],
+  'the-fate-of-numenor':      ['fate of numenor'],
+  'fog-on-the-barrow-downs':  ['barrow downs', 'barrow-downs'],
+  'helms-deep':               ['helms deep'],
+};
+
+// Precompute the needle set per quest: full name, name minus a leading article,
+// and any curated aliases — all flattened. Longer needles are more specific, so
+// a match on a longer needle wins (full name beats a short nickname).
+const stripArticle = s => s.replace(/^(the|a|an)\s+/, '');
+const questNeedles = quests.map(q => {
+  const base = flat(q.quest_name);
+  const set = new Set([base, stripArticle(base)]);
+  (QUEST_ALIASES[q.quest_id] || []).forEach(a => set.add(flat(a)));
+  return { q, needles: [...set].filter(n => n.length >= 3) };
+});
+
+// Parse a quest_id from a deck's title/description. Whole-word match (space-
+// padded), longest needle wins. Returns null when nothing matches (honest —
+// most decks don't name their quest).
 function parseQuest(deck) {
-  const hay = norm(`${deck.name || ''} ${deck.description_md || ''}`);
+  const hay = ' ' + flat(`${deck.name || ''} ${deck.description_md || ''}`) + ' ';
   let best = null;
-  quests.forEach(q => {
-    const n = norm(q.quest_name);
-    if (n.length >= 6 && hay.includes(n)) {
-      if (!best || n.length > best._len) best = { quest_id: q.quest_id, quest_name: q.quest_name, _len: n.length };
+  for (const { q, needles } of questNeedles) {
+    for (const n of needles) {
+      if (hay.includes(' ' + n + ' ') && (!best || n.length > best._len)) {
+        best = { quest_id: q.quest_id, quest_name: q.quest_name, _len: n.length };
+      }
     }
-  });
+  }
   return best ? { quest_id: best.quest_id, quest_name: best.quest_name } : null;
 }
 
