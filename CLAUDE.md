@@ -224,6 +224,7 @@ Playwright browser smoke test) in the `claude/app-logic-review-kjvv47` branch.
 | `node scripts/extract-overlay.js` | Regenerate `overlay.json` from the curated fields in `data.js`. |
 | `node scripts/add-quest-ids.js [--apply]` | Stamp permanent `quest_id` slugs onto quests missing one. Idempotent; dry-run by default. |
 | `node scripts/build-quest-overlay-js.js` | Regenerate the browser global `quest-overlay.js` from `quest-overlay.json` (D1 verdicts read it). Run after editing the JSON. |
+| `node scripts/sync-ringsdb-decks.js --file decks.json [--apply]` | Mine `archetypes.json` from a RingsDB decklist dump (D2). Dry-run by default. `--min-votes`/`--min-decks` tune thresholds. |
 | `node scripts/sync-ringsdb.js [--apply] [--file dump.json]` | Rebuild `data.js` from RingsDB, merging `overlay.json`. Dry-run by default. Uses ringsdb.com, or a saved dump via `--file`. |
 
 `scripts/lib.js` holds the shared loaders (they `vm`-eval the browser data files
@@ -330,9 +331,21 @@ Sub-phases (see the design doc for deliverables, dependencies, open questions):
     `initPhase3` + the quest-change handler.
   - Verified: 13-case Node engine harness + Playwright panel smoke. Only the 4
     curated quests produce verdicts until the other 114 are curated.
-- **D2 Archetype mining** — `sync-ringsdb-decks.js` → `archetypes.json` +
-  coverage report. Expect sparse quest coverage; fallback chain mined →
-  hand-authored → inferred, labeled by `confidence`. *(RingsDB, build-time)*
+- **D2 Archetype mining** 🔶 TOOL DONE, DATA PENDING — `sync-ringsdb-decks.js`
+  clusters published decklists by identity (hero spheres + dominant trait),
+  promotes recurring cards to `core` (≥50% of a cluster's decks) / `flex`
+  (≥25%), derives `good_at`/`weak_at` over the quest-tag vocabulary from core
+  tags, parses a quest from each deck's title/description (low yield, honest),
+  filters by votes, and emits a coverage report → `archetypes.json` (array,
+  `confidence: "mined"`). Heroes are detected by *type* from `data.js`, so a
+  dump that lumps heroes into `slots` still works. `validate-data.js` gained the
+  **staleness guard**: core/flex codes must exist in `data.js`, source quests
+  must be real `quest_ids`, ids unique, confidence enum-checked. Verified with a
+  10-case Node harness on synthetic decklists. **No real `archetypes.json` yet**
+  — `ringsdb.com` decklists are blocked by egress policy; run it against a saved
+  dump: `node scripts/sync-ringsdb-decks.js --file decks.json [--apply]`. Expect
+  sparse quest coverage; the D3 fallback chain (mined → hand-authored →
+  inferred) covers the gaps. *(RingsDB, build-time)*
 - **D3 Deck generation** — `generate-quest-decks.js` → baked `quest-decks.json`;
   app loads + re-critiques live on edit. *(depends on D0, D2)*
 - **D4 Beginner tier** — tier toggle, glossary tooltips, "explain why"

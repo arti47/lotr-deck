@@ -120,12 +120,46 @@ if (fs.existsSync(overlayPath)) {
   });
 }
 
+// --- archetypes.json (Phase D2 mined deck cores; optional) ---
+// Staleness guard: every core/flex code must still exist in data.js and every
+// source quest must be a real quest_id. ids unique; confidence from the allowed
+// set; good_at/weak_at should use the quest-tag vocabulary (warn only).
+let archetypeCount = null;
+const archPath = path.join(ROOT, 'archetypes.json');
+if (fs.existsSync(archPath)) {
+  const CONF = ['mined', 'hand_authored', 'inferred'];
+  const questTagVocab = new Set(Object.keys(MAP));
+  let arch;
+  try { arch = JSON.parse(fs.readFileSync(archPath, 'utf8')); }
+  catch (e) { err(`archetypes.json is not valid JSON: ${e.message}`); arch = []; }
+  if (!Array.isArray(arch)) { err('archetypes.json must be a JSON array'); arch = []; }
+  archetypeCount = arch.length;
+  const seenIds = new Set();
+  arch.forEach((a, i) => {
+    const label = a.id || `#${i}`;
+    if (!a.id) err(`archetype ${label} missing id`);
+    else if (seenIds.has(a.id)) err(`duplicate archetype id "${a.id}"`);
+    else seenIds.add(a.id);
+    if (a.confidence && !CONF.includes(a.confidence)) err(`archetype "${label}".confidence = "${a.confidence}" (allowed: ${CONF.join('/')})`);
+    [...(a.core || []), ...(a.flex || [])].forEach(code => {
+      if (!byCode.has(code)) err(`archetype "${label}" references card code ${code} not in data.js (staleness)`);
+    });
+    (a.sources || []).forEach(s => {
+      if (s.quest && !questById.has(s.quest)) err(`archetype "${label}" source quest "${s.quest}" is not a known quest_id`);
+    });
+    [...(a.good_at || []), ...(a.weak_at || [])].forEach(t => {
+      if (!questTagVocab.has(t)) warn(`archetype "${label}" good_at/weak_at "${t}" is not a quest-tag in the mapping`);
+    });
+  });
+}
+
 // --- Report ---
 const line = '─'.repeat(60);
 console.log(line);
 console.log(`Cards: ${cards.length}  ·  unique codes: ${byCode.size}  ·  duplicates: ${dupCount}`);
 console.log(`Quests: ${quests.length}  ·  unique quest_ids: ${questById.size}  ·  distinct card tags: ${cardTags.size}  ·  mapped tags: ${mappedTags.size}`);
 if (overlayCoverage) console.log(`quest-overlay.json: ${overlayCoverage} quests curated`);
+if (archetypeCount !== null) console.log(`archetypes.json: ${archetypeCount} archetypes`);
 console.log(line);
 
 if (warnings.length) {
